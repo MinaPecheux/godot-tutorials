@@ -1,0 +1,7 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://01-Waypoints/art/textures/prototype_512x512_white.png" type="Texture" id=1]
+
+[resource]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 10, 10, 1 )

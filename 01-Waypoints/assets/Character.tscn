@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://01-Waypoints/scripts/CharacterPatrol.cs" type="Script" id=1]
+[ext_resource path="res://01-Waypoints/art/materials/red.tres" type="Material" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1.5, 2, 1 )
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.75
+height = 1.5
+
+[node name="Character" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Body" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Head" type="MeshInstance" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25429, 0.411533 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 2 )
+
+[node name="WaypointTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="WaypointTimer" to="." method="_OnWaypointTimerDone"]

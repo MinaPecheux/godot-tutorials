@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://01-Waypoints/assets/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://01-Waypoints/art/materials/grid.tres" type="Material" id=2]
+
+[sub_resource type="PlaneMesh" id=1]
+material = ExtResource( 2 )
+size = Vector2( 100, 100 )
+
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -11.8576, 0, -5.18769, 0, 0, 0, 0, 0, 0, 8.43391, 0, -7.37967, 0, 0, 0, 0, 0, 0, 11.4192, 0, 3.58024, 0, 0, 0, 0, 0, 0, -11.4192, 0, 7.19179, 0, 0, 0, 0, 0, 0, -11.8576, 0, -5.18769 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[node name="SceneRoot" type="Spatial"]
+
+[node name="BASE" type="Node" parent="."]
+
+[node name="Camera" type="Camera" parent="BASE"]
+transform = Transform( 0.866025, 0.353553, -0.353553, 0, 0.707107, 0.707107, 0.5, -0.612372, 0.612372, -5, 10, 8 )
+projection = 1
+size = 22.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="BASE"]
+transform = Transform( -0.5, 0.296198, 0.813798, 0, -0.939693, 0.34202, 0.866025, 0.17101, 0.469846, 0, 5, 0 )
+
+[node name="Ground" type="MeshInstance" parent="BASE"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 2 )
+
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 2 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( -0.107398, 0, 0.994213, 0, 1, 0, -0.994217, 0, -0.107398, -11.8576, 0, -5.18769 )
+rotation_mode = 4
+
+[node name="Character" parent="Path/PathFollow" instance=ExtResource( 1 )]
