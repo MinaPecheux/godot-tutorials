@@ -14,8 +14,8 @@ As of now, the repo contains the following tutorials:
 
 1. **Creating a basic waypoints system**
 
-    • Watch on [YouTube <img src="./doc/youtube.svg" height="20px" style="margin-left: 2px; position: relative; top: 5px" />](https://www.youtube.com/watch?v=EZINSDERTW8)
+    • Watch on [YouTube](https://www.youtube.com/watch?v=EZINSDERTW8)
 
-    • Read on [Medium <img src="./doc/medium.svg" height="20px" style="margin-left: 2px; position: relative; top: 5px" />](https://mina-pecheux.medium.com/creating-a-waypoints-system-in-godot-c-faac2a44924d)
+    • Read on [Medium](https://mina-pecheux.medium.com/creating-a-waypoints-system-in-godot-c-faac2a44924d)
 
-    • See the files [in the repo <img src="./doc/github.svg" height="20px" style="margin-left: 2px; position: relative; top: 5px" />](/01-Waypoints)
+    • See the files [in the repo](/01-Waypoints)
