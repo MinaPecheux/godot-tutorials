@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://02-TDBase/art/shaders/tower-radius-display.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/radius = 0.65
+shader_param/stroke_thickness = 0.02
+shader_param/fill_color = Color( 0.501961, 0.85098, 0.886275, 0.25098 )
+shader_param/stroke_color = Color( 0.337255, 0.768627, 0.941176, 0.501961 )
