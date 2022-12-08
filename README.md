@@ -20,7 +20,7 @@ As of now, the repo contains the following tutorials:
 
 Discover how to implement some base mechanics for a 2D tower defense game in this 30' tutorial. The pirate ships are attacking, and we need to place some defences on the islands to defend the nearby city! :)
 
-- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=N0LHUOcKXAQ)
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=N0LHUOcKXAQ), [in French 🇫🇷](https://www.youtube.com/watch?v=_v_EZRkoJ68)
 - Read on [Medium](https://mina-pecheux.medium.com/making-a-simple-2d-tower-defense-game-in-godot-c-a70a5a9d2bf3)
 - See the files [in the repo](/02-TDBase)
 
