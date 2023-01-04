@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace TowerDefense.Tutorial02_Base
+namespace TowerDefense.Tutorial03_LoadData
 {
 	
 	public class ShipManager : PathFollow2D
@@ -16,6 +16,14 @@ namespace TowerDefense.Tutorial02_Base
 		public override void _Ready()
 		{
 			_pathFollow = GetNode<PathFollow2D>(GetPath());
+		}
+		
+		public void Initialize(ShipData data)
+		{
+			_speed = data.speed;
+			HP = data.HP;
+			reward = data.reward;
+			GetNode<Sprite>("Sprite").Texture = data.sprite;
 		}
 
 		public override void _Process(float delta)

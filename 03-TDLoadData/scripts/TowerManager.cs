@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-namespace TowerDefense.Tutorial02_Base
+namespace TowerDefense.Tutorial03_LoadData
 {
 	
 	public class TowerManager : Area2D
@@ -51,12 +51,18 @@ namespace TowerDefense.Tutorial02_Base
 			}
 		}
 
-		public void Initialize(LevelManager levelManager, float radius)
+		public void Initialize(LevelManager levelManager, TowerData data)
 		{
 			_levelManager = levelManager;
 			
+			_attackRate = data.attackRate;
+			_attackDamage = data.attackDamage;
+			_attackSpeed = data.attackSpeed;
+			
+			GetNode<Sprite>("Base").Texture = data.sprite;
+			
 			_fovAreaShape = GetNode<CollisionShape2D>("FOVArea2D/CollisionShape2D");
-			((CircleShape2D)_fovAreaShape.Shape).Radius = radius;
+			((CircleShape2D)_fovAreaShape.Shape).Radius = data.radius;
 		}
 		
 		private void _OnTowerMouseEntered()

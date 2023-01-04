@@ -1,14 +1,12 @@
 using Godot;
 using System;
 
-namespace TowerDefense.Tutorial02_Base
+namespace TowerDefense.Tutorial03_LoadData
 {
 	
 	public class GameManager : Node
 	{
 		public static GameManager instance;
-		
-		private const int _TOWER_COST = 20;
 		
 		private Label _coinsLabel;
 		private Label _livesLabel;
@@ -31,15 +29,15 @@ namespace TowerDefense.Tutorial02_Base
 			_livesLabel.Text = $"{_lives}";
 		}
 		
-		public bool CanBuyTower()
+		public bool CanBuyTower(int cost)
 		{
-			return _coins >= _TOWER_COST;
+			return _coins >= cost;
 		}
 		
-		public bool BuyTower()
+		public bool BuyTower(int cost)
 		{
-			if (_coins < _TOWER_COST) return false;
-			_coins -= _TOWER_COST;
+			if (_coins < cost) return false;
+			_coins -= cost;
 			_UpdateUI();
 			return true;
 		}

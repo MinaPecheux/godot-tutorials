@@ -1,13 +1,16 @@
 using Godot;
 using System;
 
-namespace TowerDefense.Tutorial02_Base
+namespace TowerDefense.Tutorial03_LoadData
 {
 	
 	public class LevelManager : Node2D
 	{
 		[Export] private PackedScene _shipAsset;
 		[Export] private PackedScene _towerAsset;
+		private PackedScene _towerButtonAsset;
+		[Export] private ShipData[] _shipsData;
+		private TowerData[] _towersData;
 		private TowerToPlaceManager _towerToPlace;
 		
 		private Path2D _path;
@@ -19,6 +22,7 @@ namespace TowerDefense.Tutorial02_Base
 		private float _cellRound;
 		private Vector2 _cellOffset;
 		private bool _towerHasValidPlacement;
+		private TowerData _towerToPlaceData;
 		
 		public override void _Ready()
 		{
@@ -31,20 +35,26 @@ namespace TowerDefense.Tutorial02_Base
 			
 			SetIsBuilding(false);
 			
-			// dynamically connect UI tower buttons to placing logic
+			// dynamically create UI tower buttons + connect to placing logic
 			Node towerButtonsParent = GetNode<Node>("/root/Base/CanvasLayer/UI/Towers");
-			for (int i = 0; i < towerButtonsParent.GetChildCount(); i++)
+			foreach (TowerData data in _towersData)
 			{
-				Control c = (Control) towerButtonsParent.GetChild(i);
-				c.Connect("pressed", this, "_OnTowerButtonMousePressed");
+				Control c = (Control) _towerButtonAsset.Instance();
+				((Button)c).Icon = data.sprite;
+				c.GetNode<Label>("Coins/Label").Text = $"{data.cost}";
+				c.Connect("pressed", this, "_OnTowerButtonMousePressed", new Godot.Collections.Array() { data });
 				c.Connect("mouse_entered", this, "_OnTowerButtonMouseEntered");
 				c.Connect("mouse_exited", this, "_OnTowerButtonMouseExited");
+				towerButtonsParent.AddChild(c);
 			}
 		}
 		
 		private void _OnEnemySpawn()
 		{
 			Node ship = _shipAsset.Instance();
+			Random random = new Random();
+			ShipData data = _shipsData[random.Next(0, _shipsData.Length)];
+			((ShipManager)ship).Initialize(data);
 			_path.AddChild(ship);
 		}
 		
@@ -58,7 +68,7 @@ namespace TowerDefense.Tutorial02_Base
 			{
 				if (_towerHasValidPlacement && _isBuilding && _canPlaceTower)
 				{
-					if (GameManager.instance.BuyTower())
+					if (GameManager.instance.BuyTower(_towerToPlaceData.cost))
 						_PlaceTower(_RoundPositionToTilemap(GetGlobalMousePosition()));
 				}
 			}
@@ -84,7 +94,7 @@ namespace TowerDefense.Tutorial02_Base
 			Node2D tower = (Node2D) _towerAsset.Instance();
 			tower.Position = pos;
 			AddChild(tower);
-			((TowerManager)tower).Initialize(this, _towerToPlace.radius);
+			((TowerManager)tower).Initialize(this, _towerToPlaceData);
 			SetIsBuilding(false);
 		}
 		
@@ -106,10 +116,14 @@ namespace TowerDefense.Tutorial02_Base
 				((CanvasItem)_towerToPlace).Hide();
 		}
 		
-		private void _OnTowerButtonMousePressed()
+		private void _OnTowerButtonMousePressed(TowerData data)
 		{
-			if (GameManager.instance.CanBuyTower())
+			if (GameManager.instance.CanBuyTower(data.cost))
+			{
+				_towerToPlace.SetTowerData(data);
+				_towerToPlaceData = data;
 				SetIsBuilding(true);
+			}
 		}
 		
 		private void _OnTowerButtonMouseEntered()

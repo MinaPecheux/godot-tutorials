@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://shared/TowerDefense/art/ui/cannonBall.png" type="Texture" id=1]
-[ext_resource path="res://02-TDBase/scripts/CannonBallManager.cs" type="Script" id=2]
+[ext_resource path="res://03-TDLoadData/scripts/CannonBallManager.cs" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.0

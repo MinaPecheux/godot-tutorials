@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace TowerDefense.Tutorial02_Base
+namespace TowerDefense.Tutorial03_LoadData
 {
 	
 	public class LevelPathDisplayer : Node2D

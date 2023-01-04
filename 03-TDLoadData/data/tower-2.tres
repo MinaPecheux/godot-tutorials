@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://03-TDLoadData/scripts/TowerData.cs" type="Script" id=1]
+[ext_resource path="res://shared/TowerDefense/art/towers/tower-advanced.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+attackRate = 0.5
+attackDamage = 2
+attackSpeed = 0.5
+radius = 650.0
+cost = 20
+sprite = ExtResource( 2 )

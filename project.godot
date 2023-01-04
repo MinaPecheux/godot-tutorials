@@ -8,16 +8,26 @@
 
 config_version=4
 
+[MonoCustomResourceRegistry]
+
+ClassPrefix=""
+SearchType=0
+ResourceScriptDirectories=[ "res://" ]
+
 [application]
 
 config/name="Tutorials"
-run/main_scene="res://02-TDBase/scenes/02-TDBase.tscn"
+run/main_scene="res://03-TDLoadData/scenes/03-TDLoadData.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/MonoCustomResourceRegistry/plugin.cfg" )
 
 [gui]
 

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace TowerDefense.Tutorial02_Base
+namespace TowerDefense.Tutorial03_LoadData
 {
 	
 	public class TowerToPlaceManager : Node2D
@@ -17,16 +17,27 @@ namespace TowerDefense.Tutorial02_Base
 		public override void _Ready()
 		{
 			_spritesMaterial = (ShaderMaterial) GetNode<CanvasItem>("Base").Material;
-
-			string radiusDisplayPath = "RadiusDisplay";
-			ShaderMaterial m = (ShaderMaterial) GetNode<CanvasItem>(radiusDisplayPath).Material;
-			m.SetShaderParam("radius", radius / GetNode<MeshInstance2D>(radiusDisplayPath).Scale.x);
+			_SetRadius(radius);
 		}
 		
 		public void SetValid(bool isValid)
 		{
 			Color c = isValid ? _COLOR_VALID : _COLOR_INVALID;
 			_spritesMaterial.SetShaderParam("tint", c);
+		}
+		
+		public void SetTowerData(TowerData data)
+		{
+			GetNode<Sprite>("Base").Texture = data.sprite;
+			_SetRadius(data.radius);
+		}
+		
+		private void _SetRadius(float radius)
+		{
+			this.radius = radius;
+			string radiusDisplayPath = "RadiusDisplay";
+			ShaderMaterial m = (ShaderMaterial) GetNode<CanvasItem>(radiusDisplayPath).Material;
+			m.SetShaderParam("radius", radius / GetNode<MeshInstance2D>(radiusDisplayPath).Scale.x);
 		}
 	}
 	
