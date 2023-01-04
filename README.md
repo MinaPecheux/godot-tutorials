@@ -25,3 +25,9 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/02-TDBase)
 
 ![02_TDBase-img](/doc/02_TDBase-img.jpg)
+
+## 03. Creating & loading custom resource types
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=yUmY3Gi3z5U)
+- Read on [Medium](https://medium.com/p/creating-loading-custom-data-in-godot-c-ff14de97bc57)
+- See the files [in the repo](/03-TDLoadData)
