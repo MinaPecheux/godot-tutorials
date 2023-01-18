@@ -1,0 +1,209 @@
+[gd_resource type="VisualShader" load_steps=19 format=2]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=11]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarOp" id=12]
+default_input_values = [ 0, 0.0, 1, 2.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarOp" id=13]
+default_input_values = [ 0, 0.0, 1, 1.0 ]
+operator = 1
+
+[sub_resource type="VisualShaderNodeScalarOp" id=14]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarOp" id=15]
+default_input_values = [ 0, 0.0, 1, 2.0 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarOp" id=16]
+default_input_values = [ 0, 0.0, 1, 1.0 ]
+operator = 1
+
+[sub_resource type="VisualShaderNodeScalarOp" id=17]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=1]
+uniform_name = "radius"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeScalarOp" id=18]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=19]
+operator = 3
+
+[sub_resource type="VisualShaderNodeExpression" id=20]
+size = Vector2( 744.926, 532.907 )
+expression = "out = b * t + a * (1.0 - t)"
+
+[sub_resource type="VisualShaderNodeScalarOp" id=21]
+operator = 2
+
+[sub_resource type="VisualShaderNodeExpression" id=22]
+size = Vector2( 744.926, 532.907 )
+expression = "out = b * t + a * (1.0 - t)"
+
+[sub_resource type="VisualShaderNodeColorUniform" id=4]
+uniform_name = "inner_color"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeColorUniform" id=5]
+uniform_name = "outer_color"
+default_value_enabled = true
+default_value = Color( 0, 0, 0, 1 )
+
+[sub_resource type="VisualShaderNodeInput" id=6]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=7]
+
+[sub_resource type="VisualShaderNodeCompare" id=9]
+function = 5
+
+[resource]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx, async_visible;
+
+uniform vec4 inner_color : hint_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+uniform vec4 outer_color : hint_color = vec4(0.000000, 0.000000, 0.000000, 1.000000);
+uniform float radius = 1;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:3
+	vec3 n_out3p0 = inner_color.rgb;
+	float n_out3p1 = inner_color.a;
+
+// ColorUniform:4
+	vec3 n_out4p0 = outer_color.rgb;
+	float n_out4p1 = outer_color.a;
+
+// Input:5
+	vec3 n_out5p0 = vec3(UV, 0.0);
+
+// VectorDecompose:6
+	float n_out6p0 = n_out5p0.x;
+	float n_out6p1 = n_out5p0.y;
+	float n_out6p2 = n_out5p0.z;
+
+// ScalarOp:14
+	float n_in14p1 = 2.00000;
+	float n_out14p0 = n_out6p0 * n_in14p1;
+
+// ScalarOp:15
+	float n_in15p1 = 1.00000;
+	float n_out15p0 = n_out14p0 - n_in15p1;
+
+// ScalarOp:16
+	float n_out16p0 = n_out15p0 * n_out15p0;
+
+// ScalarOp:17
+	float n_in17p1 = 2.00000;
+	float n_out17p0 = n_out6p1 * n_in17p1;
+
+// ScalarOp:18
+	float n_in18p1 = 1.00000;
+	float n_out18p0 = n_out17p0 - n_in18p1;
+
+// ScalarOp:19
+	float n_out19p0 = n_out18p0 * n_out18p0;
+
+// ScalarOp:20
+	float n_out20p0 = n_out16p0 + n_out19p0;
+
+// ScalarUniform:2
+	float n_out2p0 = radius;
+
+// ScalarOp:13
+	float n_out13p0 = n_out2p0 * n_out2p0;
+
+// ScalarOp:21
+	float n_out21p0 = n_out20p0 / n_out13p0;
+
+// Expression:24
+	vec3 n_out24p0;
+	n_out24p0 = vec3(0.0, 0.0, 0.0);
+	{
+		n_out24p0 = n_out4p0 * n_out21p0 + n_out3p0 * (1.0 - n_out21p0)
+	}
+
+// Expression:22
+	float n_out22p0;
+	n_out22p0 = 0.0;
+	{
+		n_out22p0 = n_out4p1 * n_out21p0 + n_out3p1 * (1.0 - n_out21p0)
+	}
+
+// Compare:8
+	bool n_out8p0 = n_out20p0<=n_out13p0;
+
+// ScalarOp:23
+	float n_out23p0 = n_out22p0 * (n_out8p0 ? 1.0 : 0.0);
+
+// Output:0
+	ALBEDO = n_out24p0;
+	ALPHA = n_out23p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -643.716, -231.734 )
+nodes/fragment/0/position = Vector2( 1220, 20 )
+nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/position = Vector2( -1800, 440 )
+nodes/fragment/3/node = SubResource( 4 )
+nodes/fragment/3/position = Vector2( -1800, -220 )
+nodes/fragment/4/node = SubResource( 5 )
+nodes/fragment/4/position = Vector2( -1800, 100 )
+nodes/fragment/5/node = SubResource( 6 )
+nodes/fragment/5/position = Vector2( -1600, 860 )
+nodes/fragment/6/node = SubResource( 7 )
+nodes/fragment/6/position = Vector2( -1600, 980 )
+nodes/fragment/8/node = SubResource( 9 )
+nodes/fragment/8/position = Vector2( 540, 340 )
+nodes/fragment/13/node = SubResource( 11 )
+nodes/fragment/13/position = Vector2( -1200, 440 )
+nodes/fragment/14/node = SubResource( 12 )
+nodes/fragment/14/position = Vector2( -1180, 820 )
+nodes/fragment/15/node = SubResource( 13 )
+nodes/fragment/15/position = Vector2( -860, 800 )
+nodes/fragment/16/node = SubResource( 14 )
+nodes/fragment/16/position = Vector2( -520, 780 )
+nodes/fragment/17/node = SubResource( 15 )
+nodes/fragment/17/position = Vector2( -1180, 1020 )
+nodes/fragment/18/node = SubResource( 16 )
+nodes/fragment/18/position = Vector2( -860, 1020 )
+nodes/fragment/19/node = SubResource( 17 )
+nodes/fragment/19/position = Vector2( -520, 980 )
+nodes/fragment/20/node = SubResource( 18 )
+nodes/fragment/20/position = Vector2( -180, 880 )
+nodes/fragment/21/node = SubResource( 19 )
+nodes/fragment/21/position = Vector2( -900, 260 )
+nodes/fragment/22/node = SubResource( 20 )
+nodes/fragment/22/position = Vector2( -500, -100 )
+nodes/fragment/22/size = Vector2( 744.926, 532.907 )
+nodes/fragment/22/input_ports = "0,0,a;1,0,b;2,0,t;"
+nodes/fragment/22/output_ports = "0,0,out;"
+nodes/fragment/22/expression = "out = b * t + a * (1.0 - t)"
+nodes/fragment/23/node = SubResource( 21 )
+nodes/fragment/23/position = Vector2( 880, 180 )
+nodes/fragment/24/node = SubResource( 22 )
+nodes/fragment/24/position = Vector2( -500, -640 )
+nodes/fragment/24/size = Vector2( 744.926, 532.907 )
+nodes/fragment/24/input_ports = "0,1,a;1,1,b;2,0,t;"
+nodes/fragment/24/output_ports = "0,1,out;"
+nodes/fragment/24/expression = "out = b * t + a * (1.0 - t)"
+nodes/fragment/connections = PoolIntArray( 5, 0, 6, 0, 2, 0, 13, 0, 2, 0, 13, 1, 13, 0, 8, 1, 6, 0, 14, 0, 14, 0, 15, 0, 15, 0, 16, 0, 15, 0, 16, 1, 17, 0, 18, 0, 18, 0, 19, 0, 18, 0, 19, 1, 6, 1, 17, 0, 16, 0, 20, 0, 19, 0, 20, 1, 20, 0, 8, 0, 20, 0, 21, 0, 13, 0, 21, 1, 21, 0, 22, 2, 3, 1, 22, 0, 4, 1, 22, 1, 22, 0, 23, 0, 8, 0, 23, 1, 23, 0, 0, 1, 3, 0, 24, 0, 4, 0, 24, 1, 21, 0, 24, 2, 24, 0, 0, 0, 5, 0, 6, 0, 2, 0, 13, 0, 2, 0, 13, 1, 13, 0, 8, 1, 6, 0, 14, 0, 14, 0, 15, 0, 15, 0, 16, 0, 15, 0, 16, 1, 17, 0, 18, 0, 18, 0, 19, 0, 18, 0, 19, 1, 6, 1, 17, 0, 16, 0, 20, 0, 19, 0, 20, 1, 20, 0, 8, 0, 20, 0, 21, 0, 13, 0, 21, 1, 21, 0, 22, 2, 3, 1, 22, 0, 4, 1, 22, 1, 22, 0, 23, 0, 8, 0, 23, 1, 23, 0, 0, 1, 3, 0, 24, 0, 4, 0, 24, 1, 21, 0, 24, 2, 24, 0, 0, 0 )

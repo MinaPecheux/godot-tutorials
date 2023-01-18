@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://04-RTSUnitNavigation/art/shaders/UnitTargetLocation.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/inner_color = Color( 1, 1, 1, 0 )
+shader_param/outer_color = Color( 0.658824, 0.752941, 0.823529, 1 )
+shader_param/radius = 1.0

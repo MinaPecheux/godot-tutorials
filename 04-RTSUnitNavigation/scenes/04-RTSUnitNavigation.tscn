@@ -1,0 +1,252 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://04-RTSUnitNavigation/art/models/machine_barrel.fbx" type="PackedScene" id=1]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/hangar_smallA.fbx" type="PackedScene" id=2]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/hangar_smallB.fbx" type="PackedScene" id=3]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/machine_generator.fbx" type="PackedScene" id=4]
+[ext_resource path="res://04-RTSUnitNavigation/scripts/GameManager.cs" type="Script" id=5]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/hangar_largeA.fbx" type="PackedScene" id=6]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/terrain_roadEnd.fbx" type="PackedScene" id=7]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/terrain_roadStraight.fbx" type="PackedScene" id=8]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/terrain_roadSplit.fbx" type="PackedScene" id=9]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/rock_largeB.fbx" type="PackedScene" id=10]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/rock_largeA.fbx" type="PackedScene" id=11]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/rock.fbx" type="PackedScene" id=12]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/barrels_rail.fbx" type="PackedScene" id=13]
+[ext_resource path="res://04-RTSUnitNavigation/assets/UnitTargetLocation.tscn" type="PackedScene" id=14]
+[ext_resource path="res://04-RTSUnitNavigation/assets/Unit.tscn" type="PackedScene" id=15]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/barrels.fbx" type="PackedScene" id=16]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/rock.material" type="Material" id=17]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/hangar_largeB.fbx" type="PackedScene" id=18]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/hangar_roundA.fbx" type="PackedScene" id=19]
+[ext_resource path="res://04-RTSUnitNavigation/art/models/machine_barrelLarge.fbx" type="PackedScene" id=20]
+
+[sub_resource type="NavigationMesh" id=8]
+vertices = PoolVector3Array( 0.55, 0.00999999, -0.25, 0.95, 0.00999999, 0.15, 1.15, 0.00999999, -0.0499997, 0.75, 0.00999999, -1.85, -4.05, 0.00999999, -1.85, -3.65, 0.00999999, -1.05, -3.45, 0.00999999, -1.25, -3.85, 0.00999999, -4.65, -1.45, 0.00999999, -1.25, -2.05, 0.00999999, -0.85, -1.05, 0.00999999, 0.15, -0.65, 0.00999999, -0.25, -4.65, 0.00999999, -1.85, -4.05, 0.00999999, -1.85, -3.85, 0.00999999, -4.65, 3.35, 0.00999999, -2.65, 4.15, 0.00999999, -1.25, 5.75, 0.00999999, -1.25, 5.75, 0.00999999, -5.65, 1.15, 0.00999999, -2.25, 2.35, 0.00999999, -2.05, 2.75, 0.00999999, -2.65, 0.15, 0.00999999, -4.25, 0.15, 0.00999999, -3.05, -0.25, 0.00999999, -2.65, -1.45, 0.00999999, -2.65, -1.45, 0.00999999, -1.25, -0.65, 0.00999999, -0.25, 0.55, 0.00999999, -0.25, 0.75, 0.00999999, -1.85, -5.65, 0.00999999, -0.25, -5.25, 0.00999999, -0.25, -4.65, 0.00999999, -1.85, -3.85, 0.00999999, -4.65, -5.65, 0.00999999, -5.65, 0.15, 0.00999999, -4.25, 2.75, 0.00999999, -2.65, 3.35, 0.00999999, -2.65, 5.75, 0.00999999, -5.65, -0.25, 0.00999999, -4.65, -5.65, 0.00999999, -5.65, -3.85, 0.00999999, -4.65, -3.45, 0.00999999, -5.05, -5.65, 0.00999999, -5.65, -3.45, 0.00999999, -5.05, -0.25, 0.00999999, -4.65, 5.75, 0.00999999, -5.65, 0.15, 0.00999999, -3.05, -0.25, 0.00999999, -2.65, 0.75, 0.00999999, -1.85, 1.15, 0.00999999, -2.25, -3.05, 0.00999999, -0.85, -3.45, 0.00999999, -1.25, -3.65, 0.00999999, -1.05, -3.45, 0.00999999, 0.15, -3.05, 0.00999999, 2.75, -2.65, 0.00999999, 2.35, -3.85, 0.00999999, 0.55, -4.85, 0.00999999, 0.55, -4.85, 0.00999999, 0.55, -5.25, 0.00999999, -0.25, -5.65, 0.00999999, -0.25, -1.45, 0.00999999, 2.35, -1.05, 0.00999999, 2.75, -0.45, 0.00999999, 1.75, -1.05, 0.00999999, 1.35, -3.05, 0.00999999, 3.95, -3.05, 0.00999999, 2.75, -4.85, 0.00999999, 0.55, -5.65, 0.00999999, -0.25, -5.65, 0.00999999, 5.75, -2.05, 0.00999999, -0.85, -3.05, 0.00999999, -0.85, -3.45, 0.00999999, 0.15, -2.65, 0.00999999, 2.35, -1.45, 0.00999999, 2.35, -1.05, 0.00999999, 1.35, -2.05, 0.00999999, 5.75, -2.05, 0.00999999, 4.35, -3.05, 0.00999999, 3.95, -5.65, 0.00999999, 5.75, -2.05, 0.00999999, -0.85, -3.45, 0.00999999, 0.15, -3.85, 0.00999999, 0.55, -2.65, 0.00999999, 2.35, -1.05, 0.00999999, 1.35, -1.05, 0.00999999, 0.15, 2.15, 0.00999999, 0.15, 1.15, 0.00999999, -0.0499997, 0.95, 0.00999999, 0.15, 0.95, 0.00999999, 1.35, 3.55, 0.00999999, -0.45, 2.55, 0.00999999, -0.85, 2.15, 0.00999999, 0.15, 0.95, 0.00999999, 1.35, 0.55, 0.00999999, 1.75, -1.05, 0.00999999, 3.95, 0.55, 0.00999999, 1.75, -0.45, 0.00999999, 1.75, -1.05, 0.00999999, 2.75, -1.05, 0.00999999, 3.95, -1.05, 0.00999999, 3.95, -2.05, 0.00999999, 4.35, -2.05, 0.00999999, 5.75, 5.75, 0.00999999, -1.25, 4.15, 0.00999999, -1.25, 3.55, 0.00999999, -0.45, 0.95, 0.00999999, 1.35, -1.05, 0.00999999, 3.95, -2.05, 0.00999999, 5.75, 5.75, 0.00999999, 5.75, 5.75, 0.00999999, -1.25, 3.55, 0.00999999, -0.45, 3.55, 0.00999999, -0.45, 2.15, 0.00999999, 0.15, 0.95, 0.00999999, 1.35 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 5, 4, 6 ), PoolIntArray( 6, 4, 7 ), PoolIntArray( 11, 10, 8 ), PoolIntArray( 8, 10, 9 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 16, 15, 17 ), PoolIntArray( 17, 15, 18 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 23 ), PoolIntArray( 21, 23, 22 ), PoolIntArray( 25, 24, 26 ), PoolIntArray( 26, 24, 29 ), PoolIntArray( 26, 29, 27 ), PoolIntArray( 27, 29, 28 ), PoolIntArray( 31, 30, 32 ), PoolIntArray( 32, 30, 33 ), PoolIntArray( 33, 30, 34 ), PoolIntArray( 35, 39, 36 ), PoolIntArray( 36, 39, 37 ), PoolIntArray( 37, 39, 38 ), PoolIntArray( 42, 41, 40 ), PoolIntArray( 44, 43, 45 ), PoolIntArray( 45, 43, 46 ), PoolIntArray( 50, 49, 47 ), PoolIntArray( 47, 49, 48 ), PoolIntArray( 52, 51, 53 ), PoolIntArray( 53, 51, 54 ), PoolIntArray( 56, 55, 57 ), PoolIntArray( 57, 55, 58 ), PoolIntArray( 61, 60, 59 ), PoolIntArray( 63, 62, 64 ), PoolIntArray( 64, 62, 65 ), PoolIntArray( 67, 66, 68 ), PoolIntArray( 68, 66, 69 ), PoolIntArray( 69, 66, 70 ), PoolIntArray( 73, 72, 71 ), PoolIntArray( 76, 75, 74 ), PoolIntArray( 78, 77, 79 ), PoolIntArray( 79, 77, 80 ), PoolIntArray( 82, 81, 83 ), PoolIntArray( 83, 81, 86 ), PoolIntArray( 83, 86, 85 ), PoolIntArray( 83, 85, 84 ), PoolIntArray( 88, 87, 89 ), PoolIntArray( 89, 87, 90 ), PoolIntArray( 93, 92, 91 ), PoolIntArray( 94, 96, 95 ), PoolIntArray( 98, 97, 99 ), PoolIntArray( 99, 97, 100 ), PoolIntArray( 102, 101, 103 ), PoolIntArray( 106, 105, 104 ), PoolIntArray( 108, 107, 109 ), PoolIntArray( 109, 107, 112 ), PoolIntArray( 109, 112, 111 ), PoolIntArray( 109, 111, 110 ), PoolIntArray( 113, 115, 114 ) ]
+geometry_parsed_geometry_type = 1
+geometry_source_geometry_mode = 1
+cell_size = 0.2
+cell_height = 0.01
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 12.5, 0.01, 12.5 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.6, 1, 1.2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1.2, 1, 1.2 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.6, 1, 0.6 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.1, 1, 0.1 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.2, 1, 0.2 )
+
+[node name="Root" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.0277765, -0.762446, 0.646456, 0.0210102, 0.646117, 0.762949, -0.999393, 0.0347742, -0.00192773, 0, 3.13419, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573577, -0.707107, -0.40558, 0.579228, 2.60439, 3.67665, 2.61014 )
+projection = 1
+size = 4.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Terrain" type="NavigationMeshInstance" parent="."]
+navmesh = SubResource( 8 )
+
+[node name="Ground" type="CSGBox" parent="Terrain" groups=["navmesh"]]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.01, 0 )
+width = 25.0
+height = 0.02
+depth = 25.0
+material = ExtResource( 17 )
+
+[node name="StaticBody" type="StaticBody" parent="Terrain/Ground"]
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Terrain/Ground/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="terrain_roadStraight" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496166, 0, 0.46698 )
+
+[node name="terrain_roadStraight2" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496166, 0, 1.45931 )
+
+[node name="terrain_roadStraight3" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496166, 0, 2.42245 )
+
+[node name="terrain_roadStraight4" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.99261, 0, -0.129027 )
+
+[node name="terrain_roadStraight5" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.97866, 0, -0.129027 )
+
+[node name="terrain_roadStraight6" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.94781, 0, -0.129027 )
+
+[node name="terrain_roadStraight7" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0261354, 0, -0.129027 )
+
+[node name="terrain_roadStraight8" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.971186, 0, -0.129027 )
+
+[node name="terrain_roadStraight9" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.55718, 0, -5.69036 )
+
+[node name="terrain_roadStraight10" parent="Terrain" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1.5, 0, 1, 0, -1, 0, -6.55671e-08, 3.48985, 0, -5.69036 )
+
+[node name="terrain_roadSplit" parent="Terrain" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.87484 )
+
+[node name="terrain_roadEnd" parent="Terrain" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.08184, 0, 3.8766 )
+
+[node name="Props" type="Spatial" parent="." groups=["navmesh"]]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="hangar_largeA" parent="Props" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97699, 0, -2.91862 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/hangar_largeA"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/hangar_largeA/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="hangar_roundA" parent="Props" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88943, 0, -5.83724 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/hangar_roundA"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/hangar_roundA/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="hangar_largeB" parent="Props" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.729652, 0, -9.31039 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/hangar_largeB"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/hangar_largeB/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="barrels" parent="Props" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60524, 0, -4.4363 )
+
+[node name="barrels2" parent="Props" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.53153, 0, -3.91095 )
+
+[node name="barrels3" parent="Props" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.53153, 0, -3.3856 )
+
+[node name="barrels_rail" parent="Props" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.48849, 0, -7.93864 )
+
+[node name="hangar_smallA" parent="Props" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.42029, 0, 4.76179 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/hangar_smallA"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/hangar_smallA/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="hangar_smallB" parent="Props" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99046, 0, 2.99068 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/hangar_smallB"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/hangar_smallB/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="machine_barrel" parent="Props" instance=ExtResource( 1 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.260513, 0, 4.97252 )
+
+[node name="machine_barrelLarge" parent="Props" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66146, 0, 6.86962 )
+
+[node name="machine_barrelLarge2" parent="Props" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27437, 0, 6.86962 )
+
+[node name="machine_barrelLarge3" parent="Props" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44976, 0, 2.64996 )
+
+[node name="machine_generator" parent="Props" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50814, 0, 3.37869 )
+
+[node name="rock" parent="Props" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53078, 0, 0.483396 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/rock"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/rock/StaticBody"]
+shape = SubResource( 6 )
+
+[node name="rock2" parent="Props" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02621, 0, -2.30571 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/rock2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/rock2/StaticBody"]
+shape = SubResource( 6 )
+
+[node name="rock3" parent="Props" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7815, 0, -0.525352 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/rock3"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/rock3/StaticBody"]
+shape = SubResource( 6 )
+
+[node name="rock_largeA" parent="Props" instance=ExtResource( 11 )]
+transform = Transform( 1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, 8.23051, 0, -3.32723 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/rock_largeA"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/rock_largeA/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="rock_largeA2" parent="Props" instance=ExtResource( 11 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -12.9106, 0, -3.82339 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/rock_largeA2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/rock_largeA2/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="rock_largeB" parent="Props" instance=ExtResource( 10 )]
+transform = Transform( -0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, -0.642788, 6.30421, 0, -5.25351 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/rock_largeB"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.01566, 0, -1.48667 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/rock_largeB/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="Units" type="Spatial" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="Unit" parent="Units" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -4.1 )
+
+[node name="UnitTargetLocation" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.930306, 0, -0.921185 )
