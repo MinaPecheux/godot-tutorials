@@ -28,6 +28,14 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 ## 03. Creating & loading custom resource types
 
-- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=yUmY3Gi3z5U)
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=yUmY3Gi3z5U), [in French 🇫🇷](https://www.youtube.com/watch?v=myJBzY7bu8k)
 - Read on [Medium](https://medium.com/p/creating-loading-custom-data-in-godot-c-ff14de97bc57)
 - See the files [in the repo](/03-TDLoadData)
+
+## 04. Implementing a point-and-click navigation logic
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=ZnM_nXSoXQ0)
+- Read on [Medium](https://mina-pecheux.medium.com/implementing-a-point-and-click-navigation-in-godot-c-166e253b2b45)
+- See the files [in the repo](/04-RTSUnitNavigation/)
+
+![04_RTSUnitNavigation-img](/doc/04_RTSUnitNavigation-img.jpg)
