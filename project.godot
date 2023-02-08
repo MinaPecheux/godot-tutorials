@@ -17,7 +17,7 @@ ResourceScriptDirectories=[ "res://" ]
 [application]
 
 config/name="Tutorials"
-run/main_scene="res://04-RTSUnitNavigation/scenes/04-RTSUnitNavigation.tscn"
+run/main_scene="res://05-MouseFollow/scenes/05-MouseFollow.tscn"
 config/icon="res://icon.png"
 
 [display]

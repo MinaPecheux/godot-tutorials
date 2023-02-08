@@ -1,0 +1,134 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://05-MouseFollow/scripts/CameraShake.cs" type="Script" id=1]
+[ext_resource path="res://05-MouseFollow/assets/PlayerShip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://05-MouseFollow/assets/Asteroid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://05-MouseFollow/art/ui/life_icon.png" type="Texture" id=4]
+[ext_resource path="res://05-MouseFollow/scripts/ItemSpawner.cs" type="Script" id=5]
+[ext_resource path="res://05-MouseFollow/art/ui/numeralX.png" type="Texture" id=6]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral3.png" type="Texture" id=7]
+[ext_resource path="res://05-MouseFollow/scripts/GameManager.cs" type="Script" id=8]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral2.png" type="Texture" id=9]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral1.png" type="Texture" id=10]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral0.png" type="Texture" id=11]
+[ext_resource path="res://05-MouseFollow/assets/Bonus.tscn" type="PackedScene" id=12]
+[ext_resource path="res://05-MouseFollow/art/star.png" type="Texture" id=13]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral8.png" type="Texture" id=14]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral5.png" type="Texture" id=15]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral7.png" type="Texture" id=16]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral4.png" type="Texture" id=17]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral9.png" type="Texture" id=18]
+[ext_resource path="res://05-MouseFollow/art/ui/numeral6.png" type="Texture" id=19]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 106, 0, 0, 0, 0, 0, 1818, -3 )
+}
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 8 )
+_numeralIcons = [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 18 ) ]
+_lifeValueIconPath = NodePath("UI/Life/LifeValue")
+_lifeStarsIcon1Path = NodePath("UI/Stars/StarValue1")
+_lifeStarsIcon2Path = NodePath("UI/Stars/StarValue2")
+
+[node name="Background" type="Polygon2D" parent="."]
+color = Color( 0.054902, 0.0627451, 0.121569, 1 )
+offset = Vector2( 960, 540 )
+polygon = PoolVector2Array( -971, -545, 971, -547, 967, 551, -971, 553 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource( 1 )
+
+[node name="PlayerShip" parent="Camera2D" instance=ExtResource( 2 )]
+position = Vector2( 960, 540 )
+
+[node name="AsteroidSpawn" type="Path2D" parent="."]
+position = Vector2( 11, 3 )
+curve = SubResource( 1 )
+script = ExtResource( 5 )
+_itemPrefab = ExtResource( 3 )
+
+[node name="SpawnLocation" type="PathFollow2D" parent="AsteroidSpawn"]
+position = Vector2( 106, 0 )
+rotation = -0.00175233
+
+[node name="Timer" type="Timer" parent="AsteroidSpawn"]
+wait_time = 1.3
+
+[node name="BonusSpawn" type="Path2D" parent="."]
+position = Vector2( 11, 3 )
+curve = SubResource( 1 )
+script = ExtResource( 5 )
+_itemPrefab = ExtResource( 12 )
+
+[node name="SpawnLocation" type="PathFollow2D" parent="BonusSpawn"]
+position = Vector2( 106, 0 )
+rotation = -0.00175233
+
+[node name="Timer" type="Timer" parent="BonusSpawn"]
+wait_time = 3.0
+
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="Life" type="HBoxContainer" parent="UI"]
+margin_left = 16.0
+margin_top = 15.0
+margin_right = 93.0
+margin_bottom = 41.0
+
+[node name="LifeIcon" type="TextureRect" parent="UI/Life"]
+margin_right = 33.0
+margin_bottom = 26.0
+texture = ExtResource( 4 )
+
+[node name="LifeX" type="TextureRect" parent="UI/Life"]
+margin_left = 37.0
+margin_right = 54.0
+margin_bottom = 26.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="LifeValue" type="TextureRect" parent="UI/Life"]
+margin_left = 58.0
+margin_right = 77.0
+margin_bottom = 26.0
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="Stars" type="HBoxContainer" parent="UI"]
+margin_left = 16.0
+margin_top = 50.0
+margin_right = 93.0
+margin_bottom = 41.0
+
+[node name="StarIcon" type="TextureRect" parent="UI/Stars"]
+margin_right = 31.0
+margin_bottom = 30.0
+texture = ExtResource( 13 )
+
+[node name="StarX" type="TextureRect" parent="UI/Stars"]
+margin_left = 35.0
+margin_right = 52.0
+margin_bottom = 30.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="StarValue1" type="TextureRect" parent="UI/Stars"]
+margin_left = 56.0
+margin_right = 75.0
+margin_bottom = 30.0
+texture = ExtResource( 11 )
+stretch_mode = 4
+
+[node name="StarValue2" type="TextureRect" parent="UI/Stars"]
+margin_left = 79.0
+margin_right = 98.0
+margin_bottom = 30.0
+texture = ExtResource( 11 )
+stretch_mode = 4
