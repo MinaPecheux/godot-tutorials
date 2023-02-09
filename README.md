@@ -42,7 +42,7 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 ## 05. Implementing a basic mouse follow logic
 
-- Watch on YouTube: [in English 🇬🇧](https://youtu.be/FuuxC4G60lU)
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/FuuxC4G60lU), [in French 🇫🇷](https://youtu.be/3_7Z0IIT8Rg)
 - Read on [Medium](https://mina-pecheux.medium.com/implementing-a-basic-mouse-follow-logic-in-godot-c-ae51f0859a95)
 - See the files [in the repo](/05-MouseFollow/)
 
