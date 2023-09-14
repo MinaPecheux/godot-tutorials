@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://4rnookmqcjcm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3ltd4"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_v0nul"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4omn"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Ball" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_3ltd4")
+
+[node name="Mesh" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_v0nul")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_i4omn")
