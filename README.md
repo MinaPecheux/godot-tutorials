@@ -15,6 +15,7 @@ As of now, the repo contains the following tutorials:
 Curious about the fundamentals of this free open-source game engine? This little tutorial will show you how to install and setup the software, plus how to make a little demo of a bouncy ball with some physics in just 15'! :)
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=N3XaN_R38Jc)
+- Read on [Medium](https://mina-pecheux.medium.com/a-short-beginners-guide-to-discovering-godot-d1bbae89d26a)
 - See the files [in the repo](/00-Basic/)
 
 ## 01. Creating a basic waypoints system
