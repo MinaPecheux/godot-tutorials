@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgrll5eed51ag"]
+
+[ext_resource type="TileSet" uid="uid://cjxx2amnu2bdx" path="res://10-2DTilemaps/tileset.tres" id="1_lvadp"]
+[ext_resource type="Texture2D" uid="uid://bfi1r6wec4fjd" path="res://10-2DTilemaps/circle-white.png" id="2_4f7al"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yof7w"]
+radius = 30.0
+
+[node name="Root" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_lvadp")
+format = 2
+layer_0/name = "base"
+layer_0/tile_data = PackedInt32Array(-65536, 458752, 8, -65534, 458752, 8, 131076, 458752, 10, -1, 458752, 9, -65533, 458752, 8, -65532, 524288, 8, 196605, 458752, 10, 196606, 458752, 10, 262141, 458752, 10, 327677, 458752, 10, 262142, 458752, 10, 327678, 458752, 10, 327679, 458752, 10, 262144, 458752, 10, 262145, 458752, 10, 2, 458752, 10, 3, 458752, 10, 4, 458752, 10, 65540, 458752, 10, 262148, 458752, 10, 196612, 458752, 10, 262146, 458752, 10, 262147, 458752, 10)
+layer_1/name = "items"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 0, 0, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(262142, 65536, 3, 196612, 65536, 3)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(76, 189)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_4f7al")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_yof7w")
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
+zoom = Vector2(2, 2)
