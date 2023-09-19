@@ -14,7 +14,7 @@ As of now, the repo contains the following tutorials:
 
 Curious about the fundamentals of this free open-source game engine? This little tutorial will show you how to install and setup the software, plus how to make a little demo of a bouncy ball with some physics in just 15'! :)
 
-- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=N3XaN_R38Jc)
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=N3XaN_R38Jc), [in French 🇫🇷](https://www.youtube.com/watch?v=pKjhV6HPPU8)
 - Read on [Medium](https://mina-pecheux.medium.com/a-short-beginners-guide-to-discovering-godot-d1bbae89d26a)
 - See the files [in the repo](/00-Basic/)
 
@@ -55,3 +55,9 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/05-MouseFollow/)
 
 ![05_MouseFollow-img](/doc/05_MouseFollow-img.jpg)
+
+## 06. The power of 2D Tilemaps
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=DhD8ltK3NWo)
+- Read on [Medium](https://mina-pecheux.medium.com/the-power-of-godots-2d-tilemaps-997dd2293e82)
+- See the files [in the repo](/06-2DTilemaps/)
