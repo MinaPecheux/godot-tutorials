@@ -56,7 +56,7 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 ## 05. Implementing a basic mouse follow logic
 
-- Watch on YouTube: [in English 🇬🇧](https://youtu.be/FuuxC4G60lU), [in French 🇫🇷](https://youtu.be/3_7Z0IIT8Rg)
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/FuuxC4G60lU), [in French 🇫🇷](https://youtu.be/3_7Z0IIT8Rg), [in French 🇫🇷](https://youtu.be/3_7Z0IIT8Rg)
 - Read on [Medium](https://mina-pecheux.medium.com/implementing-a-basic-mouse-follow-logic-in-godot-c-ae51f0859a95)
 - See the files [in the repo](/05-MouseFollow/)
 
@@ -64,12 +64,16 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 ## 06. The power of 2D Tilemaps
 
-- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=DhD8ltK3NWo)
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=DhD8ltK3NWo), [in French 🇫🇷](https://www.youtube.com/watch?v=vFhg3nwwsWw)
 - Read on [Medium](https://mina-pecheux.medium.com/the-power-of-godots-2d-tilemaps-997dd2293e82)
 - See the files [in the repo](/06-2DTilemaps/)
+
+![06_2DTilemaps-img](/doc/06_Tilemaps.png)
 
 ## 07. Implementing a 2D character controller
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/b7UNuZ-s_Kg)
 - Read on [Medium](https://mina-pecheux.medium.com/implementing-a-simple-2d-character-controller-godot-4-c-9f4fe4f24288)
 - See the files [in the repo](/07-2DCharacterController/)
+
+![07_2DCharController-img](/doc/07_2DCharController.gif)
