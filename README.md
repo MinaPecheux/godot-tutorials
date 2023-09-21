@@ -67,3 +67,9 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=DhD8ltK3NWo)
 - Read on [Medium](https://mina-pecheux.medium.com/the-power-of-godots-2d-tilemaps-997dd2293e82)
 - See the files [in the repo](/06-2DTilemaps/)
+
+## 07. Implementing a 2D character controller
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/b7UNuZ-s_Kg)
+- Read on [Medium](https://mina-pecheux.medium.com/implementing-a-simple-2d-character-controller-godot-4-c-9f4fe4f24288)
+- See the files [in the repo](/07-2DCharacterController/)
