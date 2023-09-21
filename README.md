@@ -6,7 +6,13 @@
 
 This repo contains the code and assets for the various Godot/C# tutorials I published as videos and text articles on YouTube/Medium.
 
----
+=========================
+
+⚠️ **WARNING** ⚠️
+
+I re-updated this repo to work with Godot 4. Tutorials 01 to 05 were initially made with Godot 3 and the video/text versions still refer to this old version, but the code and the assets in this Github repo are made for Godot 4.
+
+=========================
 
 As of now, the repo contains the following tutorials:
 

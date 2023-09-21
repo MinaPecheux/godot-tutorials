@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorials", "Tutorials.csproj", "{3C9A81C1-0FC4-401B-ADF0-60358C4E3865}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorials", "Tutorials.csproj", "{DAB3F18D-09F6-474F-BB9C-7FA8DDEF8D73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3C9A81C1-0FC4-401B-ADF0-60358C4E3865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C9A81C1-0FC4-401B-ADF0-60358C4E3865}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C9A81C1-0FC4-401B-ADF0-60358C4E3865}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{3C9A81C1-0FC4-401B-ADF0-60358C4E3865}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{3C9A81C1-0FC4-401B-ADF0-60358C4E3865}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{3C9A81C1-0FC4-401B-ADF0-60358C4E3865}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{DAB3F18D-09F6-474F-BB9C-7FA8DDEF8D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB3F18D-09F6-474F-BB9C-7FA8DDEF8D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB3F18D-09F6-474F-BB9C-7FA8DDEF8D73}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{DAB3F18D-09F6-474F-BB9C-7FA8DDEF8D73}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{DAB3F18D-09F6-474F-BB9C-7FA8DDEF8D73}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{DAB3F18D-09F6-474F-BB9C-7FA8DDEF8D73}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal

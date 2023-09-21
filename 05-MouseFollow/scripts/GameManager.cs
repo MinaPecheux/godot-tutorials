@@ -4,12 +4,12 @@ using System;
 namespace TowerDefense.Tutorial05_MouseFollow
 {
 
-	public class GameManager : Node
+	public partial class GameManager : Node
 	{
 		public static GameManager instance;
 		private const int _maxHealth = 3;
 		
-		[Export] private Texture[] _numeralIcons;
+		[Export] private Texture2D[] _numeralIcons;
 	
 		[Export] private NodePath _lifeValueIconPath;
 		private TextureRect _lifeValueIcon;
@@ -25,7 +25,6 @@ namespace TowerDefense.Tutorial05_MouseFollow
 		public override void _Ready()
 		{
 			instance = this;
-			GD.Randomize();
 			
 			_lifeValueIcon = GetNode<TextureRect>(_lifeValueIconPath);
 			_lifeStarsIcon1 = GetNode<TextureRect>(_lifeStarsIcon1Path);

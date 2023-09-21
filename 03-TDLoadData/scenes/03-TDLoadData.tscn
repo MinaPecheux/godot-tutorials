@@ -1,107 +1,95 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=17 format=3 uid="uid://dbho6bx20vxvb"]
 
-[ext_resource path="res://shared/TowerDefense/scenes/Level-01.tscn" type="PackedScene" id=1]
-[ext_resource path="res://shared/TowerDefense/UI-theme.tres" type="Theme" id=3]
-[ext_resource path="res://03-TDLoadData/scripts/GameManager.cs" type="Script" id=4]
-[ext_resource path="res://shared/TowerDefense/art/ui/heart.png" type="Texture" id=5]
-[ext_resource path="res://03-TDLoadData/assets/Tower-ToPlace.tscn" type="PackedScene" id=6]
-[ext_resource path="res://03-TDLoadData/scripts/LevelPathDisplayer.cs" type="Script" id=7]
-[ext_resource path="res://03-TDLoadData/data/ship-3.tres" type="Resource" id=8]
-[ext_resource path="res://03-TDLoadData/data/ship-1.tres" type="Resource" id=9]
-[ext_resource path="res://shared/TowerDefense/art/ui/coinGold.png" type="Texture" id=10]
-[ext_resource path="res://shared/TowerDefense/art/fonts/Vividly-Regular.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://03-TDLoadData/assets/Tower.tscn" type="PackedScene" id=12]
-[ext_resource path="res://03-TDLoadData/scripts/LevelManager.cs" type="Script" id=13]
-[ext_resource path="res://03-TDLoadData/assets/Ship.tscn" type="PackedScene" id=14]
-[ext_resource path="res://03-TDLoadData/data/ship-2.tres" type="Resource" id=15]
-
-[sub_resource type="DynamicFont" id=9]
-size = 64
-extra_spacing_top = 7
-font_data = ExtResource( 11 )
-
-[sub_resource type="Theme" id=10]
-default_font = SubResource( 9 )
+[ext_resource type="PackedScene" path="res://shared/TowerDefense/scenes/Level-01.tscn" id="1"]
+[ext_resource type="Theme" uid="uid://bqmab8i555xeg" path="res://shared/TowerDefense/UI-theme.tres" id="3"]
+[ext_resource type="Script" path="res://03-TDLoadData/scripts/GameManager.cs" id="4"]
+[ext_resource type="Texture2D" uid="uid://bnd80w8vjsdmg" path="res://shared/TowerDefense/art/ui/heart.png" id="5"]
+[ext_resource type="PackedScene" uid="uid://blg7ckm6b8bxb" path="res://03-TDLoadData/assets/Tower-ToPlace.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://c6mpfjnvraldr" path="res://03-TDLoadData/assets/ButtonTower.tscn" id="6_vsjsx"]
+[ext_resource type="Script" path="res://03-TDLoadData/scripts/LevelPathDisplayer.cs" id="7"]
+[ext_resource type="Resource" path="res://03-TDLoadData/data/ship-3.tres" id="8"]
+[ext_resource type="Resource" path="res://03-TDLoadData/data/ship-1.tres" id="9"]
+[ext_resource type="Resource" path="res://03-TDLoadData/data/tower-1.tres" id="9_8swxe"]
+[ext_resource type="Texture2D" uid="uid://bmkju7p3bsjnm" path="res://shared/TowerDefense/art/ui/coinGold.png" id="10"]
+[ext_resource type="Resource" path="res://03-TDLoadData/data/tower-2.tres" id="10_lvjc2"]
+[ext_resource type="PackedScene" uid="uid://brx3ntkre8tv" path="res://03-TDLoadData/assets/Tower.tscn" id="12"]
+[ext_resource type="Script" path="res://03-TDLoadData/scripts/LevelManager.cs" id="13"]
+[ext_resource type="PackedScene" uid="uid://gd35y5lsi1jr" path="res://03-TDLoadData/assets/Ship.tscn" id="14"]
+[ext_resource type="Resource" path="res://03-TDLoadData/data/ship-2.tres" id="15"]
 
 [node name="Base" type="Node2D"]
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-zoom = Vector2( 2, 2 )
+position = Vector2(1920, 1080)
+zoom = Vector2(0.5, 0.5)
 editor_draw_limits = true
 
-[node name="Level" parent="." instance=ExtResource( 1 )]
-script = ExtResource( 13 )
-_shipAsset = ExtResource( 14 )
-_towerAsset = ExtResource( 12 )
-_shipsData = [ ExtResource( 9 ), ExtResource( 15 ), ExtResource( 8 ) ]
+[node name="Level" parent="." instance=ExtResource("1")]
+script = ExtResource("13")
+_shipAsset = ExtResource("14")
+_towerAsset = ExtResource("12")
+_towerButtonAsset = ExtResource("6_vsjsx")
+_shipsData = [ExtResource("9"), ExtResource("15"), ExtResource("8")]
+_towersData = Array[Resource]([ExtResource("9_8swxe"), ExtResource("10_lvjc2")])
 
 [node name="LevelPathDisplay" type="Node2D" parent="."]
-script = ExtResource( 7 )
+script = ExtResource("7")
 
-[node name="Tower-ToPlace" parent="." instance=ExtResource( 6 )]
+[node name="Tower-ToPlace" parent="." instance=ExtResource("6")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="Stats" type="VBoxContainer" parent="CanvasLayer/UI"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 40.0
-margin_bottom = 40.0
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Lives" type="HBoxContainer" parent="CanvasLayer/UI/Stats"]
-margin_right = 100.0
-margin_bottom = 70.0
+layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/UI/Stats/Lives"]
-margin_right = 70.0
-margin_bottom = 70.0
-texture = ExtResource( 5 )
+layout_mode = 2
+texture = ExtResource("5")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/Stats/Lives"]
-margin_left = 74.0
-margin_top = 8.0
-margin_right = 100.0
-margin_bottom = 62.0
-theme = ExtResource( 3 )
-custom_colors/font_color = Color( 0.929412, 0.929412, 0.976471, 1 )
+layout_mode = 2
+theme = ExtResource("3")
+theme_override_colors/font_color = Color(0.929412, 0.929412, 0.976471, 1)
 text = "0"
-valign = 1
 
 [node name="Coins" type="HBoxContainer" parent="CanvasLayer/UI/Stats"]
-margin_top = 74.0
-margin_right = 100.0
-margin_bottom = 144.0
+layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/UI/Stats/Coins"]
-margin_right = 70.0
-margin_bottom = 70.0
-texture = ExtResource( 10 )
+layout_mode = 2
+texture = ExtResource("10")
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/Stats/Coins"]
-margin_left = 74.0
-margin_top = 8.0
-margin_right = 100.0
-margin_bottom = 62.0
-theme = SubResource( 10 )
-custom_colors/font_color = Color( 0.929412, 0.929412, 0.976471, 1 )
+layout_mode = 2
+theme = ExtResource("3")
+theme_override_colors/font_color = Color(0.929412, 0.929412, 0.976471, 1)
 text = "0"
-valign = 1
 
 [node name="Towers" type="HBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 50.0
-margin_bottom = -30.0
+offset_left = 50.0
+offset_bottom = -30.0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
-custom_constants/separation = 40
+theme_override_constants/separation = 40

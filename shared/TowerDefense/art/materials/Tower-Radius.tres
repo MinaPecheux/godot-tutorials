@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d08mq3na5ckix"]
+
+[ext_resource type="Shader" uid="uid://bhh7kh03tqbyy" path="res://shared/TowerDefense/art/shaders/tower-radius-display.tres" id="1_ep4pm"]
+
+[resource]
+shader = ExtResource("1_ep4pm")
+shader_parameter/radius = 0.65
+shader_parameter/stroke_thickness = 0.02
+shader_parameter/fill_color = Color(0.501961, 0.85098, 0.886275, 0.25098)
+shader_parameter/stroke_color = Color(0.337255, 0.768627, 0.941176, 0.501961)

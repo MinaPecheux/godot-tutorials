@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "9YuB9kJrdOrbeVqyq3wQrocs6IUQlUz8V3lShxBoMwWDFsnZMoXagSdfED/2x5x7B8hiLy+LtqMZkfNbq6c49Q==",
+  "success": true,
+  "projectFilePath": "/Users/minapecheux/Documents/DEV/GODOT/tutorials/Tutorials.csproj",
+  "expectedPackageFiles": [
+    "/Users/minapecheux/.nuget/packages/godot.sourcegenerators/4.1.1/godot.sourcegenerators.4.1.1.nupkg.sha512",
+    "/Users/minapecheux/.nuget/packages/godotsharp/4.1.1/godotsharp.4.1.1.nupkg.sha512",
+    "/Users/minapecheux/.nuget/packages/godotsharpeditor/4.1.1/godotsharpeditor.4.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}

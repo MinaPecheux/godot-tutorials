@@ -1,9 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bute0dko8jq2e"]
 
-[ext_resource path="res://04-RTSUnitNavigation/art/shaders/UnitTargetLocation.tres" type="Shader" id=1]
+[ext_resource type="Shader" uid="uid://7hjrisye5nl0" path="res://04-RTSUnitNavigation/art/shaders/UnitTargetLocation.tres" id="1_yfh8i"]
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/inner_color = Color( 1, 1, 1, 0 )
-shader_param/outer_color = Color( 0.658824, 0.752941, 0.823529, 1 )
-shader_param/radius = 1.0
+render_priority = 0
+shader = ExtResource("1_yfh8i")
+shader_parameter/inner_color = Color(0, 0, 0, 0)
+shader_parameter/outer_color = Color(0.278431, 1, 1, 1)
+shader_parameter/radius = 1.0

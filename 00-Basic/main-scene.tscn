@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlq2ksukknhk1"]
 
-[ext_resource type="PackedScene" uid="uid://4rnookmqcjcm" path="res://01-Basic/ball.tscn" id="1_emx1j"]
-[ext_resource type="PhysicsMaterial" uid="uid://c1edj2gs05adx" path="res://01-Basic/bouncy.tres" id="2_s7fn6"]
+[ext_resource type="PackedScene" uid="uid://4rnookmqcjcm" path="res://00-Basic/ball.tscn" id="1_emx1j"]
+[ext_resource type="PhysicsMaterial" uid="uid://c1edj2gs05adx" path="res://00-Basic/bouncy.tres" id="2_s7fn6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3a3sl"]
 

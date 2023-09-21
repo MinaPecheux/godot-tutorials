@@ -1,11 +1,7 @@
-[gd_resource type="Theme" load_steps=3 format=2]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bqmab8i555xeg"]
 
-[ext_resource path="res://shared/TowerDefense/art/fonts/Vividly-Regular.ttf" type="DynamicFontData" id=1]
-
-[sub_resource type="DynamicFont" id=1]
-size = 64
-extra_spacing_top = 7
-font_data = ExtResource( 1 )
+[ext_resource type="FontFile" uid="uid://dq50jaws0l6d2" path="res://shared/TowerDefense/art/fonts/Vividly-Regular.ttf" id="1"]
 
 [resource]
-default_font = SubResource( 1 )
+default_font = ExtResource("1")
+default_font_size = 68

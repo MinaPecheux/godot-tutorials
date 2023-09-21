@@ -4,7 +4,7 @@ using System;
 namespace MonoCustomResourceRegistry
 {
 	[AttributeUsage(System.AttributeTargets.Class)]
-	public class RegisteredTypeAttribute : System.Attribute
+	public partial class RegisteredTypeAttribute : System.Attribute
 	{
 		public string name;
 		public string iconPath;

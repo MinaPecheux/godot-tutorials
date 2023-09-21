@@ -6,12 +6,12 @@ using MonoCustomResourceRegistry;
 namespace TowerDefense.Tutorial03_LoadData
 {
 	[RegisteredType(nameof(ShipData), "", nameof(Resource))]
-	public class ShipData : Resource
+	public partial class ShipData : Resource
 	{
 		[Export] public float speed { get; set; }
 		[Export] public int HP { get; set; }
 		[Export] public int reward { get; set; }
-		[Export] public Texture sprite { get; set; }
+		[Export] public Texture2D sprite { get; set; }
 		
 		public ShipData()
 		{

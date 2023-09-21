@@ -4,7 +4,7 @@ using System;
 namespace TowerDefense.Tutorial02_Base
 {
 	
-	public class GameManager : Node
+	public partial class GameManager : Node
 	{
 		public static GameManager instance;
 		

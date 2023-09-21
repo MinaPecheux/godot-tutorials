@@ -4,18 +4,22 @@ using System;
 namespace TowerDefense.Tutorial05_MouseFollow
 {
 	
-	public class Item : KinematicBody2D
+	public partial class Item : CharacterBody2D
 	{
 		protected Vector2 _velocity;
 		
+		private RandomNumberGenerator _rng;
+		
 		public override void _Ready() {
-			_velocity = new Vector2(0, (float)GD.RandRange(90f, 130f));
+			_rng = new RandomNumberGenerator();
+			
+			_velocity = new Vector2(0, (float)_rng.RandfRange(90f, 130f));
 			_OnReady();
 		}
 		
-		public override void _PhysicsProcess(float delta)
+		public override void _PhysicsProcess(double delta)
 		{
-			KinematicCollision2D collision = MoveAndCollide(_velocity * delta);
+			KinematicCollision2D collision = MoveAndCollide(_velocity * (float)delta);
 			if (collision != null) {
 				_OnCollision();
 				QueueFree();

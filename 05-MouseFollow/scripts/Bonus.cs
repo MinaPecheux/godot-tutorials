@@ -12,14 +12,14 @@ namespace TowerDefense.Tutorial05_MouseFollow
 		_NBonusTypes
 	}
 	
-	public class Bonus : Item
+	public partial class Bonus : Item
 	{
 		[Export] private BonusType _type;
-		[Export] private Texture[] _sprites;
+		[Export] private Texture2D[] _sprites;
 		
 		protected override void _OnReady() {
 			_type = (BonusType)(GD.Randi() % (int)BonusType._NBonusTypes);
-			GetNode<Sprite>("Sprite").Texture = _sprites[(int)_type];
+			GetNode<Sprite2D>("Sprite2D").Texture = _sprites[(int)_type];
 		}
 		
 		protected override void _OnCollision()
@@ -29,7 +29,6 @@ namespace TowerDefense.Tutorial05_MouseFollow
 			else if (_type == BonusType.Star)
 				GameManager.instance.LootStar();
 		}
-
 	}
 
 }

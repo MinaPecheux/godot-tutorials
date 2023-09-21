@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class PlayerShip : KinematicBody2D
+public partial class PlayerShip : CharacterBody2D
 {
 	private Vector2 _targetPosition;
 	private Color _drawColor;
@@ -20,12 +20,13 @@ public class PlayerShip : KinematicBody2D
 		}
 	}
 	
-	public override void _PhysicsProcess(float delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 move = _targetPosition - Position;
 		if (move.Length() > 10f) {
-			MoveAndSlide(move.Normalized() * 500f);
-			Update(); // refresh the draw visuals
+			Velocity = move.Normalized() * 500f;
+			MoveAndSlide();
+			QueueRedraw(); // refresh the draw visuals
 		}
 	}
 	

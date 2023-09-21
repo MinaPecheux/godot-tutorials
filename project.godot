@@ -6,28 +6,33 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
 [MonoCustomResourceRegistry]
 
 ClassPrefix=""
 SearchType=0
-ResourceScriptDirectories=[ "res://" ]
+ResourceScriptDirectories=["res://"]
 
 [application]
 
 config/name="Tutorials"
-run/main_scene="res://05-MouseFollow/scenes/05-MouseFollow.tscn"
+run/main_scene="res://03-TDLoadData/scenes/03-TDLoadData.tscn"
+config/features=PackedStringArray("4.1", "C#")
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[dotnet]
+
+project/assembly_name="Tutorials"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/MonoCustomResourceRegistry/plugin.cfg" )
+enabled=PackedStringArray("res://addons/MonoCustomResourceRegistry/plugin.cfg")
 
 [gui]
 
@@ -37,10 +42,15 @@ common/drop_mouse_on_gui_input_disabled=true
 
 project/assembly_name="Tutorials"
 
+[navigation]
+
+3d/default_cell_size=0.2
+3d/default_cell_height=0.01
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/defaults/default_environment="res://default_env.tres"

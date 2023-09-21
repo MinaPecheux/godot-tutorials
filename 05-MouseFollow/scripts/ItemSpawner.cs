@@ -4,24 +4,28 @@ using System;
 namespace TowerDefense.Tutorial05_MouseFollow
 {
 	
-	public class ItemSpawner : Node
+	public partial class ItemSpawner : Node
 	{
 		[Export] private PackedScene _itemPrefab;
 		
 		private PathFollow2D _spawnLocation;
 		
+		private RandomNumberGenerator _rng;
+		
 		public override void _Ready()
 		{
+			_rng = new RandomNumberGenerator();
+			
 			_spawnLocation = GetNode<PathFollow2D>("SpawnLocation");
 			Timer timer = GetNode<Timer>("Timer");
-			timer.Connect("timeout", this, "_OnTimerTimeout");
+			timer.Timeout += _OnTimerTimeout;
 			timer.Start();
 		}
 
 		private void _OnTimerTimeout()
 		{
-			KinematicBody2D item = (KinematicBody2D)_itemPrefab.Instance();
-			_spawnLocation.Offset = GD.Randi();
+			CharacterBody2D item = (CharacterBody2D)_itemPrefab.Instantiate();
+			_spawnLocation.Progress = _rng.Randi();
 			
 			item.Position = _spawnLocation.Position;
 			AddChild(item);

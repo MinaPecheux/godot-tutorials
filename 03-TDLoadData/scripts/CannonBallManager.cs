@@ -4,7 +4,7 @@ using System;
 namespace TowerDefense.Tutorial03_LoadData
 {
 	
-	public class CannonBallManager : KinematicBody2D
+	public partial class CannonBallManager : CharacterBody2D
 	{
 
 		private Vector2 _velocity = Vector2.Zero;
@@ -16,9 +16,10 @@ namespace TowerDefense.Tutorial03_LoadData
 			this.damage = damage;
 		}
 
-		public override void _Process(float delta)
+		public override void _Process(double delta)
 		{
-			MoveAndSlide(_velocity);
+			Velocity = _velocity;
+			MoveAndSlide();
 		}
 		
 		private void _OnScreenExited()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgrll5eed51ag"]
 
-[ext_resource type="TileSet" uid="uid://cjxx2amnu2bdx" path="res://10-2DTilemaps/tileset.tres" id="1_lvadp"]
-[ext_resource type="Texture2D" uid="uid://bfi1r6wec4fjd" path="res://10-2DTilemaps/circle-white.png" id="2_4f7al"]
+[ext_resource type="TileSet" uid="uid://cjxx2amnu2bdx" path="res://06-2DTilemaps/tileset.tres" id="1_lvadp"]
+[ext_resource type="Texture2D" uid="uid://dhtgd1irbxv5r" path="res://06-2DTilemaps/circle-white.png" id="2_1pfwi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yof7w"]
 radius = 30.0
@@ -26,7 +26,7 @@ position = Vector2(76, 189)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_4f7al")
+texture = ExtResource("2_1pfwi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_yof7w")

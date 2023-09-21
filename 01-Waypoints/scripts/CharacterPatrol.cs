@@ -1,9 +1,9 @@
 using Godot;
 using System;
 
-public class CharacterPatrol : Node
+public partial class CharacterPatrol : Node
 {
-	private PathFollow _pathFollow;
+	private PathFollow3D _pathFollow;
 	private Timer _waypointTimer;
 	
 	[Export] private float _waypointCheckDistance = 0.1f;
@@ -18,11 +18,11 @@ public class CharacterPatrol : Node
 	
 	public override void _Ready()
 	{
-		_pathFollow = GetParent<PathFollow>();
+		_pathFollow = GetParent<PathFollow3D>();
 		_waypointTimer = GetNode<Timer>("WaypointTimer");
 		
-		Curve3D pathCurve = _pathFollow.GetParent<Path>().Curve;
-		int nWaypoints = pathCurve.GetPointCount();
+		Curve3D pathCurve = _pathFollow.GetParent<Path3D>().Curve;
+		int nWaypoints = pathCurve.PointCount;
 		_waypointPositions = new Vector3[nWaypoints - 1];
 		for (int i = 0; i < nWaypoints - 1; i++)
 		{
@@ -34,14 +34,14 @@ public class CharacterPatrol : Node
 		_moving = true;
 	}
 	
-	public override void _Process(float delta)
+	public override void _Process(double delta)
 	{
 		if (_moving)
 		{
-			_currentPathTime += delta;
-			_pathFollow.UnitOffset = _currentPathTime / _totalLoopTime;
+			_currentPathTime += (float)delta;
+			_pathFollow.ProgressRatio = _currentPathTime / _totalLoopTime;
 			
-			float d = (_waypointPositions[_nextWaypointIndex] - _pathFollow.Translation).Length();
+			float d = (_waypointPositions[_nextWaypointIndex] - _pathFollow.Position).Length();
 			if (d < _waypointCheckDistance)
 			{
 				_currentWaypointIndex = _nextWaypointIndex;

@@ -4,13 +4,13 @@ using System;
 namespace TowerDefense.Tutorial03_LoadData
 {
 	
-	public class LevelManager : Node2D
+	public partial class LevelManager : Node2D
 	{
 		[Export] private PackedScene _shipAsset;
 		[Export] private PackedScene _towerAsset;
-		private PackedScene _towerButtonAsset;
+		[Export] private PackedScene _towerButtonAsset;
 		[Export] private ShipData[] _shipsData;
-		private TowerData[] _towersData;
+		[Export] private TowerData[] _towersData;
 		private TowerToPlaceManager _towerToPlace;
 		
 		private Path2D _path;
@@ -30,7 +30,7 @@ namespace TowerDefense.Tutorial03_LoadData
 			_towerToPlace = GetNode<TowerToPlaceManager>("/root/Base/Tower-ToPlace");
 			_groundTilemap = GetNode<TileMap>("Tilemaps/Ground");
 			
-			_cellRound = _groundTilemap.CellSize.x;
+			_cellRound = _groundTilemap.CellQuadrantSize;
 			_cellOffset = 0.5f * new Vector2(_cellRound, _cellRound);
 			
 			SetIsBuilding(false);
@@ -39,19 +39,19 @@ namespace TowerDefense.Tutorial03_LoadData
 			Node towerButtonsParent = GetNode<Node>("/root/Base/CanvasLayer/UI/Towers");
 			foreach (TowerData data in _towersData)
 			{
-				Control c = (Control) _towerButtonAsset.Instance();
+				Control c = (Control) _towerButtonAsset.Instantiate();
 				((Button)c).Icon = data.sprite;
 				c.GetNode<Label>("Coins/Label").Text = $"{data.cost}";
-				c.Connect("pressed", this, "_OnTowerButtonMousePressed", new Godot.Collections.Array() { data });
-				c.Connect("mouse_entered", this, "_OnTowerButtonMouseEntered");
-				c.Connect("mouse_exited", this, "_OnTowerButtonMouseExited");
+				((Button)c).Pressed += () => _OnTowerButtonMousePressed(data);
+				c.MouseEntered += _OnTowerButtonMouseEntered;
+				c.MouseExited += _OnTowerButtonMouseExited;
 				towerButtonsParent.AddChild(c);
 			}
 		}
 		
 		private void _OnEnemySpawn()
 		{
-			Node ship = _shipAsset.Instance();
+			Node ship = _shipAsset.Instantiate();
 			Random random = new Random();
 			ShipData data = _shipsData[random.Next(0, _shipsData.Length)];
 			((ShipManager)ship).Initialize(data);
@@ -62,7 +62,7 @@ namespace TowerDefense.Tutorial03_LoadData
 		{
 			if (
 				@event is InputEventMouseButton eventMouseButton &&
-				eventMouseButton.ButtonIndex == 1 &&
+				eventMouseButton.ButtonIndex == MouseButton.Left &&
 				!eventMouseButton.Pressed
 			)
 			{
@@ -78,8 +78,8 @@ namespace TowerDefense.Tutorial03_LoadData
 				_towerToPlace.Position = _RoundPositionToTilemap(mousePos);
 				
 				// check tower has valid placement
-				Vector2 cellPos = _groundTilemap.WorldToMap(_towerToPlace.Position);
-				_towerHasValidPlacement = _groundTilemap.GetCellv(cellPos) != -1;
+				_towerHasValidPlacement = _groundTilemap.GetCellSourceId(
+					0, _groundTilemap.LocalToMap(_towerToPlace.Position)) != -1;
 				_towerToPlace.SetValid(_towerHasValidPlacement);
 			}
 		}
@@ -91,7 +91,7 @@ namespace TowerDefense.Tutorial03_LoadData
 		
 		private void _PlaceTower(Vector2 pos)
 		{
-			Node2D tower = (Node2D) _towerAsset.Instance();
+			Node2D tower = (Node2D) _towerAsset.Instantiate();
 			tower.Position = pos;
 			AddChild(tower);
 			((TowerManager)tower).Initialize(this, _towerToPlaceData);

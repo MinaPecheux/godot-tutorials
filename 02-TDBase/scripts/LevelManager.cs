@@ -4,7 +4,7 @@ using System;
 namespace TowerDefense.Tutorial02_Base
 {
 	
-	public class LevelManager : Node2D
+	public partial class LevelManager : Node2D
 	{
 		[Export] private PackedScene _shipAsset;
 		[Export] private PackedScene _towerAsset;
@@ -26,7 +26,7 @@ namespace TowerDefense.Tutorial02_Base
 			_towerToPlace = GetNode<TowerToPlaceManager>("/root/Base/Tower-ToPlace");
 			_groundTilemap = GetNode<TileMap>("Tilemaps/Ground");
 			
-			_cellRound = _groundTilemap.CellSize.x;
+			_cellRound = _groundTilemap.CellQuadrantSize;
 			_cellOffset = 0.5f * new Vector2(_cellRound, _cellRound);
 			
 			SetIsBuilding(false);
@@ -36,15 +36,15 @@ namespace TowerDefense.Tutorial02_Base
 			for (int i = 0; i < towerButtonsParent.GetChildCount(); i++)
 			{
 				Control c = (Control) towerButtonsParent.GetChild(i);
-				c.Connect("pressed", this, "_OnTowerButtonMousePressed");
-				c.Connect("mouse_entered", this, "_OnTowerButtonMouseEntered");
-				c.Connect("mouse_exited", this, "_OnTowerButtonMouseExited");
+				c.Connect("pressed", new Callable(this, "_OnTowerButtonMousePressed"));
+				c.Connect("mouse_entered", new Callable(this, "_OnTowerButtonMouseEntered"));
+				c.Connect("mouse_exited", new Callable(this, "_OnTowerButtonMouseExited"));
 			}
 		}
 		
 		private void _OnEnemySpawn()
 		{
-			Node ship = _shipAsset.Instance();
+			Node ship = _shipAsset.Instantiate();
 			_path.AddChild(ship);
 		}
 		
@@ -52,7 +52,7 @@ namespace TowerDefense.Tutorial02_Base
 		{
 			if (
 				@event is InputEventMouseButton eventMouseButton &&
-				eventMouseButton.ButtonIndex == 1 &&
+				eventMouseButton.ButtonIndex == MouseButton.Left &&
 				!eventMouseButton.Pressed
 			)
 			{
@@ -68,8 +68,8 @@ namespace TowerDefense.Tutorial02_Base
 				_towerToPlace.Position = _RoundPositionToTilemap(mousePos);
 				
 				// check tower has valid placement
-				Vector2 cellPos = _groundTilemap.WorldToMap(_towerToPlace.Position);
-				_towerHasValidPlacement = _groundTilemap.GetCellv(cellPos) != -1;
+				_towerHasValidPlacement = _groundTilemap.GetCellSourceId(
+					0, _groundTilemap.LocalToMap(_towerToPlace.Position)) != -1;
 				_towerToPlace.SetValid(_towerHasValidPlacement);
 			}
 		}
@@ -81,7 +81,7 @@ namespace TowerDefense.Tutorial02_Base
 		
 		private void _PlaceTower(Vector2 pos)
 		{
-			Node2D tower = (Node2D) _towerAsset.Instance();
+			Node2D tower = (Node2D) _towerAsset.Instantiate();
 			tower.Position = pos;
 			AddChild(tower);
 			((TowerManager)tower).Initialize(this, _towerToPlace.radius);

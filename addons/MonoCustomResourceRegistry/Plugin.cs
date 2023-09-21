@@ -1,36 +1,35 @@
-using System.Runtime.InteropServices.ComTypes;
-using System.Security.AccessControl;
-using System.Linq.Expressions;
+using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Godot;
+using System.Text;
 
 // Originally written by wmigor
 // Edited by Atlinx to recursively search for files.
+// Edited by bls220 to update for Godot 4.0
 // wmigor's Public Repo: https://github.com/wmigor/godot-mono-custom-resource-register
 namespace MonoCustomResourceRegistry
 {
-	#if TOOLS
+#if TOOLS
 	[Tool]
-	public class Plugin : EditorPlugin
+	public partial class Plugin : EditorPlugin
 	{
 		// We're not going to hijack the Mono Build button since it actually takes time to build
 		// and we can't be sure how long that is. I guess we have to leave refreshing to the user for now.
 		// There isn't any automation we can do to fix that.
-		// private Button MonoBuildButton => GetNode<Button>("/root/EditorNode/@@580/@@581/@@589/@@590/ToolButton");
+		// private Button MonoBuildButton => GetNode<Button>("/root/EditorNode/@@580/@@581/@@589/@@590/Button");
 		private readonly List<string> customTypes = new List<string>();
-		private Button refreshButton;
+		private Button? refreshButton;
 
 		public override void _EnterTree()
 		{
 			refreshButton = new Button();
 			refreshButton.Text = "CCR";
-			
+
 			AddControlToContainer(CustomControlContainer.Toolbar, refreshButton);
-			refreshButton.Icon = refreshButton.GetIcon("Reload", "EditorIcons");
-			refreshButton.Connect("pressed", this, nameof(OnRefreshPressed));
+			refreshButton.Icon = GetEditorInterface().GetBaseControl().GetThemeIcon("Reload", "EditorIcons");
+			refreshButton.Pressed += OnRefreshPressed;
 
 			Settings.Init();
 			RefreshCustomClasses();
@@ -41,7 +40,7 @@ namespace MonoCustomResourceRegistry
 		{
 			UnregisterCustomClasses();
 			RemoveControlFromContainer(CustomControlContainer.Toolbar, refreshButton);
-			refreshButton.QueueFree();
+			refreshButton?.QueueFree();
 		}
 
 		public void RefreshCustomClasses()
@@ -55,43 +54,42 @@ namespace MonoCustomResourceRegistry
 		{
 			customTypes.Clear();
 
-			File file = new File();
-
 			foreach (Type type in GetCustomRegisteredTypes())
 				if (type.IsSubclassOf(typeof(Resource)))
-					AddRegisteredType(type, nameof(Resource), file);
+					AddRegisteredType(type, nameof(Resource));
 				else
-					AddRegisteredType(type, nameof(Node), file);
+					AddRegisteredType(type, nameof(Node));
 		}
-		
-		private void AddRegisteredType(Type type, string defaultBaseTypeName, File file)
+
+		private void AddRegisteredType(Type type, string defaultBaseTypeName)
 		{
-			RegisteredTypeAttribute attribute = (RegisteredTypeAttribute) Attribute.GetCustomAttribute(type, typeof(RegisteredTypeAttribute));
-			String path = FindClassPath(type);
-			if (path == null && !file.FileExists(path))
+			RegisteredTypeAttribute? attribute = Attribute.GetCustomAttribute(type, typeof(RegisteredTypeAttribute)) as RegisteredTypeAttribute;
+			string? path = FindClassPath(type);
+			if (path == null && !FileAccess.FileExists(path))
 				return;
 			Script script = GD.Load<Script>(path);
 			if (script == null)
 				return;
 			string baseType = defaultBaseTypeName;
-			if (attribute.baseType != "")
+			if (attribute is not null && attribute.baseType != "")
 				baseType = attribute.baseType;
-			ImageTexture icon = null;
-			if (attribute.iconPath != "")
+			ImageTexture? icon = null;
+			if (attribute is not null && attribute.iconPath != "")
 			{
-				if (file.FileExists(attribute.iconPath))
+				if (FileAccess.FileExists(attribute.iconPath))
 				{
-					Texture rawIcon = ResourceLoader.Load<Texture>(attribute.iconPath);
+					Texture2D rawIcon = ResourceLoader.Load<Texture2D>(attribute.iconPath);
 					if (rawIcon != null)
 					{
-						Image image = rawIcon.GetData();
-						int length = (int) Mathf.Round(16 * GetEditorInterface().GetEditorScale());
+						Image image = rawIcon.GetImage();
+						int length = (int)Mathf.Round(16 * GetEditorInterface().GetEditorScale());
 						image.Resize(length, length);
-						icon = new ImageTexture();
-						icon.CreateFromImage(image);
-					} else
+						icon = ImageTexture.CreateFromImage(image);
+					}
+					else
 						GD.PushError($"Could not load the icon for the registered type \"{type.FullName}\" at path \"{path}\".");
-				} else 
+				}
+				else
 					GD.PushError($"The icon path of \"{path}\" for the registered type \"{type.FullName}\" does not exist.");
 			}
 			AddCustomType($"{Settings.ClassPrefix}{type.Name}", baseType, script, icon);
@@ -99,7 +97,7 @@ namespace MonoCustomResourceRegistry
 			GD.Print($"Registered custom type: {type.Name} -> {path}");
 		}
 
-		private static string FindClassPath(Type type)
+		private static string? FindClassPath(Type type)
 		{
 			switch (Settings.SearchType)
 			{
@@ -112,49 +110,62 @@ namespace MonoCustomResourceRegistry
 			}
 		}
 
-		private static string FindClassPathNamespace(Type type)
+		private static string? FindClassPathNamespace(Type type)
 		{
 			foreach (string dir in Settings.ResourceScriptDirectories)
 			{
-				string filePath = $"{dir}/{type.Namespace?.Replace(".", "/") ?? ""}/{type.Name}.cs";
-				File file = new File();
-				if (file.FileExists(filePath))
+				StringBuilder builder = new(dir);
+				if (!dir.EndsWith('/'))
+				{
+					builder.Append('/');
+				}
+				if (type.Namespace is not null)
+				{
+					builder
+						.Append(type.Namespace.Replace(".", "/"))
+						.Append('/');
+				}
+				builder
+					.Append(type.Name)
+					.Append(".cs");
+				string filePath = builder.ToString();
+				if (FileAccess.FileExists(filePath))
 					return filePath;
 			}
 			return null;
 		}
 
-		private static string FindClassPathRecursive(Type type)
+		private static string? FindClassPathRecursive(Type type)
 		{
 			foreach (string directory in Settings.ResourceScriptDirectories)
 			{
-				string fileFound = FindClassPathRecursiveHelper(type, directory);
+				string? fileFound = FindClassPathRecursiveHelper(type, directory);
 				if (fileFound != null)
 					return fileFound;
 			}
 			return null;
 		}
 
-		private static string FindClassPathRecursiveHelper(Type type, string directory)
+		private static string? FindClassPathRecursiveHelper(Type type, string directory)
 		{
-			Directory dir = new Directory();
+			var dir = DirAccess.Open(directory);
 
-			if (dir.Open(directory) == Error.Ok)
+			if (DirAccess.GetOpenError() == Error.Ok)
 			{
 				dir.ListDirBegin();
 
 				while (true)
 				{
 					var fileOrDirName = dir.GetNext();
-					
+
 					// Skips hidden files like .
 					if (fileOrDirName == "")
 						break;
-					else if (fileOrDirName.BeginsWith("."))
+					else if (fileOrDirName.StartsWith("."))
 						continue;
 					else if (dir.CurrentIsDir())
 					{
-						string foundFilePath = FindClassPathRecursiveHelper(type, dir.GetCurrentDir() + "/" + fileOrDirName);
+						string? foundFilePath = FindClassPathRecursiveHelper(type, dir.GetCurrentDir() + "/" + fileOrDirName);
 						if (foundFilePath != null)
 						{
 							dir.ListDirEnd();
@@ -171,10 +182,10 @@ namespace MonoCustomResourceRegistry
 		private static IEnumerable<Type> GetCustomRegisteredTypes()
 		{
 			var assembly = Assembly.GetAssembly(typeof(Plugin));
-			return assembly.GetTypes().Where(t => !t.IsAbstract 
-				&& Attribute.IsDefined(t, typeof(RegisteredTypeAttribute)) 
+			return assembly?.GetTypes().Where(t => !t.IsAbstract
+				&& Attribute.IsDefined(t, typeof(RegisteredTypeAttribute))
 				&& (t.IsSubclassOf(typeof(Node)) || t.IsSubclassOf(typeof(Resource)))
-				);
+				) ?? Enumerable.Empty<Type>();
 		}
 
 		private void UnregisterCustomClasses()
@@ -193,5 +204,5 @@ namespace MonoCustomResourceRegistry
 			RefreshCustomClasses();
 		}
 	}
-	#endif
+#endif
 }

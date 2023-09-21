@@ -4,7 +4,7 @@ using System;
 namespace TowerDefense.Tutorial02_Base
 {
 	
-	public class TowerToPlaceManager : Node2D
+	public partial class TowerToPlaceManager : Node2D
 	{
 		private static Color _COLOR_VALID = new Color("#4ef544");
 		private static Color _COLOR_INVALID = new Color("#f55544");
@@ -20,13 +20,13 @@ namespace TowerDefense.Tutorial02_Base
 
 			string radiusDisplayPath = "RadiusDisplay";
 			ShaderMaterial m = (ShaderMaterial) GetNode<CanvasItem>(radiusDisplayPath).Material;
-			m.SetShaderParam("radius", radius / GetNode<MeshInstance2D>(radiusDisplayPath).Scale.x);
+			m.SetShaderParameter("radius", radius / GetNode<MeshInstance2D>(radiusDisplayPath).Scale.X);
 		}
 		
 		public void SetValid(bool isValid)
 		{
 			Color c = isValid ? _COLOR_VALID : _COLOR_INVALID;
-			_spritesMaterial.SetShaderParam("tint", c);
+			_spritesMaterial.SetShaderParameter("tint", c);
 		}
 	}
 	

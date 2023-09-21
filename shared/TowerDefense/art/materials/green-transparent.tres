@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
-
-[ext_resource path="res://shared/TowerDefense/art/shaders/tinted-transparent.tres" type="Shader" id=1]
-
-[resource]
-shader = ExtResource( 1 )
-shader_param/lighten = 0.1
-shader_param/tint = Color( 0.960784, 0.33174, 0.266667, 1 )
-shader_param/transparency = 0.35

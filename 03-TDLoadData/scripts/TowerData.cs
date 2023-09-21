@@ -7,14 +7,14 @@ namespace TowerDefense.Tutorial03_LoadData
 {
 	
 	[RegisteredType(nameof(TowerData), "", nameof(Resource))]
-	public class TowerData : Resource
+	public partial class TowerData : Resource
 	{
 		[Export] public float attackRate { get; set; }
 		[Export] public int attackDamage { get; set; }
 		[Export] public float attackSpeed { get; set; }
 		[Export] public float radius { get; set; }
 		[Export] public int cost { get; set; }
-		[Export] public Texture sprite { get; set; }
+		[Export] public Texture2D sprite { get; set; }
 		
 		public TowerData()
 		{

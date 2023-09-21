@@ -4,7 +4,7 @@ using System;
 namespace TowerDefense.Tutorial03_LoadData
 {
 	
-	public class ShipManager : PathFollow2D
+	public partial class ShipManager : PathFollow2D
 	{
 		private PathFollow2D _pathFollow;
 		
@@ -23,13 +23,13 @@ namespace TowerDefense.Tutorial03_LoadData
 			_speed = data.speed;
 			HP = data.HP;
 			reward = data.reward;
-			GetNode<Sprite>("Sprite").Texture = data.sprite;
+			GetNode<Sprite2D>("Sprite2D").Texture = data.sprite;
 		}
 
-		public override void _Process(float delta)
+		public override void _Process(double delta)
 		{
-			_pathFollow.UnitOffset += delta * _speed * 0.03f;
-			if (_pathFollow.UnitOffset >= 1)
+			_pathFollow.ProgressRatio += (float)delta * _speed * 0.03f;
+			if (_pathFollow.ProgressRatio >= 1)
 				_Pass();
 		}
 		
@@ -39,7 +39,7 @@ namespace TowerDefense.Tutorial03_LoadData
 			QueueFree();
 		}
 		
-		private void _OnArea2DBodyEntered(object body)
+		private void _OnArea2DBodyEntered(Node2D body)
 		{
 			CannonBallManager cannonBall = (CannonBallManager) body;
 			_TakeHit(cannonBall.damage);

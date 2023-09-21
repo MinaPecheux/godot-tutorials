@@ -1,0 +1,17 @@
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.csproj.AssemblyReference.cache
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.GeneratedMSBuildEditorConfig.editorconfig
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.AssemblyInfoInputs.cache
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.AssemblyInfo.cs
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.csproj.CoreCompileInputs.cache
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/bin/Debug/Tutorials.deps.json
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/bin/Debug/Tutorials.runtimeconfig.json
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/bin/Debug/Tutorials.dll
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/bin/Debug/Tutorials.pdb
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/bin/Debug/GodotSharp.dll
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/bin/Debug/GodotSharpEditor.dll
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.csproj.CopyComplete
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.dll
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/refint/Tutorials.dll
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.pdb
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/Tutorials.genruntimeconfig.cache
+/Users/minapecheux/Documents/DEV/GODOT/tutorials/.godot/mono/temp/obj/Debug/ref/Tutorials.dll

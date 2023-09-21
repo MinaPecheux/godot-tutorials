@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace TowerDefense.Tutorial02_Base
 {
 	
-	public class TowerManager : Area2D
+	public partial class TowerManager : Area2D
 	{
 		[Export] private PackedScene _cannonBallAsset;
 		
@@ -33,7 +33,7 @@ namespace TowerDefense.Tutorial02_Base
 			_attackDelay = _attackRate;
 		}
 		
-		public override void _Process(float delta)
+		public override void _Process(double delta)
 		{
 			if (_currentTarget != null)
 			{
@@ -41,7 +41,7 @@ namespace TowerDefense.Tutorial02_Base
 				
 				if (_attackDelay > 0)
 				{
-					_attackDelay -= delta;
+					_attackDelay -= (float)delta;
 				}
 				else
 				{
@@ -69,7 +69,7 @@ namespace TowerDefense.Tutorial02_Base
 			_levelManager.SetCanPlaceTower(true);
 		}
 		
-		private void _OnFOVAreaEntered(object area)
+		private void _OnFOVAreaEntered(Area2D area)
 		{
 			Node2D ship = (Node2D) ((Node) area).GetParent();
 			_targetsInRange.Add(ship);
@@ -77,7 +77,7 @@ namespace TowerDefense.Tutorial02_Base
 				_currentTarget = _targetsInRange[0];
 		}
 		
-		private void _OnFOVAreaExited(object area)
+		private void _OnFOVAreaExited(Area2D area)
 		{
 			Node2D ship = (Node2D) ((Node) area).GetParent();
 			_targetsInRange.Remove(ship);
@@ -93,10 +93,10 @@ namespace TowerDefense.Tutorial02_Base
 		
 		private void _FireCannonBall()
 		{
-			CannonBallManager cannonBall = (CannonBallManager) _cannonBallAsset.Instance();
+			CannonBallManager cannonBall = (CannonBallManager) _cannonBallAsset.Instantiate();
 			cannonBall.Position = Position;
 			
-			Vector2 offsettedTarget = _currentTarget.Position + _currentTarget.Transform.x * 50f;
+			Vector2 offsettedTarget = _currentTarget.Position + _currentTarget.Transform.X * 50f;
 			Vector2 velocity = (offsettedTarget - Position).Normalized();
 			cannonBall.Initialize(velocity, _attackDamage, _attackSpeed);
 			

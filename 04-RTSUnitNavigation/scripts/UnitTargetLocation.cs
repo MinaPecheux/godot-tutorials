@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class UnitTargetLocation : Spatial
+public partial class UnitTargetLocation : Node3D
 {
 	private AnimationPlayer _anim;
 	
@@ -10,12 +10,12 @@ public class UnitTargetLocation : Spatial
 		_anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		
 		// initialize to transparent colors everywhere
-		ShaderMaterial m = (ShaderMaterial) GetNode<CSGMesh>("Mesh").Material;
-		m.SetShaderParam("radius", 0.01f);
+		var m = (ShaderMaterial) GetNode<MeshInstance3D>("Mesh").GetActiveMaterial(0);
+		m.SetShaderParameter("radius", 0.01f);
 	}
 
 	public void Click(Vector3 position) {
-		GlobalTranslation = position + Vector3.Up * 0.02f;
+		GlobalPosition = position + Vector3.Up * 0.02f;
 		_anim.Play("UnitTargetLocation");
 	}
 }
