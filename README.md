@@ -6,6 +6,8 @@
 
 This repo contains the code and assets for the various Godot/C# tutorials I published as videos and text articles on YouTube/Medium.
 
+✨ Amazing **asset packs** by [Kenney](https://kenney.nl/) :)
+
 =========================
 
 ⚠️ **WARNING** ⚠️
