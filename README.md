@@ -79,3 +79,11 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/07-2DCharacterController/)
 
 ![07_2DCharController-img](/doc/07_2DCharController.gif)
+
+## 08. Making a basic finite state machine
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=Kcg1SEgDqyk)
+- Read on [Medium](https://mina-pecheux.medium.com/making-a-basic-finite-state-machine-godot4-c-fe5ccc0e8cd7)
+- See the files [in the repo](/08-FSM/)
+
+![08_FSM-img](/doc/08_FSM.gif)
