@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://brx3ntkre8tv"]
 
-[ext_resource type="PackedScene" path="res://03-TDLoadData/assets/CannonBall.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cfdcoc4rloc6" path="res://03-TDLoadData/assets/CannonBall.tscn" id="1"]
 [ext_resource type="Script" path="res://03-TDLoadData/scripts/TowerManager.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://i60ulf3u6y4o" path="res://shared/TowerDefense/art/towers/tower-base.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://gremm4yuu0je" path="res://shared/TowerDefense/art/towers/cannon.png" id="4"]
