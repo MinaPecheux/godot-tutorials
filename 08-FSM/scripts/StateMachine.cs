@@ -38,6 +38,7 @@ public partial class StateMachine : Node
     public override void _UnhandledInput(InputEvent @event)
     {
         _currentState.HandleInput(@event);
+        @event.Dispose();
     }
     
     public void TransitionTo(string key) {
