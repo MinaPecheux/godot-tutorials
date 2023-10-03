@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://4npate53wtti"]
+
+[ext_resource type="Script" path="res://09-GameLoop/scripts/MainMenu.cs" id="1_dib0x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hl0oh"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.972549, 0.972549, 0.972549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kf1k"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.407843, 0.627451, 0.776471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jn2w6"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.560784, 0.560784, 0.870588, 1)
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.243137, 0.0705882, 0.0470588, 1)
+script = ExtResource("1_dib0x")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_hl0oh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7kf1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jn2w6")
+text = "PLAY"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_hl0oh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7kf1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jn2w6")
+text = "QUIT"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="ExitGame"]

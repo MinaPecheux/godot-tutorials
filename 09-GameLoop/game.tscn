@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://bywmrdmchx1of"]
+
+[ext_resource type="Script" path="res://09-GameLoop/scripts/Game.cs" id="1_id4hm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hl0oh"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.972549, 0.972549, 0.972549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kf1k"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.407843, 0.627451, 0.776471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jn2w6"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.560784, 0.560784, 0.870588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k77g2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8on75"]
+bg_color = Color(0.145098, 0, 0.227451, 1)
+
+[node name="Game" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.0980392, 0.235294, 1)
+script = ExtResource("1_id4hm")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClickMe" type="Button" parent="CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_hl0oh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7kf1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jn2w6")
+text = "CLICK ME!"
+
+[node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="EndGameUI" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="EndGameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndGameUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="EndGameUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "LABEL"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EndGameUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Back" type="Button" parent="EndGameUI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_hl0oh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7kf1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jn2w6")
+text = "BACK"
+
+[node name="Replay" type="Button" parent="EndGameUI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_hl0oh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7kf1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jn2w6")
+text = "REPLAY"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_k77g2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8on75")
+fill_mode = 1
+show_percentage = false
+
+[connection signal="pressed" from="EndGameUI/MarginContainer/VBoxContainer/HBoxContainer/Replay" to="." method="_Replay"]

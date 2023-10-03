@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cywa2p1eg10ms"]
+
+[ext_resource type="Script" path="res://09-GameLoop/scripts/SceneLoader.cs" id="1_vcctk"]
+
+[node name="SceneLoader" type="Node"]
+script = ExtResource("1_vcctk")
+_sceneFolder = "09-GameLoop"
