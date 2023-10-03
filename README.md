@@ -74,7 +74,7 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 ## 07. Implementing a 2D character controller
 
-- Watch on YouTube: [in English 🇬🇧](https://youtu.be/b7UNuZ-s_Kg)
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/b7UNuZ-s_Kg), [in French 🇫🇷](https://www.youtube.com/watch?v=aa03rwqeAtA)
 - Read on [Medium](https://mina-pecheux.medium.com/implementing-a-simple-2d-character-controller-godot-4-c-9f4fe4f24288)
 - See the files [in the repo](/07-2DCharacterController/)
 
