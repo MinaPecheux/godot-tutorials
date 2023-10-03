@@ -87,3 +87,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/08-FSM/)
 
 ![08_FSM-img](/doc/08_FSM.gif)
+
+## 09. Creating a simple but full game loop
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=_hkSCSvk4_4)
+- See the files [in the repo](/09-GameLoop/)
