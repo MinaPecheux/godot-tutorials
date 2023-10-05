@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://binr415ie05st"]
+
+[ext_resource type="Material" uid="uid://cyl5f64iytsky" path="res://10-RandomUnits/art/materials/ground.tres" id="10_047pa"]
+[ext_resource type="PackedScene" uid="uid://d1pcimq7ne414" path="res://10-RandomUnits/art/models/rock.glb" id="11_biwt8"]
+[ext_resource type="PackedScene" uid="uid://dun6y3h0c01db" path="res://10-RandomUnits/art/models/rock_largeA.glb" id="12_lwhse"]
+[ext_resource type="PackedScene" uid="uid://d2jhv2dsvabm7" path="res://10-RandomUnits/art/models/rock_largeB.glb" id="13_000s7"]
+[ext_resource type="PackedScene" uid="uid://b3bc0c1lu5qmn" path="res://10-RandomUnits/art/models/craterLarge.glb" id="14_5twnw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hvb44"]
+size = Vector2(32, 32)
+
+[sub_resource type="Environment" id="Environment_0jy8a"]
+tonemap_mode = 3
+
+[node name="Root" type="Node3D"]
+
+[node name="SCENE" type="Node" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="SCENE"]
+material_override = ExtResource("10_047pa")
+mesh = SubResource("PlaneMesh_hvb44")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 35.6643, 35.6643)
+environment = SubResource("Environment_0jy8a")
+projection = 1
+fov = 5.0
+size = 18.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.3271, 0)
+light_energy = 15.0
+shadow_enabled = true
+omni_range = 50.0
+
+[node name="rock" parent="SCENE" instance=ExtResource("11_biwt8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.72868, 0, 5.90346)
+
+[node name="rock2" parent="SCENE" instance=ExtResource("11_biwt8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.3912, 0, -4.19415)
+
+[node name="rock_largeA" parent="SCENE" instance=ExtResource("12_lwhse")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.1646, 0, -9.08105)
+
+[node name="rock_largeB" parent="SCENE" instance=ExtResource("13_000s7")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 6.26306, 0, 0.954077)
+
+[node name="rock_largeB2" parent="SCENE" instance=ExtResource("13_000s7")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -16.3607, 0, -12.7224)
+
+[node name="craterLarge" parent="SCENE" instance=ExtResource("14_5twnw")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -26.382, 0, -20.2387)
+
+[node name="craterLarge2" parent="SCENE" instance=ExtResource("14_5twnw")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.383446, 0, 3.51043)
+
+[node name="UNITS" type="Node" parent="."]

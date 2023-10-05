@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ljnk5bl5r1tj"]
+
+[ext_resource type="Script" path="res://10-RandomUnits/scripts/Unit.cs" id="1_w4q1n"]
+
+[node name="Unit" type="Node3D"]
+script = ExtResource("1_w4q1n")
+
+[node name="Mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.5)

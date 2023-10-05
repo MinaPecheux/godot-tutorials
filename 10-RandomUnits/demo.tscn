@@ -1,0 +1,93 @@
+[gd_scene load_steps=17 format=3 uid="uid://dwi7r23uo4w3w"]
+
+[ext_resource type="Script" path="res://10-RandomUnits/scripts/UnitSpawner.cs" id="1_5j253"]
+[ext_resource type="Material" uid="uid://cyl5f64iytsky" path="res://10-RandomUnits/art/materials/ground.tres" id="1_thc6h"]
+[ext_resource type="PackedScene" uid="uid://ljnk5bl5r1tj" path="res://10-RandomUnits/assets/unit.tscn" id="2_rhgqt"]
+[ext_resource type="PackedScene" uid="uid://gju4c8hortk4" path="res://10-RandomUnits/art/models/craft_cargoA.glb" id="3_oc7ln"]
+[ext_resource type="PackedScene" uid="uid://cs452a31ytbpq" path="res://10-RandomUnits/art/models/craft_miner.glb" id="4_utxtp"]
+[ext_resource type="PackedScene" uid="uid://wbuc2mb3a3jn" path="res://10-RandomUnits/art/models/craft_racer.glb" id="5_hg81p"]
+[ext_resource type="PackedScene" uid="uid://d1pcimq7ne414" path="res://10-RandomUnits/art/models/rock.glb" id="5_v22wg"]
+[ext_resource type="PackedScene" uid="uid://dm7artswmu2nt" path="res://10-RandomUnits/art/models/craft_speederA.glb" id="6_ftxbn"]
+[ext_resource type="PackedScene" uid="uid://dun6y3h0c01db" path="res://10-RandomUnits/art/models/rock_largeA.glb" id="6_p36ke"]
+[ext_resource type="PackedScene" uid="uid://dqebb5dmlgmp" path="res://10-RandomUnits/art/models/craft_speederB.glb" id="7_iycpx"]
+[ext_resource type="PackedScene" uid="uid://d2jhv2dsvabm7" path="res://10-RandomUnits/art/models/rock_largeB.glb" id="7_loe1i"]
+[ext_resource type="PackedScene" uid="uid://b3bc0c1lu5qmn" path="res://10-RandomUnits/art/models/craterLarge.glb" id="8_lrrbe"]
+[ext_resource type="PackedScene" uid="uid://fyk6fq5uswrf" path="res://10-RandomUnits/art/models/craft_speederC.glb" id="8_vorms"]
+[ext_resource type="PackedScene" uid="uid://cor6dgkd7jju5" path="res://10-RandomUnits/art/models/craft_speederD.glb" id="9_eyos4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hvb44"]
+size = Vector2(32, 32)
+
+[sub_resource type="Environment" id="Environment_0jy8a"]
+tonemap_mode = 3
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_5j253")
+_unitPrefab = ExtResource("2_rhgqt")
+_units = Array[PackedScene]([ExtResource("3_oc7ln"), ExtResource("4_utxtp"), ExtResource("5_hg81p"), ExtResource("6_ftxbn"), ExtResource("7_iycpx"), ExtResource("8_vorms"), ExtResource("9_eyos4")])
+
+[node name="SCENE" type="Node" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="SCENE"]
+material_override = ExtResource("1_thc6h")
+mesh = SubResource("PlaneMesh_hvb44")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 35.6643, 35.6643)
+environment = SubResource("Environment_0jy8a")
+projection = 1
+fov = 5.0
+size = 18.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.3271, 0)
+light_energy = 15.0
+shadow_enabled = true
+omni_range = 50.0
+
+[node name="rock" parent="SCENE" instance=ExtResource("5_v22wg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.72868, 0, 5.90346)
+
+[node name="rock2" parent="SCENE" instance=ExtResource("5_v22wg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.3912, 0, -4.19415)
+
+[node name="rock_largeA" parent="SCENE" instance=ExtResource("6_p36ke")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.1646, 0, -9.08105)
+
+[node name="rock_largeB" parent="SCENE" instance=ExtResource("7_loe1i")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 6.26306, 0, 0.954077)
+
+[node name="rock_largeB2" parent="SCENE" instance=ExtResource("7_loe1i")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -16.3607, 0, -12.7224)
+
+[node name="craterLarge" parent="SCENE" instance=ExtResource("8_lrrbe")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -26.382, 0, -20.2387)
+
+[node name="craterLarge2" parent="SCENE" instance=ExtResource("8_lrrbe")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.383446, 0, 3.51043)
+
+[node name="UNITS" type="Node" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Generate" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "GENERATE"
+
+[node name="Move" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "MOVE"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Generate" to="." method="_RegenerateUnits"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Move" to="." method="_MoveUnits"]
