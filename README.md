@@ -91,9 +91,12 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 ## 09. Creating a simple but full game loop
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=_hkSCSvk4_4)
+- Read on [Medium](https://medium.com/p/4d5586c67f79)
 - See the files [in the repo](/09-GameLoop/)
 
 ## 10. Implement & move random 3D units!
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=v7EUsWQKRko)
 - See the files [in the repo](/10-RandomUnits/)
+
+![10_RandomUnits-img](/doc/10_RandomUnits.gif)
