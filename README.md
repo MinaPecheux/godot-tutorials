@@ -97,6 +97,13 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 ## 10. Instantiate & move random 3D units!
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=v7EUsWQKRko)
+- Read on [Medium](https://medium.com/p/9f4fe4f24288)
 - See the files [in the repo](/10-RandomUnits/)
 
 ![10_RandomUnits-img](/doc/10_RandomUnits.gif)
+
+## 11. Learning the basics of input actions
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/uZvDAgXpPOU)
+- Read on [Medium](https://mina-pecheux.medium.com/learning-the-basics-of-input-actions-godot-4-c-42458db5d1fc)
+- See the files [in the repo](/11-InputActions/)
