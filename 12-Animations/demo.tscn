@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyu35prqq4ymu"]
+
+[ext_resource type="PackedScene" uid="uid://cv58b86hrefy8" path="res://assets/chest.tscn" id="1_mab5v"]
+
+[node name="Root" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.918115, -0.184628, 0.350682, 1.49012e-08, 0.884858, 0.465862, -0.396315, -0.427714, 0.812401, 3.28204, 5.43675, 7.60328)
+fov = 30.0
+
+[node name="Chest" parent="." instance=ExtResource("1_mab5v")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.700307, 0.68979, 0.183741, -0.643215, 0.498126, 0.581502, 0.309588, -0.525415, 0.792524, 7.49713, 5.41399, -5.71059)
