@@ -107,3 +107,11 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/uZvDAgXpPOU)
 - Read on [Medium](https://mina-pecheux.medium.com/learning-the-basics-of-input-actions-godot-4-c-42458db5d1fc)
 - See the files [in the repo](/11-InputActions/)
+
+## 12. Using animations for a basic chest system
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/dp-BZMYfPdM)
+- Read on [Medium](https://mina-pecheux.medium.com/using-animations-to-make-a-simple-chest-system-godot-4-c-34a66747946e)
+- See the files [in the repo](/12-Animations/)
+
+![12_RandomUnits-img](/doc/12_Animations.gif)
