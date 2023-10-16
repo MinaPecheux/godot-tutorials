@@ -115,3 +115,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/12-Animations/)
 
 ![12_RandomUnits-img](/doc/12_Animations.gif)
+
+## 13. Going further with 2D Tilemaps
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/HLGHiY7lw5A)
+- See the files [in the repo](/13-Tilemaps2/)
