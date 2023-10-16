@@ -1,0 +1,36 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://t134w53jkqvp"]
+
+[ext_resource type="Texture2D" uid="uid://b2vupr8emgjrj" path="res://13-Tilemaps2/art/spritesheets/AZagorskiy-Isometric.png" id="1_ontq4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c667l"]
+texture = ExtResource("1_ontq4")
+separation = Vector2i(30, 0)
+texture_region_size = Vector2i(160, 152)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/bottom_right_side = 0
+1:0/0/terrains_peering_bit/bottom_left_side = 0
+1:0/0/terrains_peering_bit/top_left_side = 0
+1:0/0/terrains_peering_bit/top_right_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/bottom_right_side = 0
+2:0/0/terrains_peering_bit/bottom_left_side = 0
+2:0/0/terrains_peering_bit/top_left_side = 0
+2:0/0/terrains_peering_bit/top_right_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+
+[resource]
+tile_shape = 1
+tile_size = Vector2i(155, 90)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Base"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_c667l")
