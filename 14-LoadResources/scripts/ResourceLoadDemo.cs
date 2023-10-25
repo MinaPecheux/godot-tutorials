@@ -4,7 +4,7 @@ using System.IO;
 
 public partial class ResourceLoadDemo : Node3D
 {
-    private const string _ROOT_PATH = "res://art/resources";
+    private const string _ROOT_PATH = "res://14-LoadResources/art/resources";
 
     private Sprite3D _imageDisplay;
     private Node3D _audioDisplay;
