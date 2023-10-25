@@ -1,0 +1,174 @@
+[gd_scene load_steps=12 format=3 uid="uid://bith3hjp2wo4y"]
+
+[ext_resource type="Script" path="res://14-LoadResources/scripts/ResourceLoadDemo.cs" id="1_bkvuq"]
+[ext_resource type="Material" uid="uid://dswxekemnqlkb" path="res://14-LoadResources/art/materials/ground.tres" id="2_0n0yw"]
+[ext_resource type="Texture2D" uid="uid://b0mraj8qp2lmr" path="res://14-LoadResources/art/resources/img/volume-high.png" id="3_ipb3h"]
+[ext_resource type="Texture2D" uid="uid://siamo8e0hr4p" path="res://14-LoadResources/art/resources/img/icon.svg" id="4_or6i6"]
+[ext_resource type="Texture2D" uid="uid://dg18jgqhpcpo5" path="res://14-LoadResources/art/resources/img/fire_01.png" id="5_5bohg"]
+[ext_resource type="Texture2D" uid="uid://2f2mll7a4e4h" path="res://14-LoadResources/art/resources/img/robot_redDrive1.png" id="6_iw305"]
+[ext_resource type="Texture2D" uid="uid://btnt572ak8yle" path="res://14-LoadResources/art/resources/img/race-car.png" id="7_uictb"]
+[ext_resource type="Texture2D" uid="uid://khpa4py7dd6h" path="res://14-LoadResources/art/resources/img/spaceship.png" id="8_s6brw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_exvuh"]
+size = Vector2(20, 20)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aeipx"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 0.2
+
+[sub_resource type="Environment" id="Environment_71kx3"]
+background_mode = 1
+background_color = Color(0.729412, 0.878431, 0.905882, 1)
+tonemap_mode = 1
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_bkvuq")
+
+[node name="SCENE" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="SCENE"]
+material_override = ExtResource("2_0n0yw")
+mesh = SubResource("PlaneMesh_exvuh")
+skeleton = NodePath("../..")
+
+[node name="Pedestal" type="MeshInstance3D" parent="SCENE/Ground"]
+mesh = SubResource("CylinderMesh_aeipx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SCENE"]
+transform = Transform3D(0.383273, -0.194815, 0.902856, -0.90976, -0.248421, 0.332601, 0.159493, -0.948859, -0.272448, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 0.972084, 0.234633, 0, -0.234633, 0.972084, 0, 2.19736, 7.20813)
+environment = SubResource("Environment_71kx3")
+fov = 30.0
+
+[node name="ImageDisplay" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 0.874634, 0)
+
+[node name="AudioDisplay" type="Node3D" parent="."]
+visible = false
+
+[node name="AudioDisplay" type="Sprite3D" parent="AudioDisplay"]
+transform = Transform3D(0.5, 0, 0, 0, 0.498125, 0.0432562, 0, -0.0432562, 0.498125, 0, 0.988953, 0)
+texture = ExtResource("3_ipb3h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioDisplay"]
+
+[node name="ModelDisplay" type="Node3D" parent="."]
+visible = false
+
+[node name="UI" type="MarginContainer" parent="."]
+offset_right = 800.0
+offset_bottom = 82.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="TabContainer" type="TabContainer" parent="UI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Images" type="MarginContainer" parent="UI/TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TabContainer/Images"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Desc" type="Label" parent="UI/TabContainer/Images/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Load an image in the ImageDisplay sprite:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TabContainer/Images/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/TabContainer/Images/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 100
+icon = ExtResource("4_or6i6")
+
+[node name="Button2" type="Button" parent="UI/TabContainer/Images/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 100
+icon = ExtResource("5_5bohg")
+
+[node name="Button3" type="Button" parent="UI/TabContainer/Images/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 100
+icon = ExtResource("6_iw305")
+
+[node name="Audio" type="MarginContainer" parent="UI/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TabContainer/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Desc" type="Label" parent="UI/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Load an audio in the AudioDisplay player:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 100
+theme_override_font_sizes/font_size = 32
+text = " ARCADE MODE "
+
+[node name="Button2" type="Button" parent="UI/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 100
+theme_override_font_sizes/font_size = 32
+text = " BATTLE MODE "
+
+[node name="3D Models" type="MarginContainer" parent="UI/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TabContainer/3D Models"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Desc" type="Label" parent="UI/TabContainer/3D Models/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Load an image in the ImageDisplay sprite:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TabContainer/3D Models/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/TabContainer/3D Models/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 300
+icon = ExtResource("7_uictb")
+
+[node name="Button2" type="Button" parent="UI/TabContainer/3D Models/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 300
+icon = ExtResource("8_s6brw")
+
+[connection signal="pressed" from="UI/TabContainer/Images/VBoxContainer/HBoxContainer/Button" to="." method="_OnImageBtnPressed" binds= ["img/icon.svg"]]
+[connection signal="pressed" from="UI/TabContainer/Images/VBoxContainer/HBoxContainer/Button2" to="." method="_OnImageBtnPressed" binds= ["img/fire_01.png"]]
+[connection signal="pressed" from="UI/TabContainer/Images/VBoxContainer/HBoxContainer/Button3" to="." method="_OnImageBtnPressed" binds= ["img/robot_redDrive1.png"]]
+[connection signal="pressed" from="UI/TabContainer/Audio/VBoxContainer/HBoxContainer/Button" to="." method="_OnAudioBtnPressed" binds= ["audio/arcade_mode.ogg"]]
+[connection signal="pressed" from="UI/TabContainer/Audio/VBoxContainer/HBoxContainer/Button2" to="." method="_OnAudioBtnPressed" binds= ["audio/battle_mode.ogg"]]
+[connection signal="pressed" from="UI/TabContainer/3D Models/VBoxContainer/HBoxContainer/Button" to="." method="_OnModelBtnPressed" binds= ["models/race-car.glb"]]
+[connection signal="pressed" from="UI/TabContainer/3D Models/VBoxContainer/HBoxContainer/Button2" to="." method="_OnModelBtnPressed" binds= ["models/spaceship.glb"]]
