@@ -120,3 +120,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/HLGHiY7lw5A)
 - See the files [in the repo](/13-Tilemaps2/)
+
+## 14. Loading resources at runtime in C#...
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/_m4L36SfijA)
+- See the files [in the repo](/14-LoadResources/)
