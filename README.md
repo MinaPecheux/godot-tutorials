@@ -119,6 +119,7 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 ## 13. Going further with 2D Tilemaps
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/HLGHiY7lw5A)
+- Read on [Medium](https://medium.com/p/4c77ad6445ad)
 - See the files [in the repo](/13-Tilemaps2/)
 
 ## 14. Loading resources at runtime in C#...
