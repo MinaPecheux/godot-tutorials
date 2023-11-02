@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://deshuiai6hbwj"]
+
+[ext_resource type="Script" path="res://15-VisibilityLayers/VisibilityController.cs" id="1_owa5q"]
+
+[sub_resource type="Environment" id="Environment_cl4y7"]
+background_mode = 1
+background_color = Color(0.0196078, 0.0196078, 0.0745098, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8gepo"]
+
+[node name="Demo-3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.33921)
+environment = SubResource("Environment_cl4y7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+layers = 2
+mesh = SubResource("SphereMesh_8gepo")
+script = ExtResource("1_owa5q")

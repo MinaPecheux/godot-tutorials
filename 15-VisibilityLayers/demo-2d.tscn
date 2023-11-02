@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccshcyqwnh3uh"]
+
+[ext_resource type="Texture2D" uid="uid://c4ydbd6k46dta" path="res://15-VisibilityLayers/art/sprite-layer1.png" id="1_tluv8"]
+[ext_resource type="Texture2D" uid="uid://6ufp0wgrlq5k" path="res://15-VisibilityLayers/art/sprite-layer2.png" id="2_w7lwf"]
+
+[node name="Demo-2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(0, -1)
+anchor_mode = 0
+
+[node name="Sprite-Layer1" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(860, 540)
+texture = ExtResource("1_tluv8")
+
+[node name="Sprite-Layer2" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+visibility_layer = 2
+position = Vector2(1080, 540)
+texture = ExtResource("2_w7lwf")
