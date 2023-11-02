@@ -125,4 +125,11 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 ## 14. Loading resources at runtime in C#...
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/_m4L36SfijA)
+- Read on [Medium](https://medium.com/p/2dc87ad97c89)
 - See the files [in the repo](/14-LoadResources/)
+
+## 15. Using mask culling & visibility layers
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/UqQyBv4htqw)
+- Read on [Medium](https://mina-pecheux.medium.com/using-mask-culling-visibility-layers-godot-4-c-7d3b8b0415d5)
+- See the files [in the repo](/15-VisibilityLayers/)
