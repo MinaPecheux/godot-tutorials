@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx2i4qqpqlgcx"]
+
+[ext_resource type="Script" path="res://16-EnemyWaves/scripts/Enemy.cs" id="1_tj6mc"]
+[ext_resource type="Texture2D" uid="uid://cimc4aipxtfid" path="res://16-EnemyWaves/art/Tanks/tank-white.png" id="2_qic0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e58lh"]
+size = Vector2(140, 120)
+
+[node name="Enemy" type="PathFollow2D"]
+loop = false
+script = ExtResource("1_tj6mc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_qic0x")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_e58lh")
+
+[connection signal="input_event" from="Area2D" to="." method="_OnClicked"]

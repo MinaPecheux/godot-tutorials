@@ -1,0 +1,277 @@
+[gd_scene load_steps=9 format=3 uid="uid://uctb6snhe57l"]
+
+[ext_resource type="Script" path="res://16-EnemyWaves/scripts/WaveManager.cs" id="1_ihcy7"]
+[ext_resource type="PackedScene" uid="uid://bx2i4qqpqlgcx" path="res://16-EnemyWaves/assets/enemy.tscn" id="2_gt4dm"]
+[ext_resource type="Texture2D" uid="uid://pkttmsjy1qdw" path="res://16-EnemyWaves/art/Environment/grass.png" id="3_be50n"]
+[ext_resource type="Texture2D" uid="uid://cc45bju13ffkd" path="res://16-EnemyWaves/art/Environment/dirt.png" id="4_giuff"]
+[ext_resource type="Texture2D" uid="uid://le43xw40xwt0" path="res://16-EnemyWaves/art/Obstacles/sandbagBeige.png" id="5_ekx7q"]
+[ext_resource type="Texture2D" uid="uid://dbj6ucu8bsj72" path="res://16-EnemyWaves/art/Environment/treeLarge.png" id="6_xvdur"]
+[ext_resource type="Texture2D" uid="uid://bpyh6daramsaf" path="res://16-EnemyWaves/art/Environment/treeSmall.png" id="7_xibqt"]
+
+[sub_resource type="Curve2D" id="Curve2D_o5xo6"]
+_data = {
+"points": PackedVector2Array(-222.487, -6.35678, 222.487, 6.35678, -128, 149, -179.049, -188.584, 179.049, 188.584, 539, 557, -128.195, 173.752, 128.195, -173.752, 1288, 710, -273.341, -21.1893, 273.341, 21.1893, 1521, 117, -108.065, -153.622, 108.065, 153.622, 1724, 816, 0, 0, 0, 0, 2036, 968)
+}
+point_count = 6
+
+[node name="Root" type="Node2D" node_paths=PackedStringArray("_enemySpawnTimer")]
+scale = Vector2(2, 2)
+script = ExtResource("1_ihcy7")
+_enemyScene = ExtResource("2_gt4dm")
+_enemySpawnTimer = NodePath("EnemySpawnTimer")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Env" type="Node2D" parent="."]
+
+[node name="Terrain" type="Sprite2D" parent="Env"]
+scale = Vector2(15, 9)
+texture = ExtResource("3_be50n")
+offset = Vector2(64, 64)
+
+[node name="Terrain2" type="Sprite2D" parent="Env"]
+scale = Vector2(4, 4)
+texture = ExtResource("4_giuff")
+offset = Vector2(64, 64)
+
+[node name="Terrain3" type="Sprite2D" parent="Env"]
+position = Vector2(512, 512)
+scale = Vector2(5, 5)
+texture = ExtResource("4_giuff")
+offset = Vector2(64, 64)
+
+[node name="Terrain4" type="Sprite2D" parent="Env"]
+position = Vector2(1762, -123)
+scale = Vector2(3, 3)
+texture = ExtResource("4_giuff")
+offset = Vector2(64, 64)
+
+[node name="Sandbag" type="Sprite2D" parent="Env"]
+position = Vector2(46, 181)
+rotation = 0.206493
+scale = Vector2(2.31382, 2.81903)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag2" type="Sprite2D" parent="Env"]
+position = Vector2(215, 243)
+rotation = 0.465426
+scale = Vector2(2.90418, 2.81903)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag3" type="Sprite2D" parent="Env"]
+position = Vector2(318, 366)
+rotation = 0.813881
+scale = Vector2(2.40323, 2.38664)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag4" type="Sprite2D" parent="Env"]
+position = Vector2(454, 469)
+rotation = 0.664406
+scale = Vector2(2.40323, 2.38664)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag6" type="Sprite2D" parent="Env"]
+position = Vector2(726, 644)
+rotation = 0.460678
+scale = Vector2(2.40323, 2.38664)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag7" type="Sprite2D" parent="Env"]
+position = Vector2(868.225, 749.472)
+rotation = 0.297912
+scale = Vector2(2.40323, 2.38664)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag8" type="Sprite2D" parent="Env"]
+position = Vector2(1006.22, 786.472)
+rotation = 0.106916
+scale = Vector2(2.40323, 2.38664)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag9" type="Sprite2D" parent="Env"]
+position = Vector2(1187, 779)
+rotation = -0.0826434
+scale = Vector2(2.40323, 2.38664)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag11" type="Sprite2D" parent="Env"]
+position = Vector2(1311, 507)
+rotation = 1.43977
+scale = Vector2(2.40323, 2.38664)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag12" type="Sprite2D" parent="Env"]
+position = Vector2(1342, 387)
+rotation = 1.7705
+scale = Vector2(1.87144, 2.00123)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag17" type="Sprite2D" parent="Env"]
+position = Vector2(1700, 394)
+rotation = 1.67991
+scale = Vector2(1.87144, 2.00123)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag18" type="Sprite2D" parent="Env"]
+position = Vector2(1653, 494)
+rotation = 1.51278
+scale = Vector2(1.87144, 2.00123)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag21" type="Sprite2D" parent="Env"]
+position = Vector2(1741, 862)
+rotation = 0.786474
+scale = Vector2(1.87144, 2.00123)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag22" type="Sprite2D" parent="Env"]
+position = Vector2(1882, 933)
+rotation = 0.204122
+scale = Vector2(1.87144, 2.00123)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag19" type="Sprite2D" parent="Env"]
+position = Vector2(1710, 633)
+rotation = 1.60061
+scale = Vector2(2.33463, 2.32994)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag20" type="Sprite2D" parent="Env"]
+position = Vector2(1677, 752)
+rotation = 1.35816
+scale = Vector2(2.33463, 2.32994)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag13" type="Sprite2D" parent="Env"]
+position = Vector2(1334, 256)
+rotation = 1.64731
+scale = Vector2(1.87144, 2.00123)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag14" type="Sprite2D" parent="Env"]
+position = Vector2(1397, 158)
+rotation = 2.2542
+scale = Vector2(2.30381, 2.15451)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag15" type="Sprite2D" parent="Env"]
+position = Vector2(1547, 126)
+rotation = 3.24184
+scale = Vector2(2.30381, 2.15451)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag5" type="Sprite2D" parent="Env"]
+position = Vector2(572.014, 583.238)
+rotation = 0.286916
+scale = Vector2(2.99366, 3.09379)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag10" type="Sprite2D" parent="Env"]
+position = Vector2(1310, 692)
+rotation = -0.773266
+scale = Vector2(2.99366, 3.09379)
+texture = ExtResource("5_ekx7q")
+
+[node name="Sandbag16" type="Sprite2D" parent="Env"]
+position = Vector2(1651, 221)
+rotation = 1.35655
+scale = Vector2(2.99366, 3.09379)
+texture = ExtResource("5_ekx7q")
+
+[node name="Tree" type="Sprite2D" parent="Env"]
+position = Vector2(503, 84)
+scale = Vector2(3, 3)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree2" type="Sprite2D" parent="Env"]
+position = Vector2(42, 551)
+rotation = 1.7248
+scale = Vector2(2.35819, 2.18726)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree3" type="Sprite2D" parent="Env"]
+position = Vector2(528, 267)
+rotation = 1.7248
+scale = Vector2(2.35819, 2.18726)
+texture = ExtResource("7_xibqt")
+
+[node name="Tree4" type="Sprite2D" parent="Env"]
+position = Vector2(213, 511)
+rotation = 1.7248
+scale = Vector2(1.958, 1.816)
+texture = ExtResource("7_xibqt")
+
+[node name="Tree5" type="Sprite2D" parent="Env"]
+position = Vector2(1131.13, 561.962)
+rotation = 1.7248
+scale = Vector2(2.35819, 2.18726)
+texture = ExtResource("7_xibqt")
+
+[node name="Tree6" type="Sprite2D" parent="Env"]
+position = Vector2(528, 797)
+rotation = 1.7248
+scale = Vector2(1.958, 1.816)
+texture = ExtResource("7_xibqt")
+
+[node name="Tree7" type="Sprite2D" parent="Env"]
+position = Vector2(565, 970)
+rotation = 3.00279
+scale = Vector2(2.35819, 2.18726)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree14" type="Sprite2D" parent="Env"]
+position = Vector2(1117, 867)
+rotation = 1.30467
+scale = Vector2(1.958, 1.816)
+texture = ExtResource("7_xibqt")
+
+[node name="Tree15" type="Sprite2D" parent="Env"]
+position = Vector2(1703, 993)
+rotation = 1.90005
+scale = Vector2(2.35819, 2.18726)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree8" type="Sprite2D" parent="Env"]
+position = Vector2(436, 1086)
+rotation = 3.00279
+scale = Vector2(2.35819, 2.18726)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree9" type="Sprite2D" parent="Env"]
+position = Vector2(1162, 1051)
+rotation = 3.00279
+scale = Vector2(2.35819, 2.18726)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree10" type="Sprite2D" parent="Env"]
+position = Vector2(951, 478)
+rotation = 0.798645
+scale = Vector2(2.83814, 2.65101)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree12" type="Sprite2D" parent="Env"]
+position = Vector2(1873, 307)
+rotation = -1.98129
+scale = Vector2(2.00238, 1.79653)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree13" type="Sprite2D" parent="Env"]
+position = Vector2(1576, 823)
+rotation = -1.98129
+scale = Vector2(2.00238, 1.79653)
+texture = ExtResource("6_xvdur")
+
+[node name="Tree11" type="Sprite2D" parent="Env"]
+position = Vector2(1848, 489)
+rotation = 3.2448
+scale = Vector2(2.5995, 2.42098)
+texture = ExtResource("6_xvdur")
+
+[node name="Enemies" type="Path2D" parent="."]
+curve = SubResource("Curve2D_o5xo6")
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_OnSpawnEnemy"]
