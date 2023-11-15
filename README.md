@@ -133,3 +133,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/UqQyBv4htqw)
 - Read on [Medium](https://mina-pecheux.medium.com/using-mask-culling-visibility-layers-godot-4-c-7d3b8b0415d5)
 - See the files [in the repo](/15-VisibilityLayers/)
+
+## 16. Spawning 2D enemy waves
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=GA024FqDzV0)
+- See the files [in the repo](/16-EnemyWaves/)
