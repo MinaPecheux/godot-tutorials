@@ -139,3 +139,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=GA024FqDzV0)
 - Read on [Medium](https://mina-pecheux.medium.com/spawning-2d-enemy-waves-godot-4-c-509f6048d001)
 - See the files [in the repo](/16-EnemyWaves/)
+
+## 17. Setting up basic JRPG-like dialogues
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=L-OaaiJk22w)
+- See the files [in the repo](/17-BasicDialogue/)
