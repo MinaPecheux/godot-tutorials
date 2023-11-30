@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://diyuummikm3a5"
+
+[deps]
+
+files=["res://17-BasicDialogue/i18n/data.en.translation", "res://17-BasicDialogue/i18n/data.fr.translation", "res://17-BasicDialogue/i18n/data.de.translation"]
+
+source_file="res://17-BasicDialogue/i18n/data.csv"
+dest_files=["res://17-BasicDialogue/i18n/data.en.translation", "res://17-BasicDialogue/i18n/data.fr.translation", "res://17-BasicDialogue/i18n/data.de.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://bo1wjt7b3q46t"]
+
+[ext_resource type="Script" path="res://17-BasicDialogue/scripts/DemoDialogue.cs" id="1_26ejw"]
+[ext_resource type="PackedScene" uid="uid://mm82iiqk5pff" path="res://17-BasicDialogue/assets/star.tscn" id="1_at65d"]
+[ext_resource type="Material" uid="uid://bfqsp5g8i66ru" path="res://17-BasicDialogue/art/materials/floor.tres" id="1_pimyk"]
+[ext_resource type="Material" uid="uid://c3yovt3pxqkvh" path="res://17-BasicDialogue/art/materials/wall.tres" id="2_d51f8"]
+[ext_resource type="Material" uid="uid://bnujmbarbnnub" path="res://17-BasicDialogue/art/materials/window.tres" id="3_u8hyy"]
+[ext_resource type="PackedScene" uid="uid://btyqw7oiv1j52" path="res://17-BasicDialogue/art/models/pedestal.glb" id="4_ugjal"]
+
+[sub_resource type="Environment" id="Environment_gx5r6"]
+background_mode = 1
+background_color = Color(0.4, 0.462745, 0.533333, 1)
+glow_enabled = true
+glow_strength = 1.47
+glow_hdr_threshold = 0.84
+
+[sub_resource type="QuadMesh" id="QuadMesh_kxjvp"]
+size = Vector2(30, 20)
+orientation = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_yxqr0"]
+size = Vector2(10, 10)
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_26ejw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999209, 0.0397655, 0, -0.0397655, 0.999209, 0, 2.08089, 9.38739)
+environment = SubResource("Environment_gx5r6")
+fov = 35.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.552695, 0.474292, 0.685256, -0.74073, -0.0972249, 0.66473, 0.3819, -0.874983, 0.297586, 0, 1.92245, 0)
+light_color = Color(0.984314, 1, 1, 1)
+light_energy = 1.7
+
+[node name="ENV" type="Node" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="ENV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.57)
+mesh = SubResource("QuadMesh_kxjvp")
+surface_material_override/0 = ExtResource("1_pimyk")
+
+[node name="Wall" type="MeshInstance3D" parent="ENV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81442, 3.53279, -13.8311)
+mesh = SubResource("QuadMesh_yxqr0")
+surface_material_override/0 = ExtResource("2_d51f8")
+
+[node name="Wall3" type="MeshInstance3D" parent="ENV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8144, 3.53279, -13.8311)
+mesh = SubResource("QuadMesh_yxqr0")
+surface_material_override/0 = ExtResource("2_d51f8")
+
+[node name="Wall2" type="MeshInstance3D" parent="ENV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.18558, 3.53279, -13.8311)
+mesh = SubResource("QuadMesh_yxqr0")
+surface_material_override/0 = ExtResource("3_u8hyy")
+
+[node name="Pedestal" parent="ENV" instance=ExtResource("4_ugjal")]
+
+[node name="Star" parent="." instance=ExtResource("1_at65d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34261, 0)
+
+[node name="UI" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Container" type="VBoxContainer" parent="UI"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = " START DIALOGUE "
+
+[node name="LanguageSelector" type="OptionButton" parent="UI/Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[connection signal="pressed" from="UI/Container/Button" to="." method="_StartDialogue"]
+[connection signal="item_selected" from="UI/Container/LanguageSelector" to="." method="_SelectLanguage"]

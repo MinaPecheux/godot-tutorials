@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjjdhy7aqvaeb"]
+
+[ext_resource type="Script" path="res://17-BasicDialogue/scripts/DialogueDisplay.cs" id="1_pyj0t"]
+[ext_resource type="Texture2D" uid="uid://0tpnnh1tyf4e" path="res://17-BasicDialogue/art/textures/arrow.png" id="2_p2ghs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nk1ta"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.0784314, 0.0392157, 0.180392, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.372549, 0.52549, 0.737255, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrgle"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xy2c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4sqks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0d1o"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vtd7i"]
+device = -1
+pressed = true
+keycode = 4194322
+
+[sub_resource type="Shortcut" id="Shortcut_bb4jc"]
+events = [SubResource("InputEventKey_vtd7i")]
+
+[node name="DialogueDisplay" type="PanelContainer" node_paths=PackedStringArray("_audio", "_icon", "_label")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -174.0
+offset_right = 230.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nk1ta")
+script = ExtResource("1_pyj0t")
+_audio = NodePath("AudioStreamPlayer")
+_icon = NodePath("HBoxContainer/TextureRect")
+_label = NodePath("HBoxContainer/Label")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.760784, 0.831373, 0.933333, 1)
+theme_override_font_sizes/font_size = 24
+text = "<example of dialogue>"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Label"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/icon_normal_color = Color(0.780392, 0.87451, 0.960784, 1)
+theme_override_colors/icon_pressed_color = Color(0.498039, 0.705882, 0.894118, 1)
+theme_override_colors/icon_hover_color = Color(0.396078, 0.639216, 0.843137, 1)
+theme_override_colors/icon_focus_color = Color(0.709804, 0.835294, 0.94902, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qrgle")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5xy2c")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4sqks")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j0d1o")
+shortcut = SubResource("Shortcut_bb4jc")
+icon = ExtResource("2_p2ghs")
+expand_icon = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="HBoxContainer/Label/Button" to="." method="_GetNextDialogue"]
