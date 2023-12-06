@@ -1,0 +1,227 @@
+[gd_scene load_steps=32 format=3 uid="uid://dwi7r23uo4w3w"]
+
+[ext_resource type="Script" path="res://10-RandomUnits/scripts/UnitSpawner.cs" id="1_1xj7s"]
+[ext_resource type="Material" uid="uid://cyl5f64iytsky" path="res://18-PauseScreen/art/materials/ground.tres" id="1_thc6h"]
+[ext_resource type="PackedScene" uid="uid://ljnk5bl5r1tj" path="res://18-PauseScreen/assets/unit.tscn" id="2_rhgqt"]
+[ext_resource type="PackedScene" uid="uid://gju4c8hortk4" path="res://18-PauseScreen/art/models/craft_cargoA.glb" id="3_oc7ln"]
+[ext_resource type="PackedScene" uid="uid://cs452a31ytbpq" path="res://18-PauseScreen/art/models/craft_miner.glb" id="4_utxtp"]
+[ext_resource type="PackedScene" uid="uid://wbuc2mb3a3jn" path="res://18-PauseScreen/art/models/craft_racer.glb" id="5_rhphj"]
+[ext_resource type="PackedScene" uid="uid://d1pcimq7ne414" path="res://10-RandomUnits/art/models/rock.glb" id="5_v22wg"]
+[ext_resource type="PackedScene" uid="uid://dun6y3h0c01db" path="res://10-RandomUnits/art/models/rock_largeA.glb" id="6_p36ke"]
+[ext_resource type="PackedScene" uid="uid://dm7artswmu2nt" path="res://18-PauseScreen/art/models/craft_speederA.glb" id="6_xrgjr"]
+[ext_resource type="PackedScene" uid="uid://d2jhv2dsvabm7" path="res://10-RandomUnits/art/models/rock_largeB.glb" id="7_loe1i"]
+[ext_resource type="PackedScene" uid="uid://dqebb5dmlgmp" path="res://18-PauseScreen/art/models/craft_speederB.glb" id="7_pltjd"]
+[ext_resource type="PackedScene" uid="uid://b3bc0c1lu5qmn" path="res://10-RandomUnits/art/models/craterLarge.glb" id="8_lrrbe"]
+[ext_resource type="PackedScene" uid="uid://fyk6fq5uswrf" path="res://18-PauseScreen/art/models/craft_speederC.glb" id="8_x04d0"]
+[ext_resource type="PackedScene" uid="uid://cor6dgkd7jju5" path="res://18-PauseScreen/art/models/craft_speederD.glb" id="9_2gtuq"]
+[ext_resource type="Script" path="res://18-PauseScreen/scripts/UIManager.cs" id="15_injxi"]
+[ext_resource type="Texture2D" uid="uid://dq3w6f65h3fud" path="res://18-PauseScreen/art/sprites/return.png" id="15_leiw4"]
+[ext_resource type="Texture2D" uid="uid://b53f0twmlf516" path="res://18-PauseScreen/art/sprites/fastForward.png" id="16_8pi4y"]
+[ext_resource type="Texture2D" uid="uid://ctlrtwo10gtp0" path="res://18-PauseScreen/art/sprites/pause.png" id="17_gqa2x"]
+[ext_resource type="FontFile" uid="uid://dlf55sffavmjx" path="res://18-PauseScreen/art/fonts/RobinGraffitiFilledin.ttf" id="18_atvky"]
+[ext_resource type="Texture2D" uid="uid://d06o421ybtcax" path="res://18-PauseScreen/art/sprites/right.png" id="19_doah8"]
+[ext_resource type="Material" uid="uid://wdb4d5yld8nm" path="res://18-PauseScreen/art/materials/blur.tres" id="19_xwlug"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hvb44"]
+size = Vector2(40, 32)
+
+[sub_resource type="Environment" id="Environment_0jy8a"]
+tonemap_mode = 3
+
+[sub_resource type="InputEventAction" id="InputEventAction_l1r6h"]
+action = &"toggle_pause"
+
+[sub_resource type="Shortcut" id="Shortcut_8ogr0"]
+events = [SubResource("InputEventAction_l1r6h")]
+
+[sub_resource type="FontVariation" id="FontVariation_k5p0c"]
+base_font = ExtResource("18_atvky")
+
+[sub_resource type="InputEventAction" id="InputEventAction_k4nx4"]
+action = &"toggle_pause"
+
+[sub_resource type="Shortcut" id="Shortcut_df2bw"]
+events = [SubResource("InputEventAction_k4nx4")]
+
+[sub_resource type="Animation" id="Animation_vpfyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wcg8e"]
+resource_name = "start_pause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u6ufy"]
+_data = {
+"RESET": SubResource("Animation_vpfyn"),
+"start_pause": SubResource("Animation_wcg8e")
+}
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_1xj7s")
+_unitPrefab = ExtResource("2_rhgqt")
+_units = Array[PackedScene]([ExtResource("3_oc7ln"), ExtResource("4_utxtp"), ExtResource("5_rhphj"), ExtResource("6_xrgjr"), ExtResource("7_pltjd"), ExtResource("8_x04d0"), ExtResource("9_2gtuq")])
+
+[node name="SCENE" type="Node" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="SCENE"]
+material_override = ExtResource("1_thc6h")
+mesh = SubResource("PlaneMesh_hvb44")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 35.6643, 35.6643)
+environment = SubResource("Environment_0jy8a")
+projection = 1
+fov = 5.0
+size = 18.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.3271, 0)
+light_energy = 15.0
+shadow_enabled = true
+omni_range = 50.0
+
+[node name="rock" parent="SCENE" instance=ExtResource("5_v22wg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.72868, 0, 5.90346)
+
+[node name="rock2" parent="SCENE" instance=ExtResource("5_v22wg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.3912, 0, -4.19415)
+
+[node name="rock_largeA" parent="SCENE" instance=ExtResource("6_p36ke")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.1646, 0, -9.08105)
+
+[node name="rock_largeB" parent="SCENE" instance=ExtResource("7_loe1i")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 6.26306, 0, 0.954077)
+
+[node name="rock_largeB2" parent="SCENE" instance=ExtResource("7_loe1i")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -16.3607, 0, -12.7224)
+
+[node name="craterLarge" parent="SCENE" instance=ExtResource("8_lrrbe")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -26.382, 0, -20.2387)
+
+[node name="craterLarge2" parent="SCENE" instance=ExtResource("8_lrrbe")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.383446, 0, 3.51043)
+
+[node name="UNITS" type="Node" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_injxi")
+
+[node name="Buttons" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Generate" type="Button" parent="UI/Buttons/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("15_leiw4")
+
+[node name="Move" type="Button" parent="UI/Buttons/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("16_8pi4y")
+
+[node name="Pause" type="Button" parent="UI/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+shortcut = SubResource("Shortcut_8ogr0")
+icon = ExtResource("17_gqa2x")
+
+[node name="PausePanel" type="Control" parent="UI"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" type="ColorRect" parent="UI/PausePanel"]
+material = ExtResource("19_xwlug")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/PausePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PausePanel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="UI/PausePanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_k5p0c")
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+
+[node name="Resume" type="Button" parent="UI/PausePanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+shortcut = SubResource("Shortcut_df2bw")
+icon = ExtResource("19_doah8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PausePanel"]
+libraries = {
+"": SubResource("AnimationLibrary_u6ufy")
+}
+
+[connection signal="pressed" from="UI/Buttons/HBoxContainer/Generate" to="." method="_RegenerateUnits"]
+[connection signal="pressed" from="UI/Buttons/HBoxContainer/Move" to="." method="_MoveUnits"]
+[connection signal="pressed" from="UI/Buttons/Pause" to="UI" method="_Pause"]
+[connection signal="pressed" from="UI/PausePanel/CenterContainer/VBoxContainer/Resume" to="UI" method="_Unpause"]
