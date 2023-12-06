@@ -143,4 +143,5 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 ## 17. Setting up basic JRPG-like dialogues
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=L-OaaiJk22w)
+- Read on [Medium](https://medium.com/p/1574eb28e548)
 - See the files [in the repo](/17-BasicDialogue/)
