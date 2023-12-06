@@ -145,3 +145,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=L-OaaiJk22w)
 - Read on [Medium](https://medium.com/p/1574eb28e548)
 - See the files [in the repo](/17-BasicDialogue/)
+
+## 18. Creating a pause overlay screen
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=-4jVIKix-yk)
+- See the files [in the repo](/18-PauseScreen/)
