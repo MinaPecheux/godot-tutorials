@@ -22,6 +22,10 @@ run/main_scene="res://03-TDLoadData/scenes/03-TDLoadData.tscn"
 config/features=PackedStringArray("4.1", "C#")
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneLoader="*res://09-GameLoop/scene_loader.tscn"
+
 [display]
 
 window/size/viewport_width=1920

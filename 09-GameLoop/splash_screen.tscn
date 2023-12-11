@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3e23be2dvj7h"]
 
 [ext_resource type="Script" path="res://09-GameLoop/scripts/SplashScreen.cs" id="1_1xm0p"]
-[ext_resource type="Texture2D" uid="uid://c0qjxftbgvxi3" path="res://icon.svg" id="2_npkvr"]
+[ext_resource type="Texture2D" uid="uid://bfysa0ehwlnhx" path="res://icon.png" id="2_ceqqy"]
 
 [node name="SplashScreen" type="ColorRect"]
 anchors_preset = 15
@@ -22,7 +22,7 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
-texture = ExtResource("2_npkvr")
+texture = ExtResource("2_ceqqy")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
