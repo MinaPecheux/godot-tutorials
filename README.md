@@ -16,7 +16,19 @@ I re-updated this repo to work with Godot 4. Tutorials 01 to 05 were initially m
 
 =========================
 
-As of now, the repo contains the following tutorials:
+## 🕹 Mini-games
+
+If you're more of a hands-on learner and you'd like to explore a complete mini-game to discover Godot 4/C# concepts, this section is for you! Here you'll find the list of the little games in this repo (in the [MiniGames](/MiniGames/) folder):
+
+### Tic-tac-toe
+
+> [See the files](/MiniGames/TicTacToe/)
+
+This re-implementation of the classical board game will take you through the fundamentals of creating a game in Godot 4 with C# scripting. You'll see how to design a user interface, code up some logic to interact with those UI elements and update them dynamically, and other beginner Godot notions.
+
+=========================
+
+Also, as of now, the repo contains the code and assets for the following tutorials:
 
 ## 00. Your first time in Godot?
 
