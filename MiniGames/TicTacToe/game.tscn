@@ -1,0 +1,279 @@
+[gd_scene load_steps=12 format=3 uid="uid://dc7wstjnj2ln5"]
+
+[ext_resource type="Script" path="res://MiniGames/TicTacToe/scripts/TicTacToe.cs" id="1_u5syq"]
+[ext_resource type="Texture2D" uid="uid://bm5t14haqjhmu" path="res://MiniGames/TicTacToe/art/sprites/cross.png" id="2_0wefq"]
+[ext_resource type="Texture2D" uid="uid://b7msix6sj7jvj" path="res://MiniGames/TicTacToe/art/sprites/circle.png" id="3_c88y8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jixsi"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
+draw_center = false
+border_width_left = 33
+border_width_top = 33
+border_width_right = 33
+border_width_bottom = 33
+border_color = Color(0.941176, 0.941176, 0.941176, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2is8l"]
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yug7v"]
+bg_color = Color(0.717647, 0.717647, 0.717647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrox0"]
+bg_color = Color(0.717647, 0.717647, 0.717647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oroh"]
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wonqn"]
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajrus"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccjbg"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Root" type="ColorRect" node_paths=PackedStringArray("_playerMarkers", "_board", "_endGameUI")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.0352941, 0.172549, 1)
+script = ExtResource("1_u5syq")
+_playerMarkers = [NodePath("CenterContainer/HBoxContainer/Cross"), NodePath("CenterContainer/HBoxContainer/Circle")]
+_playerSymbols = Array[Texture2D]([ExtResource("2_0wefq"), ExtResource("3_c88y8")])
+_board = NodePath("CenterContainer/HBoxContainer/PanelContainer/Board")
+_endGameUI = NodePath("EndGameUI")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Cross" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_0wefq")
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jixsi")
+
+[node name="Board" type="GridContainer" parent="CenterContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="TopLeft" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="Top" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="TopRight" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="Left" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="Middle" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="Right" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="BottomLeft" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="Bottom" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="BottomRight" type="Button" parent="CenterContainer/HBoxContainer/PanelContainer/Board"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 160
+theme_override_styles/normal = SubResource("StyleBoxFlat_2is8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yug7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wrox0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8oroh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wonqn")
+icon_alignment = 1
+
+[node name="Circle" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_c88y8")
+
+[node name="EndGameUI" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0235294, 0.0431373, 0.054902, 0.784314)
+
+[node name="PanelContainer" type="PanelContainer" parent="EndGameUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ajrus")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndGameUI/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Message" type="Label" parent="EndGameUI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "VICTORY!"
+horizontal_alignment = 1
+
+[node name="WinnerMarker" type="TextureRect" parent="EndGameUI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_0wefq")
+stretch_mode = 5
+
+[node name="Replay" type="Button" parent="EndGameUI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccjbg")
+text = "REPLAY"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/TopLeft" to="." method="_Place" binds= [0]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/Top" to="." method="_Place" binds= [1]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/TopRight" to="." method="_Place" binds= [2]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/Left" to="." method="_Place" binds= [3]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/Middle" to="." method="_Place" binds= [4]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/Right" to="." method="_Place" binds= [5]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/BottomLeft" to="." method="_Place" binds= [6]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/Bottom" to="." method="_Place" binds= [7]]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PanelContainer/Board/BottomRight" to="." method="_Place" binds= [8]]
+[connection signal="pressed" from="EndGameUI/PanelContainer/VBoxContainer/Replay" to="." method="_Replay"]
