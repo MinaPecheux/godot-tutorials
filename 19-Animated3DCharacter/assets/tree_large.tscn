@@ -1,0 +1,624 @@
+[gd_scene load_steps=8 format=3 uid="uid://q8ghleqoouwf"]
+
+[ext_resource type="Material" uid="uid://bumn5rojpml8h" path="res://19-Animated3DCharacter/art/materials/tree.tres" id="1_pf4aw"]
+[ext_resource type="Material" uid="uid://dpe46iopv5f2g" path="res://19-Animated3DCharacter/art/materials/leaves.tres" id="2_jo84h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d2yt"]
+resource_name = "Top"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5pdj"]
+resource_name = "Sides"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a337o"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0.5, -0.5, 1, 1.00136e-05, 1.00001),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(1, 0, 0, 0, 2, 0, 1, 0, 3, 0, 0, 0),
+"name": "Top",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1.00001),
+"format": 4097,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 6, 0, 1, 0, 0, 0, 2, 0, 6, 0, 2, 0, 5, 0, 6, 0, 2, 0, 4, 0, 5, 0, 4, 0, 7, 0, 5, 0, 4, 0, 3, 0, 7, 0, 3, 0, 1, 0, 7, 0, 3, 0, 0, 0, 1, 0),
+"name": "Sides",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 63)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fhdrp"]
+resource_name = "block_Block"
+_surfaces = [{
+"aabb": AABB(-0.5, 0.5, -0.5, 1, 1.00136e-05, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(1, 0, 0, 0, 2, 0, 1, 0, 3, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_6d2yt"),
+"name": "Top",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 63, 255, 127, 255, 255, 255, 255, 255, 191)
+}, {
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": 4119,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 12, 0, 2, 0, 0, 0, 4, 0, 12, 0, 5, 0, 10, 0, 13, 0, 5, 0, 8, 0, 10, 0, 9, 0, 15, 0, 11, 0, 9, 0, 7, 0, 15, 0, 6, 0, 3, 0, 14, 0, 6, 0, 1, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_o5pdj"),
+"name": "Sides",
+"primitive": 3,
+"vertex_count": 16,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 63, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 63, 255, 255, 255, 127, 255, 255, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a337o")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wj1f7"]
+size = Vector3(1, 6, 1)
+
+[node name="Tree-Small" type="StaticBody3D"]
+
+[node name="Trunk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/1 = ExtResource("1_pf4aw")
+
+[node name="Trunk2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/1 = ExtResource("1_pf4aw")
+
+[node name="Trunk3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/1 = ExtResource("1_pf4aw")
+
+[node name="Trunk4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/1 = ExtResource("1_pf4aw")
+
+[node name="Trunk5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/1 = ExtResource("1_pf4aw")
+
+[node name="Trunk6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/1 = ExtResource("1_pf4aw")
+
+[node name="Leaves2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 6.16301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 6.16301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 6.16301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 6.16301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 6.16301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 6.16301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 6.16301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 6.16301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves19" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 6.16301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves20" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 6.16301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves21" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 6.16301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves22" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 6.16301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves23" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 6.16301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves24" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 6.16301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves25" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 6.16301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 6.16301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves26" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 7.36301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves28" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 7.36301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves30" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 7.36301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves31" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 7.36301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves32" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 7.36301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves33" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 7.36301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves36" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 7.36301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves37" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 7.36301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves41" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 7.36301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves42" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 7.36301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves43" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 7.36301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves44" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 7.36301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves45" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 7.36301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves46" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 7.36301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves47" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 7.36301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves48" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 7.36301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves27" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 8.56301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves29" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 8.56301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves34" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 8.56301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves35" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 8.56301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves38" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 8.56301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves39" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 8.56301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves40" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 8.56301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves49" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 8.56301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves50" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 8.56301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves51" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 8.56301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves52" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 8.56301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves53" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 8.56301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves54" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 8.56301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves55" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 8.56301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves56" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 8.56301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves57" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 8.56301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves58" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 9.76301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves59" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 9.76301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves60" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 9.76301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves61" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 9.76301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves62" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 9.76301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves63" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 9.76301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves64" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 9.76301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves65" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 9.76301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves66" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 9.76301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves74" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 9.76301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves75" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 9.76301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves76" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 9.76301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves77" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 9.76301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves78" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 9.76301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves79" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 9.76301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves80" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.2, 9.76301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves81" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 9.76301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves82" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 9.76301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves67" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.2, 9.76301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves68" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 9.76301, 0)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves69" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 9.76301, -1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves70" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 9.76301, 1.2)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves71" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 9.76301, 2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves72" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.4, 9.76301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="Leaves73" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4, 9.76301, -2.4)
+mesh = SubResource("ArrayMesh_fhdrp")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jo84h")
+surface_material_override/1 = ExtResource("2_jo84h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_wj1f7")

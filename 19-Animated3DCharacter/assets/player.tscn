@@ -1,0 +1,109 @@
+[gd_scene load_steps=19 format=3 uid="uid://dxr6ovf54aai3"]
+
+[ext_resource type="Script" path="res://19-Animated3DCharacter/scripts/Player.cs" id="1_kiosr"]
+[ext_resource type="PackedScene" uid="uid://cargf2rpmap6x" path="res://19-Animated3DCharacter/art/models/character.glb" id="2_0e0fb"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ui7rd"]
+animation = &"falling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_005ic"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u21w5"]
+animation = &"punch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sdrce"]
+animation = &"running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vksxa"]
+advance_mode = 2
+advance_expression = "velocity.length() > 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qoe2n"]
+advance_mode = 2
+advance_expression = "velocity.length() == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_64vlv"]
+advance_mode = 2
+advance_expression = "not is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7lkf"]
+advance_mode = 2
+advance_expression = "is_on_floor() and velocity.length() == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ro1sx"]
+advance_mode = 2
+advance_expression = "not is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_13sy6"]
+advance_mode = 2
+advance_expression = "is_on_floor() and velocity.length() > 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r5kk2"]
+advance_mode = 2
+advance_condition = &"punch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4qebw"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_84i58"]
+advance_mode = 2
+advance_condition = &"punch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lykpk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n25ld"]
+states/falling/node = SubResource("AnimationNodeAnimation_ui7rd")
+states/falling/position = Vector2(570, 0)
+states/idle/node = SubResource("AnimationNodeAnimation_005ic")
+states/idle/position = Vector2(428, 100)
+states/punch/node = SubResource("AnimationNodeAnimation_u21w5")
+states/punch/position = Vector2(570, 210)
+states/running/node = SubResource("AnimationNodeAnimation_sdrce")
+states/running/position = Vector2(718, 100)
+transitions = ["idle", "running", SubResource("AnimationNodeStateMachineTransition_vksxa"), "running", "idle", SubResource("AnimationNodeStateMachineTransition_qoe2n"), "idle", "falling", SubResource("AnimationNodeStateMachineTransition_64vlv"), "falling", "idle", SubResource("AnimationNodeStateMachineTransition_a7lkf"), "running", "falling", SubResource("AnimationNodeStateMachineTransition_ro1sx"), "falling", "running", SubResource("AnimationNodeStateMachineTransition_13sy6"), "idle", "punch", SubResource("AnimationNodeStateMachineTransition_r5kk2"), "punch", "idle", SubResource("AnimationNodeStateMachineTransition_4qebw"), "running", "punch", SubResource("AnimationNodeStateMachineTransition_84i58"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_lykpk")]
+graph_offset = Vector2(121, -49)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vpmv"]
+radius = 0.7
+height = 2.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_kiosr")
+
+[node name="character" parent="." instance=ExtResource("2_0e0fb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Armature" parent="character" index="0"]
+transform = Transform3D(0.148294, -0.133629, -0.0123392, -0.00270671, 0.0154076, -0.199387, 0.13417, 0.148006, 0.00961575, -0.12115, -0.0421367, 0.100207)
+
+[node name="Skeleton3D" parent="character/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.00483094, -0.213884, -0.0504915, 0.975541)
+bones/2/rotation = Quaternion(0.297762, -0.290825, -0.704464, 0.574882)
+bones/3/rotation = Quaternion(0.0139962, 0.0401227, -0.0545731, 0.997605)
+bones/5/rotation = Quaternion(-0.352272, 0.876724, -0.303812, 0.122305)
+bones/6/rotation = Quaternion(-0.0914356, 0.22606, 0.193716, 0.950269)
+bones/7/rotation = Quaternion(0.891539, -0.446892, -0.0479561, 0.0560842)
+bones/9/rotation = Quaternion(-0.894545, 0.351356, -0.0181784, -0.275695)
+bones/10/rotation = Quaternion(0.00584334, 0.186413, -0.160436, 0.969266)
+bones/11/rotation = Quaternion(-0.452286, 0.876099, 0.0975846, -0.135515)
+bones/13/rotation = Quaternion(0.0669498, 0.91361, -0.204784, -0.344816)
+bones/14/rotation = Quaternion(-0.0460391, -0.935265, -0.136918, 0.323129)
+bones/15/rotation = Quaternion(0.636872, -0.762767, -0.0875419, 0.0701198)
+bones/17/rotation = Quaternion(0.470284, -0.153477, 0.866943, -0.0607358)
+bones/18/rotation = Quaternion(0.000471487, 0.89936, 0.0016241, 0.437205)
+bones/19/rotation = Quaternion(-0.148471, -0.140546, 0.606709, 0.768185)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_n25ld")
+anim_player = NodePath("../character/AnimationPlayer")
+advance_expression_base_node = NodePath("..")
+parameters/conditions/punch = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_5vpmv")
+
+[editable path="character"]
