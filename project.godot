@@ -18,7 +18,7 @@ ResourceScriptDirectories=["res://"]
 
 config/name="Tutorials"
 config/tags=PackedStringArray("demo")
-run/main_scene="res://03-TDLoadData/scenes/03-TDLoadData.tscn"
+run/main_scene="res://MiniGames/TicTacToe/game.tscn"
 config/features=PackedStringArray("4.1", "C#")
 config/icon="res://icon.png"
 
@@ -31,6 +31,7 @@ SceneLoader="*res://09-GameLoop/scene_loader.tscn"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
