@@ -162,3 +162,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=-4jVIKix-yk)
 - See the files [in the repo](/18-PauseScreen/)
+
+## 19. Setting up an animated 3D character controller
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/cliZF3uPkHM)
+- See the files [in the repo](/19-Animated3DCharacter/)
