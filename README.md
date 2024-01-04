@@ -161,14 +161,17 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 ## 18. Creating a pause overlay screen
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=-4jVIKix-yk)
+- Read on [Medium](https://medium.com/p/1d291f6aad26)
 - See the files [in the repo](/18-PauseScreen/)
 
 ## 19. Setting up an animated 3D character controller
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/cliZF3uPkHM)
+- Read on [Medium](https://medium.com/p/ef1c9cd3ddcc)
 - See the files [in the repo](/19-Animated3DCharacter/)
 
 ## 20. Discovering Godot's pseudolocalisation
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=cnH4SgqizJA)
+- Read on [Medium](https://mina-pecheux.medium.com/discovering-godots-pseudolocalisation-godot-4-c-232dfaafd3c9)
 - See the files [in the repo](/20-Pseudolocalisation/)
