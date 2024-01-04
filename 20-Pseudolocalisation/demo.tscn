@@ -1,0 +1,427 @@
+[gd_scene load_steps=25 format=3 uid="uid://lj4fff5ugekt"]
+
+[ext_resource type="Script" path="res://20-Pseudolocalisation/scripts/UIManager.cs" id="1_uwt6f"]
+[ext_resource type="Texture2D" uid="uid://iwx1tynk2je7" path="res://20-Pseudolocalisation/art/sprites/bg.jpg" id="2_08sll"]
+[ext_resource type="Texture2D" uid="uid://bt2dcqnuv4i1m" path="res://20-Pseudolocalisation/art/sprites/panel_brown.png" id="3_1kdmf"]
+[ext_resource type="Texture2D" uid="uid://g050jks62ck8" path="res://20-Pseudolocalisation/art/sprites/btn-long.png" id="4_l5hka"]
+[ext_resource type="Texture2D" uid="uid://bhxfj63icdiuw" path="res://20-Pseudolocalisation/art/sprites/btn-long_pressed.png" id="5_aebie"]
+[ext_resource type="Texture2D" uid="uid://daugwffjd51qs" path="res://20-Pseudolocalisation/art/sprites/panel-inset.png" id="6_wvlx1"]
+[ext_resource type="Texture2D" uid="uid://37glo4ogik" path="res://20-Pseudolocalisation/art/sprites/bar-back.png" id="7_27rvr"]
+[ext_resource type="Texture2D" uid="uid://5jngff1fn8gt" path="res://20-Pseudolocalisation/art/sprites/bar-red.png" id="8_ny35v"]
+[ext_resource type="Texture2D" uid="uid://bpn6wmk8q3sr4" path="res://20-Pseudolocalisation/art/sprites/bar-blue.png" id="9_ljh2e"]
+[ext_resource type="Texture2D" uid="uid://bsdlugcvfbudi" path="res://20-Pseudolocalisation/art/icons/fireball.png" id="10_pr1tg"]
+[ext_resource type="Texture2D" uid="uid://dkpqsh4ake87g" path="res://20-Pseudolocalisation/art/icons/boulderToss.png" id="11_pp16h"]
+[ext_resource type="Texture2D" uid="uid://bgryb4ti5odpu" path="res://20-Pseudolocalisation/art/icons/hailStorm.png" id="12_05k5w"]
+[ext_resource type="Texture2D" uid="uid://2my6el1idf7" path="res://20-Pseudolocalisation/art/icons/bloodSacrifice.png" id="13_6wvsc"]
+[ext_resource type="Texture2D" uid="uid://djt50lqdprxyc" path="res://20-Pseudolocalisation/art/sprites/panel.png" id="14_wo1gc"]
+[ext_resource type="Material" uid="uid://dd6wiuy73r5jm" path="res://20-Pseudolocalisation/art/materials/blur.tres" id="15_o4uow"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7x8x"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("3_1kdmf")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8xqnq"]
+content_margin_left = 24.0
+content_margin_top = 8.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+texture = ExtResource("4_l5hka")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vu4io"]
+content_margin_left = 24.0
+content_margin_top = 8.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+texture = ExtResource("5_aebie")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dswix"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("3_1kdmf")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8d10w"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("6_wvlx1")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vshx"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("14_wo1gc")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Animation" id="Animation_caxl0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xy3ae"]
+resource_name = "show-menu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ysxin"]
+_data = {
+"RESET": SubResource("Animation_caxl0"),
+"show-menu": SubResource("Animation_xy3ae")
+}
+
+[node name="UI" type="Control" node_paths=PackedStringArray("_skillDescriptionPanel", "_skillNameLabel", "_skillDescriptionLabel", "_menuPanel")]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwt6f")
+_skillDescriptionPanel = NodePath("Main/MainContainer/SkillDescription")
+_skillNameLabel = NodePath("Main/MainContainer/SkillDescription/VBoxContainer/SkillName")
+_skillDescriptionLabel = NodePath("Main/MainContainer/SkillDescription/VBoxContainer/Description")
+_menuPanel = NodePath("PopupMenu")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1344.0
+offset_top = -768.0
+offset_right = 1344.0
+offset_bottom = 768.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_08sll")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.313726)
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="PanelContainer" parent="Main"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f7x8x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/TopBar"]
+layout_mode = 2
+alignment = 2
+
+[node name="Menu" type="Button" parent="Main/TopBar/HBoxContainer"]
+layout_mode = 2
+auto_translate = false
+theme_override_colors/font_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_pressed_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_hover_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_focus_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_8xqnq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8xqnq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vu4io")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vu4io")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vu4io")
+text = "MENU"
+
+[node name="MainContainer" type="MarginContainer" parent="Main"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Stats" type="PanelContainer" parent="Main/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_dswix")
+
+[node name="Inner" type="PanelContainer" parent="Main/MainContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8d10w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MainContainer/Stats/Inner"]
+layout_mode = 2
+
+[node name="Healthbar" type="HBoxContainer" parent="Main/MainContainer/Stats/Inner/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Bar" type="TextureProgressBar" parent="Main/MainContainer/Stats/Inner/VBoxContainer/Healthbar"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 85.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_27rvr")
+texture_progress = ExtResource("8_ny35v")
+
+[node name="Name" type="Label" parent="Main/MainContainer/Stats/Inner/VBoxContainer/Healthbar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_font_sizes/font_size = 28
+text = "KEY_HEALTH"
+
+[node name="Manabar" type="HBoxContainer" parent="Main/MainContainer/Stats/Inner/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Bar" type="TextureProgressBar" parent="Main/MainContainer/Stats/Inner/VBoxContainer/Manabar"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 60.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_27rvr")
+texture_progress = ExtResource("9_ljh2e")
+
+[node name="Name" type="Label" parent="Main/MainContainer/Stats/Inner/VBoxContainer/Manabar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_font_sizes/font_size = 28
+text = "KEY_MANA"
+
+[node name="Skills" type="PanelContainer" parent="Main/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_dswix")
+
+[node name="Inner" type="PanelContainer" parent="Main/MainContainer/Skills"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8d10w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/MainContainer/Skills/Inner"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Skill1" type="Button" parent="Main/MainContainer/Skills/Inner/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 160
+icon = ExtResource("10_pr1tg")
+
+[node name="Skill2" type="Button" parent="Main/MainContainer/Skills/Inner/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 160
+icon = ExtResource("11_pp16h")
+
+[node name="Skill3" type="Button" parent="Main/MainContainer/Skills/Inner/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 160
+icon = ExtResource("12_05k5w")
+
+[node name="Skill4" type="Button" parent="Main/MainContainer/Skills/Inner/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 160
+icon = ExtResource("13_6wvsc")
+
+[node name="SkillDescription" type="PanelContainer" parent="Main/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_7vshx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MainContainer/SkillDescription"]
+layout_mode = 2
+
+[node name="SkillName" type="Label" parent="Main/MainContainer/SkillDescription/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_font_sizes/font_size = 48
+text = "NAME"
+
+[node name="Description" type="Label" parent="Main/MainContainer/SkillDescription/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_font_sizes/font_size = 32
+text = "Desc"
+autowrap_mode = 2
+
+[node name="PopupMenu" type="ColorRect" parent="."]
+visible = false
+material = ExtResource("15_o4uow")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="PopupMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -117.5
+offset_right = 115.0
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_f7x8x")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PopupMenu/Panel"]
+layout_mode = 2
+alignment = 2
+
+[node name="Resume" type="Button" parent="PopupMenu/Panel/HBoxContainer"]
+layout_mode = 2
+auto_translate = false
+theme_override_colors/font_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_pressed_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_hover_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_focus_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_8xqnq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8xqnq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vu4io")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vu4io")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vu4io")
+text = "RESUME"
+
+[node name="Settings" type="Button" parent="PopupMenu/Panel/HBoxContainer"]
+layout_mode = 2
+auto_translate = false
+theme_override_colors/font_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_pressed_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_hover_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_focus_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_8xqnq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8xqnq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vu4io")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vu4io")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vu4io")
+text = "SETTINGS"
+
+[node name="Quit" type="Button" parent="PopupMenu/Panel/HBoxContainer"]
+layout_mode = 2
+auto_translate = false
+theme_override_colors/font_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_pressed_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_hover_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_colors/font_focus_color = Color(0.172549, 0.0823529, 0.0980392, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_8xqnq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8xqnq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vu4io")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vu4io")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vu4io")
+text = "QUIT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PopupMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_ysxin")
+}
+
+[connection signal="pressed" from="Main/TopBar/HBoxContainer/Menu" to="." method="_ShowMenu"]
+[connection signal="mouse_entered" from="Main/MainContainer/Skills/Inner/HBoxContainer/Skill1" to="." method="_ShowSkillDescription" binds= ["FIREBALL"]]
+[connection signal="mouse_exited" from="Main/MainContainer/Skills/Inner/HBoxContainer/Skill1" to="." method="_HideSkillDescription"]
+[connection signal="mouse_entered" from="Main/MainContainer/Skills/Inner/HBoxContainer/Skill2" to="." method="_ShowSkillDescription" binds= ["BOULDER"]]
+[connection signal="mouse_exited" from="Main/MainContainer/Skills/Inner/HBoxContainer/Skill2" to="." method="_HideSkillDescription"]
+[connection signal="mouse_entered" from="Main/MainContainer/Skills/Inner/HBoxContainer/Skill3" to="." method="_ShowSkillDescription" binds= ["ICESTORM"]]
+[connection signal="mouse_exited" from="Main/MainContainer/Skills/Inner/HBoxContainer/Skill3" to="." method="_HideSkillDescription"]
+[connection signal="mouse_entered" from="Main/MainContainer/Skills/Inner/HBoxContainer/Skill4" to="." method="_ShowSkillDescription" binds= ["SACRIFICE"]]
+[connection signal="mouse_exited" from="Main/MainContainer/Skills/Inner/HBoxContainer/Skill4" to="." method="_HideSkillDescription"]
+[connection signal="pressed" from="PopupMenu/Panel/HBoxContainer/Resume" to="." method="_HideMenu"]

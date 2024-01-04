@@ -1,0 +1,11 @@
+;en
+KEY_HEALTH;Health
+KEY_MANA;Mana
+KEY_FIREBALL_NAME;Fireball
+KEY_FIREBALL_DESC;A simple rocky fire that deals instant damage to the enemy. Small chance of igniting it, too.
+KEY_BOULDER_NAME;Rock Boulder
+KEY_BOULDER_DESC;A big boulder that crushes all the enemies in the zone. Small chance of stunning them, too.
+KEY_ICESTORM_NAME;Ice Storm
+KEY_ICESTORM_DESC;A devastating storm of sharp icicles that damage and freeze all the enemies in the zone.
+KEY_SACRIFICE_NAME;Blood Sacrifice
+KEY_SACRIFICE_DESC;A sneaky attack that deals a bit of damage to the target and makes it bleed.

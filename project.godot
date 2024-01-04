@@ -18,19 +18,19 @@ ResourceScriptDirectories=["res://"]
 
 config/name="Tutorials"
 config/tags=PackedStringArray("demo")
-run/main_scene="res://MiniGames/TicTacToe/game.tscn"
+run/main_scene="res://20-Pseudolocalisation/demo.tscn"
 config/features=PackedStringArray("4.1", "C#")
 config/icon="res://icon.png"
 
 [autoload]
 
 SceneLoader="*res://09-GameLoop/scene_loader.tscn"
+DialogueDisplay="*res://17-BasicDialogue/assets/dialogue_display.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -75,6 +75,14 @@ toggle_pause={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translation_remaps={
+"res://17-BasicDialogue/art/audio/greeting_01-en.wav": PackedStringArray("res://17-BasicDialogue/art/audio/greeting_01-de.wav:de", "res://17-BasicDialogue/art/audio/greeting_01-fr.wav:fr"),
+"res://17-BasicDialogue/art/audio/greeting_02-en.wav": PackedStringArray("res://17-BasicDialogue/art/audio/greeting_02-de.wav:de", "res://17-BasicDialogue/art/audio/greeting_02-fr.wav:fr")
+}
+locale/translations=PackedStringArray("res://20-Pseudolocalisation/data/ui.en.translation", "res://17-BasicDialogue/i18n/data.de.translation", "res://17-BasicDialogue/i18n/data.en.translation", "res://17-BasicDialogue/i18n/data.fr.translation")
 
 [mono]
 

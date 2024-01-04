@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d076wryn10gfh"
+
+[deps]
+
+files=["res://20-Pseudolocalisation/data/ui.en.translation"]
+
+source_file="res://20-Pseudolocalisation/data/ui.csv"
+dest_files=["res://20-Pseudolocalisation/data/ui.en.translation"]
+
+[params]
+
+compress=true
+delimiter=1
