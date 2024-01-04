@@ -167,3 +167,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/cliZF3uPkHM)
 - See the files [in the repo](/19-Animated3DCharacter/)
+
+## 20. Discovering Godot's pseudolocalisation
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=cnH4SgqizJA)
+- See the files [in the repo](/20-Pseudolocalisation/)
