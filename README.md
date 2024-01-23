@@ -175,3 +175,9 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=cnH4SgqizJA)
 - Read on [Medium](https://mina-pecheux.medium.com/discovering-godots-pseudolocalisation-godot-4-c-232dfaafd3c9)
 - See the files [in the repo](/20-Pseudolocalisation/)
+
+## 21. Implementing a basic 3D moving platform
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/5KvVLI4-3G0)
+- Read on [Medium](https://mina-pecheux.medium.com/implementing-a-basic-moving-platform-godot-4-c-30e072619b16)
+- See the files [in the repo](/21-MovingPlatform/)
