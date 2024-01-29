@@ -19,7 +19,7 @@ ResourceScriptDirectories=["res://"]
 config/name="Tutorials"
 config/tags=PackedStringArray("demo")
 run/main_scene="res://20-Pseudolocalisation/demo.tscn"
-config/features=PackedStringArray("4.1", "C#")
+config/features=PackedStringArray("4.2", "C#")
 config/icon="res://icon.png"
 
 [autoload]
