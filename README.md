@@ -26,6 +26,16 @@ If you're more of a hands-on learner and you'd like to explore a complete mini-g
 
 This re-implementation of the classical board game will take you through the fundamentals of creating a game in Godot 4 with C# scripting. You'll see how to design a user interface, code up some logic to interact with those UI elements and update them dynamically, and other beginner Godot notions.
 
+![screenshot-mini-game_tic-tac-toe](/doc/MiniGame_TicTacToe.png)
+
+### Mini-2D platformer
+
+> [See the files](/MiniGames/Mini2DPlatformer/)
+
+A simple 2D side-scroller platformer à-la Mario with a complete level loop, some shiny coins to collect, dangerous slimes moving around and a basic user interface to keep track of the player state.
+
+![screenshot-mini-game_mini-2d-platformer](/doc/MiniGame_Mini2DPlatformer.png)
+
 =========================
 
 Also, as of now, the repo contains the code and assets for the following tutorials:
