@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqtv6hs5ncnqw"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini2DPlatformer/scripts/Slime.cs" id="1_5d6tq"]
+[ext_resource type="Texture2D" uid="uid://b7tbmcctc54aw" path="res://MiniGames/Mini2DPlatformer/art/sprites/slimeWalk1.png" id="1_tsx4a"]
+[ext_resource type="Texture2D" uid="uid://h67u4pdbmohi" path="res://MiniGames/Mini2DPlatformer/art/sprites/slimeWalk2.png" id="2_73x4m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0pn05"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tsx4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_73x4m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vd7ak"]
+radius = 14.0
+height = 40.0
+
+[node name="Slime" type="Area2D" node_paths=PackedStringArray("_sprite", "_timer")]
+script = ExtResource("1_5d6tq")
+_sprite = NodePath("AnimatedSprite2D")
+_timer = NodePath("WaitTimer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_0pn05")
+frame = 1
+frame_progress = 0.575358
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vd7ak")
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="WaitTimer" to="." method="_OnWaitTimeout"]

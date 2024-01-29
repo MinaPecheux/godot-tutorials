@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfd2ocsndlnay"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini2DPlatformer/scripts/Coin.cs" id="1_lfocd"]
+[ext_resource type="Texture2D" uid="uid://6v4xf7llhpv1" path="res://MiniGames/Mini2DPlatformer/art/imgs/coin.png" id="1_rt1hd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6fpa"]
+radius = 20.0
+
+[sub_resource type="Animation" id="Animation_h5swj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ttaun"]
+resource_name = "rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3j8mm"]
+_data = {
+"RESET": SubResource("Animation_h5swj"),
+"rotate": SubResource("Animation_ttaun")
+}
+
+[node name="Coin" type="Area2D"]
+script = ExtResource("1_lfocd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_rt1hd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y6fpa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3j8mm")
+}
