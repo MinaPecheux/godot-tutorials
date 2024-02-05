@@ -191,3 +191,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/5KvVLI4-3G0)
 - Read on [Medium](https://mina-pecheux.medium.com/implementing-a-basic-moving-platform-godot-4-c-30e072619b16)
 - See the files [in the repo](/21-MovingPlatform/)
+
+## 22. Creating a basic 3rd person camera
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=dWalA9muY3s)
+- See the files [in the repo](/22-3rdPersonCamera/)
