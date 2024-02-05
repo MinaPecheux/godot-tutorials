@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0w6jnr4injpc"]
+
+[ext_resource type="PackedScene" uid="uid://h0feqpnvolku" path="res://22-3rdPersonCamera/art/models/dirt.glb" id="1_144cx"]
+[ext_resource type="PackedScene" uid="uid://bbxefn7xkvtjj" path="res://22-3rdPersonCamera/art/models/wood-structure.glb" id="2_y30u5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5ekk"]
+size = Vector3(2, 0.9, 2)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D"]
+collision_layer = 3
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("BoxShape3D_o5ekk")
+
+[node name="dirt2" parent="." instance=ExtResource("1_144cx")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+
+[node name="wood-structure2" parent="." instance=ExtResource("2_y30u5")]
+transform = Transform3D(2.01, 0, 0, 0, 1.01, 0, 0, 0, 2.01, 0, 0.1, 0)
+
+[node name="wood-structure3" parent="." instance=ExtResource("2_y30u5")]
+transform = Transform3D(2.01, 0, 0, 0, -0.5, 3.03502e-07, 0, -7.54979e-08, -2.01, 0, 0.3, 0)
