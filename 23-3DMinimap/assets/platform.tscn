@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0w6jnr4injpc"]
+
+[ext_resource type="PackedScene" uid="uid://h0feqpnvolku" path="res://23-3DMinimap/art/models/dirt.glb" id="1_144cx"]
+[ext_resource type="PackedScene" uid="uid://bbxefn7xkvtjj" path="res://23-3DMinimap/art/models/wood-structure.glb" id="2_y30u5"]
+[ext_resource type="Texture2D" uid="uid://crw0q1emkkiv2" path="res://23-3DMinimap/art/sprites/rect.png" id="3_ur67v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5ekk"]
+size = Vector3(2, 0.9, 2)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D"]
+collision_layer = 3
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("BoxShape3D_o5ekk")
+
+[node name="dirt2" parent="." instance=ExtResource("1_144cx")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.1, 0)
+
+[node name="wood-structure2" parent="." instance=ExtResource("2_y30u5")]
+transform = Transform3D(2.01, 0, 0, 0, 1.01, 0, 0, 0, 2.01, 0, 0.1, 0)
+
+[node name="wood-structure3" parent="." instance=ExtResource("2_y30u5")]
+transform = Transform3D(2.01, 0, 0, 0, -0.5, 3.03502e-07, 0, -7.54979e-08, -2.01, 0, 0.3, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+layers = 2
+modulate = Color(0.811765, 0.721569, 0.886275, 1)
+axis = 1
+texture = ExtResource("3_ur67v")
