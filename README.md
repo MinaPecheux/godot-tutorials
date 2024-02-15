@@ -195,4 +195,11 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 ## 22. Creating a basic 3rd person camera
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=dWalA9muY3s)
+- Read on [Medium](https://medium.com/codex/creating-a-simple-3rd-person-camera-godot-4-28d80f08551c)
 - See the files [in the repo](/22-3rdPersonCamera/)
+
+## 23. Setting up a 3D minimap
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=LXzQXoheXAA)
+- Read on [Medium](https://mina-pecheux.medium.com/setting-up-a-3d-minimap-02244d030390)
+- See the files [in the repo](/23-3DMinimap/)
