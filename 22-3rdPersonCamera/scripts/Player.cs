@@ -1,7 +1,6 @@
 using Godot;
-using System;
 
-namespace Tutorial21_MovingPlatform
+namespace Tutorial22_3rdPersonCamera
 {
 
 	public partial class Player : CharacterBody3D

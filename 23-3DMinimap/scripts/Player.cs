@@ -1,7 +1,6 @@
 using Godot;
-using System;
 
-namespace Tutorial21_MovingPlatform
+namespace Tutorial23_3dMinimap
 {
 
 	public partial class Player : CharacterBody3D
