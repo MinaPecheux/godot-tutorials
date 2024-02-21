@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://satt047t7cel"]
+
+[ext_resource type="Texture2D" uid="uid://mxkdk7gxtomy" path="res://24-2DNav/art/sprites/meteorBrown_big1.png" id="1_web0j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_30w3h"]
+radius = 47.0956
+
+[node name="Asteroid" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_web0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_30w3h")

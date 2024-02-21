@@ -1,0 +1,189 @@
+[gd_scene load_steps=7 format=3 uid="uid://8m7l8slkwut"]
+
+[ext_resource type="PackedScene" uid="uid://satt047t7cel" path="res://24-2DNav/assets/asteroid.tscn" id="1_4yn56"]
+[ext_resource type="Texture2D" uid="uid://chgciip8dbn8n" path="res://24-2DNav/art/sprites/meteorBrown_big3.png" id="2_8kkfb"]
+[ext_resource type="Texture2D" uid="uid://dbtun01id1xop" path="res://24-2DNav/art/sprites/meteorBrown_big4.png" id="3_kqfnb"]
+[ext_resource type="PackedScene" uid="uid://crq4gtbptcceq" path="res://24-2DNav/assets/unit.tscn" id="4_dn6ua"]
+[ext_resource type="Script" path="res://24-2DNav/scripts/Unit.cs" id="5_in7ra"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7h8u1"]
+vertices = PackedVector2Array(1400, 389, 1745, 257, 1817, 275, 1838, 554, 1802, 558, 1570, 975, 1595, 999, 264, 998, 816, 983, 103, 298, 81, 311, 81, 270, 100, 270, 196, 100, 186, 82, 287, 82, 285, 108, 123, 782, 80, 805, 80, 574, 123, 595, 1711, 223, 1701, 228, 1620, 219, 1391, 318, 1555, 169, 1348, 260, 1839, 267, 1315, 500, 1572, 824, 1550, 899, 946, 811, 916, 739, 1244, 509, 1039, 100, 1035, 82, 1525, 82, 1524, 95, 1280, 233, 1740, 604, 1373, 457, 255, 248, 199, 171, 313, 169, 316, 272, 937, 890, 1710, 673, 541, 82, 731, 82, 731, 86, 709, 109, 693, 174, 535, 136, 193, 782, 201, 588, 146, 294, 161, 236, 186, 260, 1209, 242, 1014, 177, 1151, 285, 954, 229, 935, 239, 1124, 353, 887, 287, 366, 209, 357, 318, 434, 217, 378, 324, 709, 239, 431, 370, 495, 189, 241, 562, 250, 570, 936, 232, 256, 817, 320, 587, 567, 755, 1133, 424, 853, 690, 827, 687, 821, 667, 454, 441, 757, 287, 695, 607, 627, 629, 1713, 710, 1688, 739, 1684, 754, 1625, 770, 1176, 482, 765, 619, 822, 303, 437, 511, 579, 685, 391, 564, 291, 880, 589, 823, 291, 950, 645, 871, 674, 925, 888, 953, 652, 872, 737, 974)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 1, 0, 22), PackedInt32Array(23, 22, 0, 24), PackedInt32Array(25, 23, 24, 26), PackedInt32Array(2, 27, 3), PackedInt32Array(28, 29, 30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37, 26, 38), PackedInt32Array(0, 4, 39, 40), PackedInt32Array(41, 42, 13, 16, 43, 44), PackedInt32Array(45, 31, 30, 5), PackedInt32Array(40, 39, 46, 28), PackedInt32Array(47, 48, 49, 50), PackedInt32Array(47, 50, 51, 52), PackedInt32Array(53, 17, 20, 54), PackedInt32Array(55, 9, 12, 56, 57), PackedInt32Array(37, 25, 26), PackedInt32Array(34, 38, 58, 59), PackedInt32Array(59, 58, 60, 61), PackedInt32Array(62, 61, 60, 63, 64), PackedInt32Array(57, 56, 42, 41), PackedInt32Array(44, 43, 65, 66), PackedInt32Array(66, 65, 67, 68), PackedInt32Array(69, 70, 68, 67, 71, 51), PackedInt32Array(54, 72, 73, 53), PackedInt32Array(62, 74, 61), PackedInt32Array(75, 53, 73, 76, 77), PackedInt32Array(78, 79, 80, 81, 64, 63), PackedInt32Array(71, 52, 51), PackedInt32Array(82, 70, 69, 83, 84, 85), PackedInt32Array(28, 46, 86, 87), PackedInt32Array(28, 87, 88, 89), PackedInt32Array(28, 89, 29), PackedInt32Array(90, 33, 32, 79), PackedInt32Array(78, 90, 79), PackedInt32Array(64, 81, 91, 92), PackedInt32Array(92, 91, 84, 83), PackedInt32Array(93, 82, 85, 94), PackedInt32Array(95, 93, 94, 77), PackedInt32Array(76, 95, 77), PackedInt32Array(96, 75, 77, 97), PackedInt32Array(98, 96, 97, 99, 100), PackedInt32Array(101, 45, 5), PackedInt32Array(99, 102, 100), PackedInt32Array(7, 98, 100, 103), PackedInt32Array(8, 101, 5), PackedInt32Array(7, 103, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, 3, 1921, 2, 1917, 1080, 0, 1078)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 80.0
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0, 0.0941176, 1)
+
+[node name="Scene" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Scene"]
+navigation_polygon = SubResource("NavigationPolygon_7h8u1")
+
+[node name="Asteroid" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(822, 174)
+
+[node name="Asteroid2" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(242, 378)
+rotation = 1.14205
+
+[node name="Asteroid3" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(414, 88)
+rotation = 2.46668
+
+[node name="Asteroid4" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(885, 92)
+rotation = 2.66989
+scale = Vector2(1.51303, 1.51303)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid4" index="0"]
+rotation = 0.857306
+texture = ExtResource("2_8kkfb")
+
+[node name="Asteroid5" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(152, 443)
+rotation = -2.42146
+scale = Vector2(1.51303, 1.51303)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid5" index="0"]
+rotation = 0.857306
+texture = ExtResource("2_8kkfb")
+
+[node name="Asteroid6" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(314, 447)
+rotation = -1.09785
+scale = Vector2(1.20181, 1.20181)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid6" index="0"]
+rotation = 0.643729
+texture = ExtResource("3_kqfnb")
+
+[node name="Asteroid7" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(63, 137)
+rotation = -1.32096
+scale = Vector2(1.20181, 1.20181)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid7" index="0"]
+rotation = 0.643729
+texture = ExtResource("3_kqfnb")
+
+[node name="Asteroid8" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(1262, 371)
+rotation = -0.913322
+scale = Vector2(1.20181, 1.20181)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid8" index="0"]
+rotation = 0.643729
+texture = ExtResource("3_kqfnb")
+
+[node name="Asteroid17" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(705, 745)
+rotation = -1.63918
+scale = Vector2(1.20181, 1.20181)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid17" index="0"]
+rotation = 0.643729
+texture = ExtResource("3_kqfnb")
+
+[node name="Asteroid18" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(795, 832)
+rotation = -1.18037
+scale = Vector2(1.48615, 1.48615)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid18" index="0"]
+rotation = 0.643729
+texture = ExtResource("3_kqfnb")
+
+[node name="Asteroid9" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(1813, 135)
+rotation = -2.11247
+scale = Vector2(1.20181, 1.20181)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid9" index="0"]
+rotation = 0.643729
+texture = ExtResource("3_kqfnb")
+
+[node name="Asteroid10" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(1679, 73)
+rotation = -1.18497
+scale = Vector2(1.57301, 1.57301)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid10" index="0"]
+rotation = 0.643729
+texture = ExtResource("3_kqfnb")
+
+[node name="Asteroid11" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(1700, 900)
+rotation = -2.61067
+scale = Vector2(1.41496, 1.41496)
+
+[node name="Asteroid12" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(73.0004, 1000)
+rotation = -1.80729
+scale = Vector2(1.41496, 1.41496)
+
+[node name="Asteroid13" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(158, 915)
+rotation = -0.785708
+scale = Vector2(1.16862, 1.16862)
+
+[node name="Asteroid14" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(1834, 945)
+rotation = -2.23659
+scale = Vector2(1.85585, 1.85585)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid14" index="0"]
+rotation = 0.857306
+texture = ExtResource("2_8kkfb")
+
+[node name="Asteroid15" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(1819, 805)
+rotation = -0.580559
+scale = Vector2(1.36193, 1.36193)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid15" index="0"]
+rotation = 0.857306
+texture = ExtResource("2_8kkfb")
+
+[node name="Asteroid16" parent="Scene/NavigationRegion2D" instance=ExtResource("1_4yn56")]
+position = Vector2(1855, 696)
+rotation = 0.673213
+scale = Vector2(1.36193, 1.36193)
+
+[node name="Sprite2D" parent="Scene/NavigationRegion2D/Asteroid16" index="0"]
+rotation = 0.857306
+texture = ExtResource("2_8kkfb")
+
+[node name="Unit" parent="." instance=ExtResource("4_dn6ua")]
+position = Vector2(960, 540)
+script = ExtResource("5_in7ra")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Unit"]
+
+[editable path="Scene/NavigationRegion2D/Asteroid4"]
+[editable path="Scene/NavigationRegion2D/Asteroid5"]
+[editable path="Scene/NavigationRegion2D/Asteroid6"]
+[editable path="Scene/NavigationRegion2D/Asteroid7"]
+[editable path="Scene/NavigationRegion2D/Asteroid8"]
+[editable path="Scene/NavigationRegion2D/Asteroid17"]
+[editable path="Scene/NavigationRegion2D/Asteroid18"]
+[editable path="Scene/NavigationRegion2D/Asteroid9"]
+[editable path="Scene/NavigationRegion2D/Asteroid10"]
+[editable path="Scene/NavigationRegion2D/Asteroid14"]
+[editable path="Scene/NavigationRegion2D/Asteroid15"]
+[editable path="Scene/NavigationRegion2D/Asteroid16"]

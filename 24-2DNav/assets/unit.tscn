@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://crq4gtbptcceq"]
+
+[ext_resource type="Texture2D" uid="uid://bsiowri038yfy" path="res://24-2DNav/art/sprites/ship.png" id="1_fjmpn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56dkx"]
+radius = 43.0465
+
+[node name="Unit" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_fjmpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_56dkx")
