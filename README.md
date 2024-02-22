@@ -130,6 +130,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Read on [Medium](https://mina-pecheux.medium.com/learning-the-basics-of-input-actions-godot-4-c-42458db5d1fc)
 - See the files [in the repo](/11-InputActions/)
 
+![11_InputActions-img](/doc/11_InputActions.gif)
+
 ## 12. Using animations for a basic chest system
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/dp-BZMYfPdM)
@@ -144,6 +146,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Read on [Medium](https://medium.com/p/4c77ad6445ad)
 - See the files [in the repo](/13-Tilemaps2/)
 
+![13_Tilemaps2-img](/doc/13_Tilemaps2.png)
+
 ## 14. Loading resources at runtime in C#...
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/_m4L36SfijA)
@@ -156,11 +160,15 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Read on [Medium](https://mina-pecheux.medium.com/using-mask-culling-visibility-layers-godot-4-c-7d3b8b0415d5)
 - See the files [in the repo](/15-VisibilityLayers/)
 
+![15_VisibilityCulling-img](/doc/15_VisibilityCulling.gif)
+
 ## 16. Spawning 2D enemy waves
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=GA024FqDzV0)
 - Read on [Medium](https://mina-pecheux.medium.com/spawning-2d-enemy-waves-godot-4-c-509f6048d001)
 - See the files [in the repo](/16-EnemyWaves/)
+
+![16_EnemyWaves-img](/doc/16_EnemyWaves.gif)
 
 ## 17. Setting up basic JRPG-like dialogues
 
@@ -168,11 +176,15 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Read on [Medium](https://medium.com/p/1574eb28e548)
 - See the files [in the repo](/17-BasicDialogue/)
 
+![17_BasicDialogue-img](/doc/17_BasicDialogue.png)
+
 ## 18. Creating a pause overlay screen
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=-4jVIKix-yk)
 - Read on [Medium](https://medium.com/p/1d291f6aad26)
 - See the files [in the repo](/18-PauseScreen/)
+
+![18_PauseScreen-img](/doc/18_PauseScreen.gif)
 
 ## 19. Setting up an animated 3D character controller
 
@@ -180,11 +192,15 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Read on [Medium](https://medium.com/p/ef1c9cd3ddcc)
 - See the files [in the repo](/19-Animated3DCharacter/)
 
+![19_Animated3DCharacter-img](/doc/19_Animated3DCharacter.gif)
+
 ## 20. Discovering Godot's pseudolocalisation
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=cnH4SgqizJA)
 - Read on [Medium](https://mina-pecheux.medium.com/discovering-godots-pseudolocalisation-godot-4-c-232dfaafd3c9)
 - See the files [in the repo](/20-Pseudolocalisation/)
+
+![20_Pseudolocalisation-img](/doc/20_Pseudolocalization.png)
 
 ## 21. Implementing a basic 3D moving platform
 
@@ -192,11 +208,15 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Read on [Medium](https://mina-pecheux.medium.com/implementing-a-basic-moving-platform-godot-4-c-30e072619b16)
 - See the files [in the repo](/21-MovingPlatform/)
 
+![21_MovingPlatform-img](/doc/21_MovingPlatform.gif)
+
 ## 22. Creating a basic 3rd person camera
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=dWalA9muY3s)
 - Read on [Medium](https://medium.com/codex/creating-a-simple-3rd-person-camera-godot-4-28d80f08551c)
 - See the files [in the repo](/22-3rdPersonCamera/)
+
+![22_3rdPersonCamera-img](/doc/22_3rdPersonCamera.gif)
 
 ## 23. Setting up a 3D minimap
 
@@ -204,8 +224,12 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Read on [Medium](https://mina-pecheux.medium.com/setting-up-a-3d-minimap-02244d030390)
 - See the files [in the repo](/23-3DMinimap/)
 
+![23_3DMinimap-img](/doc/23_3DMinimap.gif)
+
 ## 24. Implementing a 2D point-and-click navigation system
 
 - Watch on YouTube: [in English 🇬🇧](https://youtu.be/WEAuszjRDHY)
 - Read on [Medium](https://mina-pecheux.medium.com/implementing-2d-point-and-click-navigation-godot-4-c-1735aaef2089)
 - See the files [in the repo](/24-2DNav/)
+
+![24_2DNav-img](/doc/24_2DNav.gif)
