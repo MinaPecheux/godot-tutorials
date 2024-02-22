@@ -18,12 +18,19 @@ I re-updated this repo to work with Godot 4. Tutorials 01 to 05 were initially m
 
 ## 📚 L'Almanach
 
-If you'd like to get those tutorials in ebook format and help support my work for a low price, you can check out the *L'Almanach* series on Gumroad!
+If you'd like to get those tutorials in ebook format and help support my work for a low price, you can check out the *L'Almanach* series [on Gumroad](https://mpecheux.gumroad.com/)!
 
 <table>
     <tr>
-        <td><img src="./doc/LAlmanach_01.png" style="width: auto; height: 160px;" /></td>
-        <td><img src="./doc/LAlmanach_02.png" style="width: auto; height: 160px;" /></td>
+        <td>
+            <a href="https://mpecheux.gumroad.com/l/keqkau" target="_blank">
+                <img src="./doc/LAlmanach_01.png" style="width: auto; height: 160px;" />
+            </a>
+        </td>
+        <td>
+            <a href="https://mpecheux.gumroad.com/l/monzhc" target="_blank">
+                <img src="./doc/LAlmanach_02.png" style="width: auto; height: 160px;" /></td>
+            </a>
     </tr>
 </table>
 
