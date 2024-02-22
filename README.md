@@ -20,18 +20,13 @@ I re-updated this repo to work with Godot 4. Tutorials 01 to 05 were initially m
 
 If you'd like to get those tutorials in ebook format and help support my work for a low price, you can check out the *L'Almanach* series on Gumroad!
 
-<div style="display: flex; justify-content: space-between;">
-    <div style="width: 45%;">
-        <img src="./doc/LAlmanach_01.png" /><br />
-        <b>Getting Started</b>: 3 tutorials + 1 full mini-game for complete beginners
-    </div>
-    <div style="width: 45%;">
-        <img src="./doc/LAlmanach_02.png" /><br />
-        <b>Mini-2D Platformer</b>: 3 tutorials + 1 full mini-game to learn the basics of 2D in Godot
-    </div>
-</div>
+<table>
+    <tr>
+        <td><img src="./doc/LAlmanach_01.png" style="width: auto; height: 160px;" /></td>
+        <td><img src="./doc/LAlmanach_02.png" style="width: auto; height: 160px;" /></td>
+    </tr>
+</table>
 
-<br />
 =========================
 
 ## 🕹 Mini-games
