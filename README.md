@@ -80,7 +80,7 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 ## 05. Implementing a basic mouse follow logic
 
-- Watch on YouTube: [in English 🇬🇧](https://youtu.be/FuuxC4G60lU), [in French 🇫🇷](https://youtu.be/3_7Z0IIT8Rg), [in French 🇫🇷](https://youtu.be/3_7Z0IIT8Rg)
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/FuuxC4G60lU), [in French 🇫🇷](https://youtu.be/3_7Z0IIT8Rg)
 - Read on [Medium](https://mina-pecheux.medium.com/implementing-a-basic-mouse-follow-logic-in-godot-c-ae51f0859a95)
 - See the files [in the repo](/05-MouseFollow/)
 
@@ -203,3 +203,9 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=LXzQXoheXAA)
 - Read on [Medium](https://mina-pecheux.medium.com/setting-up-a-3d-minimap-02244d030390)
 - See the files [in the repo](/23-3DMinimap/)
+
+## 24. Implementing a 2D point-and-click navigation system
+
+- Watch on YouTube: [in English 🇬🇧](https://youtu.be/WEAuszjRDHY)
+- Read on [Medium](https://mina-pecheux.medium.com/implementing-2d-point-and-click-navigation-godot-4-c-1735aaef2089)
+- See the files [in the repo](/24-2DNav/)
