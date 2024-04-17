@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvghjlxk7s4fh"]
+
+[ext_resource type="Shader" path="res://25-3DNav/art/shaders/target_point.gdshader" id="1_skkhx"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_cyuon"]
+orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3orc"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_skkhx")
+shader_parameter/color = Color(0.721569, 0.866667, 0.878431, 1)
+shader_parameter/radius = 1.0
+
+[sub_resource type="Animation" id="Animation_mo70h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:surface_material_override/0:shader_parameter/color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.721569, 0.866667, 0.878431, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nvm0k"]
+resource_name = "sho"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3, 0.3),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:surface_material_override/0:shader_parameter/color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3, 0.3),
+"update": 0,
+"values": [Color(0.721569, 0.866667, 0.878431, 1), Color(0.721569, 0.866667, 0.878431, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ql8t4"]
+_data = {
+"RESET": SubResource("Animation_mo70h"),
+"show": SubResource("Animation_nvm0k")
+}
+
+[node name="TargetPoint" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("QuadMesh_cyuon")
+surface_material_override/0 = SubResource("ShaderMaterial_d3orc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ql8t4")
+}
+autoplay = "show"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6us4imu831jw"]
+
+[ext_resource type="PackedScene" uid="uid://d8bbt8fx4ebh" path="res://assets/_base.tscn" id="1_6w2tk"]
+[ext_resource type="PackedScene" uid="uid://3s3l8723jv2b" path="res://25-3DNav/art/models/stairs-corner.glb" id="2_56apt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6mdl"]
+size = Vector3(0.333154, 0.5, 0.336719)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clils"]
+size = Vector3(0.665552, 0.205, 0.648055)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1bh1"]
+size = Vector3(0.332, 0.205, 0.375)
+
+[node name="Stairs-Corner" instance=ExtResource("1_6w2tk")]
+collision_layer = 3
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333423, 0.25, -0.331641)
+shape = SubResource("BoxShape3D_d6mdl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.849137, -0.528172, 0, 0.528172, 0.849137, -0.167224, 0.0788125, 0.383725)
+shape = SubResource("BoxShape3D_clils")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(-4.37114e-08, 0.528172, 0.849137, 0, 0.849137, -0.528172, -1, -2.30871e-08, -3.7117e-08, 0.389203, 0.079, -0.16631)
+shape = SubResource("BoxShape3D_clils")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.894989, -0.446088, 0, 0.446088, 0.894989, -0.334103, 0.325865, -0.0458811)
+shape = SubResource("BoxShape3D_k1bh1")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(-4.37114e-08, 0.446088, 0.894989, 0, 0.894989, -0.446088, -1, -1.94991e-08, -3.91212e-08, -0.0438126, 0.325865, -0.332083)
+shape = SubResource("BoxShape3D_k1bh1")
+
+[node name="stairs-corner2" parent="." index="5" instance=ExtResource("2_56apt")]

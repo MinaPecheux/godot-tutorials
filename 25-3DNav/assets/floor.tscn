@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbpxsq7od6f58"]
+
+[ext_resource type="PackedScene" uid="uid://d8bbt8fx4ebh" path="res://assets/_base.tscn" id="1_ktjle"]
+[ext_resource type="PackedScene" uid="uid://dblbv12l5arxx" path="res://25-3DNav/art/models/floor.glb" id="2_qe4x4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6mdl"]
+size = Vector3(1, 0.02, 1)
+
+[node name="Floor" instance=ExtResource("1_ktjle")]
+collision_layer = 3
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_d6mdl")
+
+[node name="floor2" parent="." index="1" instance=ExtResource("2_qe4x4")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://uhnrab8so381"]
+
+[ext_resource type="PackedScene" uid="uid://d8bbt8fx4ebh" path="res://assets/_base.tscn" id="1_lfaiq"]
+[ext_resource type="PackedScene" uid="uid://b0qmsb3qiesf2" path="res://25-3DNav/art/models/stairs.glb" id="2_g67ga"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6mdl"]
+size = Vector3(1, 0.5, 0.336719)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clils"]
+size = Vector3(1, 0.205, 1.009)
+
+[node name="Stairs" instance=ExtResource("1_lfaiq")]
+collision_layer = 3
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.331641)
+shape = SubResource("BoxShape3D_d6mdl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.868112, -0.496368, 0, 0.496368, 0.868112, 0, 0.161035, 0.222478)
+shape = SubResource("BoxShape3D_clils")
+
+[node name="stairs2" parent="." index="2" instance=ExtResource("2_g67ga")]

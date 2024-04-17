@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjq6roupwp24f"]
+
+[ext_resource type="PackedScene" uid="uid://d8bbt8fx4ebh" path="res://assets/_base.tscn" id="1_61g12"]
+[ext_resource type="PackedScene" uid="uid://c7408tfy7qur4" path="res://25-3DNav/art/models/column-damaged.glb" id="2_hyjcw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6mdl"]
+size = Vector3(0.6, 1, 0.6)
+
+[node name="Column-Damaged" instance=ExtResource("1_61g12")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_d6mdl")
+
+[node name="column-damaged2" parent="." index="1" instance=ExtResource("2_hyjcw")]

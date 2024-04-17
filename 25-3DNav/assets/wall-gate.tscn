@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcsmicmuagu0x"]
+
+[ext_resource type="PackedScene" uid="uid://d8bbt8fx4ebh" path="res://assets/_base.tscn" id="1_vrlv0"]
+[ext_resource type="PackedScene" uid="uid://bgp6u6k884nab" path="res://25-3DNav/art/models/wall-gate.glb" id="2_bn1gk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6mdl"]
+size = Vector3(1, 1, 0.6)
+
+[node name="Wall-Gate" instance=ExtResource("1_vrlv0")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_d6mdl")
+
+[node name="wall-gate2" parent="." index="1" instance=ExtResource("2_bn1gk")]
