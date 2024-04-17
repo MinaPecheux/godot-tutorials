@@ -253,3 +253,10 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/24-2DNav/)
 
 ![24_2DNav-img](/doc/24_2DNav.gif)
+
+## 25. Implementing a 3D point-and-click navigation system
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=03eT1PqSzbI)
+- See the files [in the repo](/25-3DNav/)
+
+![25_3DNav-img](/doc/25_3DNav.gif)
