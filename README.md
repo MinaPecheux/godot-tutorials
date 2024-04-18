@@ -260,3 +260,10 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/25-3DNav/)
 
 ![25_3DNav-img](/doc/25_3DNav.gif)
+
+## 26. Creating a "hit & health" 2D system
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=3HfDTXdq_hg)
+- See the files [in the repo](/26-HitAndHealth/)
+
+![26_HitAndHealth-img](/doc/26_HitAndHealth.gif)
