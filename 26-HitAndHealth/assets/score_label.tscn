@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn2kfd1e7jebi"]
+
+[ext_resource type="FontFile" uid="uid://cecf1gnvr6mtm" path="res://26-HitAndHealth/art/fonts/Sobiscuit.ttf" id="1_sc7od"]
+
+[node name="ScoreLabel" type="Label"]
+offset_right = 1.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_sc7od")
+theme_override_font_sizes/font_size = 52
+text = "000"
