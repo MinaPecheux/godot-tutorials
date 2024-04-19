@@ -1,0 +1,205 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfpj4npiuor85"]
+
+[ext_resource type="TileSet" uid="uid://ki0vq5fqj6ga" path="res://27-2DFollowParallax/art/tilesheets/tileset.tres" id="1_tevwm"]
+[ext_resource type="PackedScene" uid="uid://pqy4hjhtinsw" path="res://27-2DFollowParallax/assets/fish.tscn" id="2_c2at1"]
+[ext_resource type="PackedScene" uid="uid://dkpukyj6rqcrr" path="res://27-2DFollowParallax/assets/player_fish.tscn" id="3_sqmha"]
+[ext_resource type="Shader" path="res://27-2DFollowParallax/art/shaders/blur.gdshader" id="4_iorc1"]
+[ext_resource type="Texture2D" uid="uid://dooet21aaxvt2" path="res://27-2DFollowParallax/art/sprites/rect.png" id="5_shn5b"]
+[ext_resource type="Texture2D" uid="uid://d1o0nax2fbr56" path="res://27-2DFollowParallax/art/sprites/bubble.png" id="6_f7ahy"]
+
+[sub_resource type="Curve" id="Curve_tn55t"]
+_data = [Vector2(0, 1), 0.0, 0.0168399, 0, 0, Vector2(1, 0), -2.71029, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_n6rk4"]
+offsets = PackedFloat32Array(0.327465, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bkqxy"]
+shader = ExtResource("4_iorc1")
+shader_parameter/blur = 0.7
+
+[node name="Root" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.592157, 0.847059, 0.858824, 1)
+
+[node name="-3" type="CanvasLayer" parent="."]
+layer = -60
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+
+[node name="TileMap" type="TileMap" parent="-3"]
+position = Vector2(0, 30)
+scale = Vector2(1.9241, 3.00981)
+tile_set = ExtResource("1_tevwm")
+rendering_quadrant_size = 64
+format = 2
+layer_0/modulate = Color(0.501961, 0.733333, 0.811765, 0.74902)
+layer_0/tile_data = PackedInt32Array(-65536, 1114112, 3, -65527, 1048576, 3, -5, 655360, 3, -6, 720896, 3, -65530, 851968, 3, -23, 720896, 3, -22, 655360, 3, -17, 1114112, 3, -11, 851968, 3, -8, 1048576, 3, -65519, 983040, 3, -65518, 655360, 3, -65513, 1114112, 3, -65507, 851968, 3, -65504, 1048576, 3, -65526, 1048576, 3, -65529, 917504, 3, -65528, 1114112, 3, -2, 1048576, 3, -19, 1048576, 3, -20, 983040, 3)
+
+[node name="-2" type="CanvasLayer" parent="."]
+layer = -40
+follow_viewport_enabled = true
+follow_viewport_scale = 0.8
+
+[node name="TileMap2" type="TileMap" parent="-2"]
+position = Vector2(-3248.75, 8)
+tile_set = ExtResource("1_tevwm")
+rendering_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(-65517, 655360, 1, -65508, 655360, 2, -65493, 720896, 2, -65494, 786432, 1, -65495, 655360, 1, -65499, 786432, 2, -65502, 851968, 2, -65478, 851968, 2, -65456, 851968, 2, -65459, 786432, 2, -65449, 786432, 2, -65470, 655360, 1, -65463, 655360, 1, -65462, 720896, 1, -65469, 786432, 1, -65471, 720896, 2, -65461, 655360, 3, -65454, 720896, 3, -65491, 786432, 3, -65500, 720896, 3, -65505, 655360, 3)
+
+[node name="TileMap" type="TileMap" parent="-2"]
+position = Vector2(48.75, 0)
+tile_set = ExtResource("1_tevwm")
+rendering_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(-65535, 655360, 4, -9, 655360, 4, -65529, 720896, 4, -11, 720896, 4, -33, 720896, 4, -31, 655360, 4, -21, 655360, 4, -15, 720896, 4, -65522, 720896, 4, -65510, 655360, 4, -65506, 720896, 4, -65513, 655360, 4, 65495, 0, 0, 65496, 0, 0, 65497, 0, 0, 65498, 0, 0, 65499, 0, 0, 65500, 0, 0, 65501, 0, 0, 65502, 0, 0, 65503, 0, 0, 65504, 0, 0, 65505, 0, 0, 65506, 0, 0, 65507, 0, 0, 65508, 0, 0, 65509, 0, 0, 65510, 0, 0, 65511, 0, 0, 65512, 0, 0, 65513, 0, 0, 65514, 0, 0, 65515, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="-2"]
+color = Color(0.670588, 0.917647, 1, 0.917647)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="-2"]
+amount = 14
+lifetime = 6.0
+randomness = 0.5
+texture = ExtResource("6_f7ahy")
+emission_shape = 4
+emission_points = PackedVector2Array(-960, 0, 50, 0, 360, 0, 1300, 0, -1800, 0)
+emission_colors = PackedColorArray()
+direction = Vector2(0, -1)
+spread = 25.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 20.0
+scale_amount_min = 0.04
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_tn55t")
+color_ramp = SubResource("Gradient_n6rk4")
+
+[node name="Blur" type="Sprite2D" parent="-2"]
+material = SubResource("ShaderMaterial_bkqxy")
+scale = Vector2(100, 50)
+texture = ExtResource("5_shn5b")
+
+[node name="-1" type="CanvasLayer" parent="."]
+layer = -20
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="TileMap2" type="TileMap" parent="-1"]
+position = Vector2(-18, 8)
+scale = Vector2(1.13506, 1.13506)
+tile_set = ExtResource("1_tevwm")
+rendering_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(-32, 655360, 1, -26, 786432, 0, -21, 655360, 0, -37, 655360, 0, -35, 851968, 0, -18, 720896, 4, -8, 655360, 4, -4, 786432, 2, -5, 720896, 1, -65535, 720896, 1, -65533, 786432, 1, -65536, 655360, 1, -65525, 655360, 1, -65518, 655360, 1, -65516, 786432, 1, -65514, 655360, 1, -65521, 720896, 1, -65520, 655360, 2, -65508, 786432, 2, -31, 851968, 2, -25, 786432, 2)
+
+[node name="TileMap" type="TileMap" parent="-1"]
+position = Vector2(14.4444, 0)
+scale = Vector2(1.13506, 1.13506)
+tile_set = ExtResource("1_tevwm")
+rendering_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(-8, 655360, 0, -65530, 786432, 0, -65534, 720896, 0, -65535, 786432, 0, -5, 655360, 4, -4, 655360, 2, -11, 720896, 2, -33, 720896, 2, -30, 655360, 0, -16, 786432, 0, -21, 786432, 0, -22, 720896, 0, -65526, 983040, 0, -65521, 720896, 2, -65518, 655360, 0, -65515, 655360, 4, -65514, 655360, 2, -65509, 786432, 0, -65508, 720896, 0, -65504, 786432, 0, 65499, 393216, 0, 65500, 458752, 0, 65501, 393216, 0, 65502, 458752, 0, 65503, 524288, 0, 65504, 589824, 0, 65505, 393216, 0, 65506, 458752, 0, 65507, 524288, 0, 65508, 589824, 0, 65509, 524288, 0, 65510, 458752, 0, 65511, 524288, 0, 65512, 393216, 0, 65513, 458752, 0, 65514, 524288, 0, 65515, 589824, 0, 65516, 393216, 0, 65517, 458752, 0, 65518, 524288, 0, 65519, 393216, 0, 65520, 458752, 0, 65521, 524288, 0, 65522, 589824, 0, 65523, 393216, 0, 65524, 458752, 0, 65525, 524288, 0, 65526, 393216, 0, 65527, 458752, 0, 65528, 524288, 0, 65529, 589824, 0, 65530, 393216, 0, 65531, 458752, 0, 65532, 524288, 0, 65533, 589824, 0, 65534, 393216, 0, 65535, 458752, 0, 0, 524288, 0, 1, 393216, 0, 2, 458752, 0, 3, 524288, 0, 4, 589824, 0, 5, 393216, 0, 6, 458752, 0, 7, 524288, 0, 8, 589824, 0, 9, 393216, 0, 10, 458752, 0, 11, 524288, 0, 12, 589824, 0, 13, 524288, 0, 14, 589824, 0, 16, 393216, 0, 18, 524288, 0, 19, 589824, 0, 20, 393216, 0, 21, 458752, 0, 22, 524288, 0, 23, 589824, 0, 24, 589824, 0, 25, 393216, 0, 26, 458752, 0, 27, 524288, 0, 28, 589824, 0, -18, 655360, 2, -26, 655360, 4, -27, 1114112, 1, -32, 983040, 1, -65528, 655360, 2, 17, 458752, 0, 15, 458752, 0)
+
+[node name="FISHES" type="Node2D" parent="-1"]
+
+[node name="Fish" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(-344, -253)
+
+[node name="Fish9" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(-937.778, -305.556)
+
+[node name="Fish10" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(-2030, -144.444)
+
+[node name="Fish11" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(-2120, -384.444)
+
+[node name="Fish12" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(2344.44, -305.556)
+
+[node name="Fish13" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(1342.22, -305.556)
+
+[node name="Fish2" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(490, -112)
+
+[node name="Fish3" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(172, -306)
+
+[node name="Fish4" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(824, -226)
+
+[node name="Fish8" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(1632, -146)
+
+[node name="Fish5" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(-591, -94)
+
+[node name="Fish6" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(-1559, -223)
+
+[node name="Fish7" parent="-1/FISHES" instance=ExtResource("2_c2at1")]
+position = Vector2(-999, -127)
+
+[node name="0" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="PlayerFish" parent="0" instance=ExtResource("3_sqmha")]
+position = Vector2(-19, -98)
+
+[node name="Camera2D" type="Camera2D" parent="0/PlayerFish"]
+zoom = Vector2(2, 2)
+limit_left = -1900
+limit_right = 1900
+editor_draw_limits = true
+
+[node name="1" type="CanvasLayer" parent="."]
+layer = 20
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="TileMap" type="TileMap" parent="1"]
+tile_set = ExtResource("1_tevwm")
+rendering_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 589824, 1, 0, 393216, 1, 1, 458752, 1, 2, 524288, 1, 3, 131072, 1, 4, 524288, 1, 5, 458752, 1, 6, 393216, 1, 7, 458752, 1, 8, 524288, 1, 9, 393216, 1, 10, 458752, 1, 65531, 393216, 0, 65532, 393216, 1, 65533, 458752, 1, 65534, 524288, 1, 65530, 196608, 1, 65526, 458752, 1, 65527, 524288, 1, 65528, 589824, 1, 65529, 393216, 1, 65525, 524288, 1, 131061, 0, 0, 196597, 0, 1, 131062, 0, 0, 196598, 65536, 1, 131063, 0, 0, 131064, 0, 0, 196600, 0, 0, 131065, 65536, 1, 196601, 0, 0, 131066, 0, 0, 196602, 0, 0, 131067, 0, 0, 196603, 0, 0, 131068, 0, 1, 196604, 0, 0, 131069, 0, 0, 196605, 0, 0, 131070, 0, 0, 196606, 0, 0, 131071, 0, 1, 196607, 0, 0, 65536, 0, 0, 131072, 0, 0, 65537, 0, 0, 131073, 65536, 0, 65538, 0, 0, 131074, 0, 0, 65539, 0, 0, 131075, 0, 0, 65540, 0, 0, 131076, 0, 0, 65541, 0, 0, 131077, 0, 1, 65542, 0, 0, 131078, 0, 0, 65543, 0, 0, 131079, 0, 0, 65544, 0, 1, 131080, 0, 0, 65545, 0, 0, 131081, 65536, 1, 65546, 0, 0, 131082, 0, 0, 196599, 0, 0, 65503, 131072, 1, 131039, 0, 0, 196575, 0, 1, 65504, 393216, 1, 131040, 0, 0, 196576, 65536, 1, 65505, 458752, 1, 131041, 0, 0, 196577, 0, 0, 65506, 524288, 1, 131042, 0, 0, 196578, 0, 0, 131043, 65536, 1, 196579, 0, 0, 65508, 393216, 1, 131044, 0, 0, 196580, 0, 0, 65509, 458752, 1, 131045, 0, 0, 196581, 0, 0, 65510, 524288, 1, 131046, 0, 1, 196582, 0, 0, 65511, 458752, 1, 131047, 0, 0, 196583, 0, 0, 65512, 524288, 1, 131048, 0, 0, 196584, 0, 0, 65513, 589824, 1, 131049, 0, 1, 196585, 0, 0, 65514, 393216, 1, 131050, 0, 0, 196586, 0, 0, 65515, 458752, 1, 131051, 0, 0, 196587, 65536, 0, 65516, 524288, 1, 131052, 0, 0, 196588, 0, 0, 65517, 589824, 1, 131053, 0, 0, 196589, 0, 0, 65518, 524288, 1, 131054, 0, 0, 196590, 0, 0, 65519, 393216, 1, 131055, 0, 0, 196591, 0, 1, 65520, 458752, 1, 131056, 0, 0, 196592, 0, 0, 65521, 524288, 1, 131057, 0, 0, 196593, 0, 0, 65522, 393216, 1, 131058, 0, 1, 196594, 0, 0, 65523, 458752, 1, 131059, 0, 0, 196595, 65536, 1, 65524, 524288, 1, 131060, 0, 0, 196596, 0, 0, 11, 524288, 1, 65547, 0, 0, 131083, 0, 1, 12, 393216, 1, 65548, 0, 0, 131084, 65536, 1, 13, 458752, 1, 65549, 0, 0, 131085, 0, 0, 14, 524288, 1, 65550, 0, 0, 131086, 0, 0, 15, 589824, 1, 65551, 65536, 1, 131087, 0, 0, 16, 196608, 1, 65552, 0, 0, 131088, 0, 0, 17, 393216, 1, 65553, 0, 0, 131089, 0, 0, 18, 458752, 1, 65554, 0, 1, 131090, 0, 0, 19, 524288, 1, 65555, 0, 0, 131091, 0, 0, 20, 393216, 1, 65556, 0, 0, 131092, 0, 0, 21, 458752, 1, 65557, 0, 1, 131093, 0, 0, 22, 524288, 1, 65558, 0, 0, 131094, 0, 0, 23, 458752, 1, 65559, 0, 0, 131095, 65536, 0, 24, 524288, 1, 65560, 0, 0, 131096, 0, 0, 25, 131072, 1, 65561, 0, 0, 131097, 0, 0, 26, 393216, 1, 65562, 0, 0, 131098, 0, 0, 27, 458752, 1, 65563, 0, 0, 131099, 0, 1, 28, 393216, 1, 65564, 0, 0, 131100, 0, 0, 29, 458752, 1, 65565, 0, 0, 131101, 0, 0, 30, 524288, 1, 65566, 0, 1, 131102, 0, 0, 31, 524288, 0, 65567, 0, 0, 131103, 65536, 1, 32, 589824, 1, 65568, 0, 0, 131104, 0, 0, 65507, 524288, 1)
+
+[node name="2" type="CanvasLayer" parent="."]
+layer = 40
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="3" type="CanvasLayer" parent="."]
+layer = 60
+follow_viewport_enabled = true
+follow_viewport_scale = 1.3
+
+[node name="TileMap2" type="TileMap" parent="3"]
+position = Vector2(-64, 16)
+scale = Vector2(2.23789, 2.23789)
+tile_set = ExtResource("1_tevwm")
+rendering_quadrant_size = 64
+format = 2
+layer_0/modulate = Color(0.235294, 0.415686, 0.478431, 1)
+layer_0/tile_data = PackedInt32Array(65521, 655360, 1, 65524, 786432, 2, 65534, 786432, 1, 65535, 655360, 1, 9, 786432, 1, 5, 655360, 0, 6, 786432, 1, 65526, 720896, 3, 13, 720896, 3, 14, 786432, 3, 11, 720896, 4, 65529, 655360, 4, 65522, 655360, 4, 8, 720896, 4)
+
+[node name="TileMap" type="TileMap" parent="3"]
+position = Vector2(0, 16)
+scale = Vector2(2.23789, 2.23789)
+tile_set = ExtResource("1_tevwm")
+rendering_quadrant_size = 64
+format = 2
+layer_0/modulate = Color(0.235294, 0.415686, 0.478431, 1)
+layer_0/tile_data = PackedInt32Array(65512, 720896, 3, 65513, 655360, 3, 65518, 1114112, 3, 65524, 851968, 3, 65527, 1048576, 3, 65529, 720896, 3, 65530, 655360, 3, 65535, 1114112, 3, 5, 851968, 3, 8, 1048576, 3, 16, 720896, 3, 17, 655360, 3, 22, 1114112, 3, 28, 851968, 3, 31, 1048576, 3)

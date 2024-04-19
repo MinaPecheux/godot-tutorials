@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://pqy4hjhtinsw"]
+
+[ext_resource type="Script" path="res://27-2DFollowParallax/scripts/Fish.cs" id="1_hxwl2"]
+[ext_resource type="Texture2D" uid="uid://6uqi2e0p2dxb" path="res://27-2DFollowParallax/art/sprites/fishTile_073.png" id="3_a37gh"]
+[ext_resource type="Texture2D" uid="uid://c16mahxlgk51q" path="res://27-2DFollowParallax/art/sprites/fishTile_075.png" id="5_likqi"]
+[ext_resource type="Texture2D" uid="uid://xxes6umgfy4" path="res://27-2DFollowParallax/art/sprites/fishTile_077.png" id="7_jvnuv"]
+[ext_resource type="Texture2D" uid="uid://doy822flylefn" path="res://27-2DFollowParallax/art/sprites/fishTile_081.png" id="9_2cwx3"]
+
+[node name="Fish" type="Node2D"]
+script = ExtResource("1_hxwl2")
+_textures = Array[Texture2D]([ExtResource("3_a37gh"), ExtResource("5_likqi"), ExtResource("7_jvnuv"), ExtResource("9_2cwx3")])
+
+[node name="Marker2D" type="Marker2D" parent="."]
+gizmo_extents = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+
+[node name="TurnTimer" type="Timer" parent="."]
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TurnTimer" to="." method="_Turn"]
