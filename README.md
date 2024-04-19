@@ -267,3 +267,10 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/26-HitAndHealth/)
 
 ![26_HitAndHealth-img](/doc/26_HitAndHealth.gif)
+
+## 27. Improving the depth of your 2D scenes
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=WC75LHy0yC8)
+- See the files [in the repo](/27-2DFollowParallax/)
+
+![27_2DFollowParallax-img](/doc/27_2DFollowParallax.gif)
