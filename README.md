@@ -274,3 +274,13 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 - See the files [in the repo](/27-2DFollowParallax/)
 
 ![27_2DFollowParallax-img](/doc/27_2DFollowParallax.gif)
+
+## 28. Making an endless level
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=LMpKoKJRcDk)
+- See the files [in the repo](/28-EndlessLevel/)
+
+## 29. Creating a first-person player controller
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=t-iQFMKlnBc)
+- See the files [in the repo](/29-FirstPersonController/)
