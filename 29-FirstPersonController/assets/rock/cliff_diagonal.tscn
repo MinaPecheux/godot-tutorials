@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1a7fdv6sybb8"]
+
+[ext_resource type="PackedScene" uid="uid://beqyxrojdqwg5" path="res://29-FirstPersonController/art/models/cliff_topDiagonal_rock.glb" id="1_qd2ys"]
+[ext_resource type="PackedScene" uid="uid://c4rtup0m6veae" path="res://29-FirstPersonController/art/models/cliff_blockDiagonal_rock.glb" id="2_fgso7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(0.894, 1, 1.8)
+
+[node name="Cliff-Diagonal" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.177748, 0.5, 0.177748)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="cliff_topDiagonal_rock2" parent="." instance=ExtResource("1_qd2ys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="cliff_blockDiagonal_rock2" parent="." instance=ExtResource("2_fgso7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

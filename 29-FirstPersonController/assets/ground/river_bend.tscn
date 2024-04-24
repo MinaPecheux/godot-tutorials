@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnvrex65gybea"]
+
+[ext_resource type="PackedScene" uid="uid://2wui2xxwc080" path="res://29-FirstPersonController/art/models/ground_riverBend.glb" id="1_sqtr5"]
+[ext_resource type="Material" uid="uid://gxo2u0cg6b0i" path="res://29-FirstPersonController/art/shaders/RoystanToonWaterShader.tres" id="2_mglm2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(1, 0.05, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_topgp"]
+orientation = 1
+
+[node name="River-Bend" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="ground_riverBend2" parent="." instance=ExtResource("1_sqtr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("QuadMesh_topgp")
+surface_material_override/0 = ExtResource("2_mglm2")

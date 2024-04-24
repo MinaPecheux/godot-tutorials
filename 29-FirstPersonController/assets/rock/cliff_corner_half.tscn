@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5jv3g3kg4num"]
+
+[ext_resource type="PackedScene" uid="uid://d0h8subba7sao" path="res://29-FirstPersonController/art/models/cliff_halfCorner_rock.glb" id="1_f6xnu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(0.3, 0.5, 0.3)
+
+[node name="Cliff-Corner" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.396808, 0.25, 0.35)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="cliff_halfCorner_rock2" parent="." instance=ExtResource("1_f6xnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

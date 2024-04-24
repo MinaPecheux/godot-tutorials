@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdipnffn4rfux"]
+
+[ext_resource type="PackedScene" uid="uid://chlb7gyckihkm" path="res://29-FirstPersonController/art/models/statue_ring.glb" id="1_ysfei"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(0.605, 0.8, 0.39)
+
+[node name="Statue-Ring" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="statue_ring2" parent="." instance=ExtResource("1_ysfei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

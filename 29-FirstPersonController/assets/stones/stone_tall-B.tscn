@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkgavognlo4ag"]
+
+[ext_resource type="PackedScene" uid="uid://b1vwgjthv5r4c" path="res://29-FirstPersonController/art/models/stone_tallB.glb" id="1_x8kur"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(0.775, 0.88, 0.77)
+
+[node name="Stone-Tall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43988, 0)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="stone_tallB2" parent="." instance=ExtResource("1_x8kur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

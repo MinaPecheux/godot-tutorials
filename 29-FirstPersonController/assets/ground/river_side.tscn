@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c854wiw1fxmw0"]
+
+[ext_resource type="PackedScene" uid="uid://ck7luax5yppdn" path="res://29-FirstPersonController/art/models/ground_riverSide.glb" id="1_1hxoq"]
+[ext_resource type="Material" uid="uid://gxo2u0cg6b0i" path="res://29-FirstPersonController/art/shaders/RoystanToonWaterShader.tres" id="2_eq72s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(1, 0.05, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ca8ew"]
+orientation = 1
+
+[node name="River-Side" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="ground_riverSide2" parent="." instance=ExtResource("1_1hxoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("QuadMesh_ca8ew")
+surface_material_override/0 = ExtResource("2_eq72s")

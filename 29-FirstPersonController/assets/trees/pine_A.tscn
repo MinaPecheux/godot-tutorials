@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://fk5bgv42w6cp"]
+
+[ext_resource type="PackedScene" uid="uid://do0j4vcjjtv6s" path="res://29-FirstPersonController/art/models/tree_pineDefaultA.glb" id="1_ca42i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(0.3, 1.6, 0.3)
+
+[node name="Pine" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="tree_pineDefaultA2" parent="." instance=ExtResource("1_ca42i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

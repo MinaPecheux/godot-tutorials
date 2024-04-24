@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://gqwkwqatj8el"]
+
+[ext_resource type="PackedScene" uid="uid://bow6m3rorx6f0" path="res://29-FirstPersonController/art/models/cliff_waterfall_stone.glb" id="1_uk1tp"]
+[ext_resource type="Material" uid="uid://ci7i3kjh2bjx4" path="res://29-FirstPersonController/art/shaders/RoystanToonWaterShader-Waterfall.tres" id="2_c0ge8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(1, 1, 0.3)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4ix8n"]
+orientation = 1
+
+[node name="Cliff-Waterfall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.35)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="cliff_waterfall_stone2" parent="." instance=ExtResource("1_uk1tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, 1.01694, 0, -1, -4.44517e-08, 0, 0.5, 0.348)
+mesh = SubResource("QuadMesh_4ix8n")
+surface_material_override/0 = ExtResource("2_c0ge8")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://caoj00il2muhc"]
+
+[ext_resource type="PackedScene" uid="uid://b8moi76ju5tas" path="res://29-FirstPersonController/art/models/cliff_steps_rock.glb" id="1_ntmn5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(1, 1.145, 0.637)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjmtl"]
+size = Vector3(1, 0.225703, 0.121095)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h6h0h"]
+size = Vector3(1, 1, 0.2)
+
+[node name="Steps" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.371561, 0.118705)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.595903, -0.803057, 0, 0.803057, 0.595903, 0, 0.0808231, -0.546407)
+shape = SubResource("BoxShape3D_yjmtl")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.259089, -0.965854, 0, 0.965854, 0.259089, 0, -0.0080227, -0.730821)
+shape = SubResource("BoxShape3D_yjmtl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.4)
+shape = SubResource("BoxShape3D_h6h0h")
+
+[node name="cliff_steps_rock2" parent="." instance=ExtResource("1_ntmn5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

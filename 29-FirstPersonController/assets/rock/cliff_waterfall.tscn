@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwx567bdy8vv4"]
+
+[ext_resource type="PackedScene" uid="uid://cii82gpyvec8x" path="res://29-FirstPersonController/art/models/cliff_waterfallTop_rock.glb" id="1_yykri"]
+[ext_resource type="Material" uid="uid://ci7i3kjh2bjx4" path="res://29-FirstPersonController/art/shaders/RoystanToonWaterShader-Waterfall.tres" id="2_a4ycy"]
+[ext_resource type="Material" uid="uid://gxo2u0cg6b0i" path="res://29-FirstPersonController/art/shaders/RoystanToonWaterShader.tres" id="2_ct1c6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(1, 1, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_blxbt"]
+orientation = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_3gp38"]
+orientation = 1
+
+[node name="Cliff-Waterfall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.4)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="cliff_waterfallTop_rock2" parent="." instance=ExtResource("1_yykri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -4.34928e-08, 0.912674, 0, -0.995, -3.98943e-08, 0, 0.456995, 0.348)
+mesh = SubResource("QuadMesh_blxbt")
+surface_material_override/0 = ExtResource("2_a4ycy")
+
+[node name="Water2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.995, 5.2953e-16, 0, 3.55271e-15, 0.133474, 0, 0.99, 0.438)
+mesh = SubResource("QuadMesh_3gp38")
+surface_material_override/0 = ExtResource("2_ct1c6")
+
+[node name="Water3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.495848, 0, 0, 0, 0.138037, 0.0793838, 0, -0.446865, 0.0245218, 0, 0.950785, 0.362216)
+mesh = SubResource("QuadMesh_3gp38")
+surface_material_override/0 = ExtResource("2_ct1c6")

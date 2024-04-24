@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b34sw78xgr2s5"]
+
+[ext_resource type="PackedScene" uid="uid://f3l1j4l4fcus" path="res://29-FirstPersonController/art/models/rock_largeA.glb" id="1_h18da"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(0.6, 0.2625, 1.1)
+
+[node name="Rock-Large" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.86409, 0, 0.503337, 0, 1, 0, -0.503337, 0, 0.86409, 0.0989603, 0.13125, -0.0285196)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="rock_largeA2" parent="." instance=ExtResource("1_h18da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

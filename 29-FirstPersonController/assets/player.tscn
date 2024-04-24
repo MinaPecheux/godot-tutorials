@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://oppo66h5ryl1"]
+
+[ext_resource type="Script" path="res://29-FirstPersonController/scripts/Player.cs" id="1_6jv0b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2nkcq"]
+radius = 0.1
+height = 0.75
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_6jv0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+shape = SubResource("CapsuleShape3D_2nkcq")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]

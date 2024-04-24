@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlka8b1qa86x"]
+
+[ext_resource type="PackedScene" uid="uid://bgs8wokrvgbwq" path="res://29-FirstPersonController/art/models/cliff_stone.glb" id="1_lulr2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(1, 1, 0.2)
+
+[node name="Cliff" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.4)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="cliff_stone2" parent="." instance=ExtResource("1_lulr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

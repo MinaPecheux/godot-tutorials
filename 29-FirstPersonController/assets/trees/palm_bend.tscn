@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt3gigrfs6bwy"]
+
+[ext_resource type="PackedScene" uid="uid://0544m6tmpdni" path="res://29-FirstPersonController/art/models/tree_palmBend.glb" id="1_oxqy3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(0.3, 1, 0.3)
+
+[node name="Palmtree" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="tree_palmBend2" parent="." instance=ExtResource("1_oxqy3")]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://umufym86v0xg"]
+
+[ext_resource type="PackedScene" uid="uid://d31wjw356s15f" path="res://29-FirstPersonController/art/models/stone_largeF.glb" id="1_4epih"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(0.99, 0.488, 0.9)
+
+[node name="Stone-Large" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244141, 0)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="stone_largeF2" parent="." instance=ExtResource("1_4epih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

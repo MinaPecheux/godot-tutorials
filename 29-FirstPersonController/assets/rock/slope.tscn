@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvpgxwnjluo86"]
+
+[ext_resource type="PackedScene" uid="uid://oxvfm1tma0h5" path="res://29-FirstPersonController/art/models/cliff_blockSlope_rock.glb" id="1_tsi66"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxtbp"]
+size = Vector3(1, 1.42912, 0.074)
+
+[node name="Slope" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.497951, 0.0200118)
+shape = SubResource("BoxShape3D_fxtbp")
+
+[node name="cliff_blockSlope_rock2" parent="." instance=ExtResource("1_tsi66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
