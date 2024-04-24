@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqt1n4bva5kgk"]
+
+[ext_resource type="PackedScene" uid="uid://yxnflini2d4" path="res://MiniGames/EndlessRunner3D/assets/atoms/barrier.tscn" id="1_oehaw"]
+[ext_resource type="Script" path="res://28-EndlessLevel/scripts/Obstacle.cs" id="2_75orq"]
+[ext_resource type="PackedScene" uid="uid://cu2g8yaqta3yd" path="res://MiniGames/EndlessRunner3D/art/models/rail-high.glb" id="2_lgl18"]
+
+[node name="Barrier-High" instance=ExtResource("1_oehaw")]
+script = ExtResource("2_75orq")
+
+[node name="rail-high2" parent="." index="1" instance=ExtResource("2_lgl18")]
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, 0)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctq34mx5cpk88"]
+
+[ext_resource type="PackedScene" uid="uid://d1aihhc0j6a43" path="res://28-EndlessLevel/assets/atoms/block.tscn" id="1_t8jyb"]
+
+[node name="Block-3" type="Node3D"]
+
+[node name="Block" parent="." instance=ExtResource("1_t8jyb")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

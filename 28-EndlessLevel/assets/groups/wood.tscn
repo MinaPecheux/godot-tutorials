@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://djhcqfauqp66v"]
+
+[ext_resource type="PackedScene" uid="uid://dgb5jwu2xbj5d" path="res://28-EndlessLevel/assets/atoms/wood-unit.tscn" id="1_qordp"]
+[ext_resource type="PackedScene" uid="uid://c4rynh0f2gubb" path="res://28-EndlessLevel/art/models/floor-wood.glb" id="1_rt84c"]
+[ext_resource type="PackedScene" uid="uid://djnejpnwbcshh" path="res://28-EndlessLevel/art/models/floor-concrete.glb" id="2_3ik6i"]
+
+[node name="Wood" type="Node3D"]
+
+[node name="Block" type="Node3D" parent="."]
+
+[node name="Floor" parent="Block" instance=ExtResource("1_rt84c")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 0, 0)
+
+[node name="Side" parent="Block" instance=ExtResource("2_3ik6i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -3, 0, 1, -1.31134e-07, 0, -1.5, 0.5)
+
+[node name="Block2" parent="." instance=ExtResource("1_qordp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Block3" parent="." instance=ExtResource("1_qordp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)

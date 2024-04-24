@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1aihhc0j6a43"]
+
+[ext_resource type="PackedScene" uid="uid://djnejpnwbcshh" path="res://MiniGames/EndlessRunner3D/art/models/floor-concrete.glb" id="1_d4mnd"]
+
+[node name="Block" type="Node3D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_d4mnd")]
+
+[node name="Side" parent="." instance=ExtResource("1_d4mnd")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -3, 0, 1, -1.31134e-07, 0, -1.5, 0.5)

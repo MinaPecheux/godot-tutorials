@@ -1,0 +1,50 @@
+[gd_scene load_steps=14 format=3 uid="uid://cgco7rwcrqjvt"]
+
+[ext_resource type="Script" path="res://28-EndlessLevel/scripts/GameManager.cs" id="1_654k5"]
+[ext_resource type="Texture2D" uid="uid://cs56k7313g042" path="res://MiniGames/EndlessRunner3D/art/sprites/backgroundEmpty.png" id="2_8o0pn"]
+[ext_resource type="PackedScene" uid="uid://ctq34mx5cpk88" path="res://MiniGames/EndlessRunner3D/assets/groups/block_3.tscn" id="2_f6gg0"]
+[ext_resource type="PackedScene" uid="uid://djhcqfauqp66v" path="res://28-EndlessLevel/assets/groups/wood.tscn" id="3_0a6oi"]
+[ext_resource type="PackedScene" uid="uid://bbehovc2nep57" path="res://MiniGames/EndlessRunner3D/assets/groups/obstacle_high-1.tscn" id="3_nmblx"]
+[ext_resource type="PackedScene" uid="uid://cw0vjh4der3h3" path="res://MiniGames/EndlessRunner3D/assets/groups/obstacle_high-2.tscn" id="4_sswrv"]
+[ext_resource type="PackedScene" uid="uid://mb0t3tua8okw" path="res://MiniGames/EndlessRunner3D/assets/groups/obstacle_low-1.tscn" id="5_pa0mx"]
+[ext_resource type="PackedScene" uid="uid://c77qp4x25qgqr" path="res://MiniGames/EndlessRunner3D/assets/groups/obstacle_low-2.tscn" id="6_evdgy"]
+[ext_resource type="PackedScene" uid="uid://byfnoqsbgsfo0" path="res://28-EndlessLevel/assets/player.tscn" id="9_5ledy"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7m7t7"]
+panorama = ExtResource("2_8o0pn")
+
+[sub_resource type="Sky" id="Sky_3kdea"]
+sky_material = SubResource("PanoramaSkyMaterial_7m7t7")
+
+[sub_resource type="Environment" id="Environment_s3c8m"]
+background_mode = 2
+background_color = Color(0.831373, 0.94902, 0.992157, 1)
+sky = SubResource("Sky_3kdea")
+sky_rotation = Vector3(-0.261799, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhrh6"]
+size = Vector3(1, 0.1, 1)
+
+[node name="Root" type="Node3D" node_paths=PackedStringArray("_scene")]
+script = ExtResource("1_654k5")
+_scene = NodePath("SCENE")
+_groups = Array[PackedScene]([ExtResource("2_f6gg0"), ExtResource("3_nmblx"), ExtResource("4_sswrv"), ExtResource("5_pa0mx"), ExtResource("6_evdgy"), ExtResource("3_0a6oi")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s3c8m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 1.98952e-13, 1.37059, 2.51704)
+
+[node name="Player" parent="." instance=ExtResource("9_5ledy")]
+
+[node name="PlayerPlatform" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_mhrh6")
+
+[node name="SCENE" type="Node3D" parent="."]

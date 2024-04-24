@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbehovc2nep57"]
+
+[ext_resource type="PackedScene" uid="uid://cqt1n4bva5kgk" path="res://28-EndlessLevel/assets/atoms/barrier_high.tscn" id="2_duyoe"]
+[ext_resource type="PackedScene" uid="uid://d1aihhc0j6a43" path="res://28-EndlessLevel/assets/atoms/block.tscn" id="2_th77b"]
+
+[node name="Obstacle-High" type="Node3D"]
+
+[node name="Block" parent="." instance=ExtResource("2_th77b")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Barrier-High" parent="." instance=ExtResource("2_duyoe")]
