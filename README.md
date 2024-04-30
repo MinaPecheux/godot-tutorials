@@ -289,3 +289,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=fbK-OycnHX0)
 - See the files [in the repo](/30-AerialCamera/)
+
+## 31. Creating custom resources
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=ocN93zDJEhw)
+- See the files [in the repo](/31-CustomResource/)
