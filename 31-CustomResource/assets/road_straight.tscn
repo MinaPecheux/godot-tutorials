@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6bbkiqvo6yc8"]
+
+[ext_resource type="PackedScene" uid="uid://jfygs1s2tyqo" path="res://31-CustomResource/art/models/road_straight.glb" id="1_yffcb"]
+
+[node name="Road-Straight" type="Node3D"]
+
+[node name="road_straight2" parent="." instance=ExtResource("1_yffcb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)

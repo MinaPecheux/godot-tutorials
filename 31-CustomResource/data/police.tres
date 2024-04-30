@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VehicleData" load_steps=3 format=3 uid="uid://bem0fe7yq672i"]
+
+[ext_resource type="PackedScene" uid="uid://b5nr8aen5gdns" path="res://31-CustomResource/art/models/police.glb" id="1_dt6h3"]
+[ext_resource type="Script" path="res://31-CustomResource/scripts/VehicleData.cs" id="2_5da4g"]
+
+[resource]
+script = ExtResource("2_5da4g")
+name = "Police"
+speed = 2.0
+model = ExtResource("1_dt6h3")

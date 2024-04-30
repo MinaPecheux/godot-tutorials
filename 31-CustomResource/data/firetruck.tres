@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VehicleData" load_steps=3 format=3 uid="uid://bo6rifmimn1f"]
+
+[ext_resource type="PackedScene" uid="uid://bng04rcqay6be" path="res://31-CustomResource/art/models/firetruck.glb" id="1_5slh3"]
+[ext_resource type="Script" path="res://31-CustomResource/scripts/VehicleData.cs" id="1_07uqp"]
+
+[resource]
+script = ExtResource("1_07uqp")
+name = "Firetruck"
+speed = 1.6
+model = ExtResource("1_5slh3")

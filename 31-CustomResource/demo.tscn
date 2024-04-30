@@ -1,0 +1,445 @@
+[gd_scene load_steps=32 format=3 uid="uid://c2sv686os1kcg"]
+
+[ext_resource type="Script" path="res://31-CustomResource/scripts/DataManager.cs" id="1_e7oex"]
+[ext_resource type="Resource" uid="uid://bo6rifmimn1f" path="res://31-CustomResource/data/firetruck.tres" id="2_13s3a"]
+[ext_resource type="Resource" uid="uid://gamq3upvnqji" path="res://31-CustomResource/data/ambulance.tres" id="3_jqoe2"]
+[ext_resource type="Resource" uid="uid://bem0fe7yq672i" path="res://31-CustomResource/data/police.tres" id="4_wsepd"]
+[ext_resource type="Resource" uid="uid://c1ancgx1iel6m" path="res://31-CustomResource/data/sedan.tres" id="6_t8f33"]
+[ext_resource type="Resource" uid="uid://dic0uejogggpw" path="res://31-CustomResource/data/taxi.tres" id="7_yq15i"]
+[ext_resource type="Resource" uid="uid://bk2uwxox8n0o7" path="res://31-CustomResource/data/truck.tres" id="8_5lpko"]
+[ext_resource type="Texture2D" uid="uid://t82uh3rwcfd" path="res://31-CustomResource/art/textures/backgroundEmpty.png" id="9_aef6f"]
+[ext_resource type="PackedScene" uid="uid://b6bbkiqvo6yc8" path="res://31-CustomResource/assets/road_straight.tscn" id="10_mc1mh"]
+[ext_resource type="FontFile" uid="uid://bkjs2pi5suwnr" path="res://31-CustomResource/art/fonts/Manrope-ExtraBold.ttf" id="20_y3pro"]
+[ext_resource type="FontFile" uid="uid://beh1qmhsbect0" path="res://31-CustomResource/art/fonts/Manrope-Medium.ttf" id="21_6ndqa"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1gtvp"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 5.0
+dof_blur_far_transition = 25.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evpmx"]
+
+[sub_resource type="Sky" id="Sky_ffi5b"]
+sky_material = SubResource("ProceduralSkyMaterial_evpmx")
+
+[sub_resource type="Environment" id="Environment_r5xgl"]
+background_mode = 2
+background_color = Color(0.768627, 0.847059, 1, 1)
+sky = SubResource("Sky_ffi5b")
+tonemap_mode = 2
+tonemap_exposure = 1.2
+fog_enabled = true
+fog_light_color = Color(0.443137, 0.419608, 0.52549, 1)
+fog_density = 0.035
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_saturation = 1.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mcsaw"]
+size = Vector2(34, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npyqb"]
+albedo_color = Color(0.462745, 0.619608, 0.329412, 1)
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="Animation" id="Animation_6p50c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SHOWCASE:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_bm4oe"]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SHOWCASE:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.5, 0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pxphv"]
+_data = {
+"RESET": SubResource("Animation_6p50c"),
+"spawn": SubResource("Animation_bm4oe")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khnf2"]
+content_margin_left = 42.0
+content_margin_top = 24.0
+content_margin_right = 42.0
+content_margin_bottom = 24.0
+bg_color = Color(0.960784, 0.964706, 0.980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 8
+border_color = Color(0, 0.658824, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7onoj"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0.658824, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54k75"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0.592157, 0.901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfrco"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.282353, 0.494118, 0.690196, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqc14"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.152941, 0.235294, 0.458824, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywemc"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.25098, 0.45098, 0.619608, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r48ad"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.984314, 0.772549, 0.192157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47rv8"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.498039, 0.560784, 0.65098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Animation" id="Animation_thvih"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Info/Control/Debug:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Info/Control/Debug:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vgm7l"]
+resource_name = "show-debug"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Info/Control/Debug:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Info/Control/Debug:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tdyj"]
+_data = {
+"RESET": SubResource("Animation_thvih"),
+"show-debug": SubResource("Animation_vgm7l")
+}
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_e7oex")
+_availableVehicles = Array[Object]([ExtResource("3_jqoe2"), ExtResource("2_13s3a"), ExtResource("4_wsepd"), ExtResource("6_t8f33"), ExtResource("7_yq15i"), ExtResource("8_5lpko")])
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.9, 1.401, 3.286)
+attributes = SubResource("CameraAttributesPractical_1gtvp")
+fov = 40.0
+
+[node name="SCENE" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SCENE"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(1, 1, 0.85098, 1)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25195, 1.95444, 0.649627)
+light_color = Color(1, 0.760784, 0.486275, 1)
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SCENE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8082, 2.0878, -1.14524)
+light_color = Color(1, 0.85098, 0.803922, 1)
+shadow_enabled = true
+omni_range = 15.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SCENE"]
+environment = SubResource("Environment_r5xgl")
+
+[node name="ENV" type="Node3D" parent="SCENE"]
+
+[node name="Road-Straight" parent="SCENE/ENV" instance=ExtResource("10_mc1mh")]
+transform = Transform3D(7.64185, 0, 0.848528, 0, 1.2, 0, -7.64185, 0, 0.848528, 1.59868, 0, -1.59868)
+
+[node name="Ground" type="MeshInstance3D" parent="SCENE/ENV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -10.1)
+mesh = SubResource("PlaneMesh_mcsaw")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_npyqb")
+
+[node name="Background" type="Sprite3D" parent="SCENE/ENV"]
+transform = Transform3D(1.52797, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262343, -22.1409)
+pixel_size = 0.024
+texture = ExtResource("9_aef6f")
+
+[node name="SHOWCASE" type="Node3D" parent="."]
+transform = Transform3D(-0.370935, 0, 0.335272, 0, 0.5, 0, -0.335272, 0, -0.370935, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pxphv")
+}
+
+[node name="UI" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Controls" type="CenterContainer" parent="UI"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Controls"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/Controls/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_khnf2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Controls/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BtnRandomise" type="Button" parent="UI/Controls/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_pressed_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_hover_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("20_y3pro")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7onoj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_54k75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yfrco")
+text = "Randomise"
+
+[node name="GridContainer" type="GridContainer" parent="UI/Controls/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="BtnLoad" type="Button" parent="UI/Controls/VBoxContainer/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_pressed_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_hover_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_disabled_color = Color(0.862745, 0.866667, 0.882353, 1)
+theme_override_fonts/font = ExtResource("20_y3pro")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqc14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ywemc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r48ad")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_47rv8")
+text = "Load"
+
+[node name="BtnSave" type="Button" parent="UI/Controls/VBoxContainer/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_pressed_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_hover_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_disabled_color = Color(0.862745, 0.866667, 0.882353, 1)
+theme_override_fonts/font = ExtResource("20_y3pro")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqc14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ywemc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r48ad")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_47rv8")
+text = "Save"
+
+[node name="Info" type="Control" parent="UI"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="InfoContainer" type="VBoxContainer" parent="UI/Info"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.5
+offset_top = 96.0
+offset_right = 248.5
+offset_bottom = 261.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/Info/InfoContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_khnf2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Info/InfoContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="Name" type="Label" parent="UI/Info/InfoContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.211765, 0.25098, 1)
+theme_override_fonts/font = ExtResource("20_y3pro")
+theme_override_font_sizes/font_size = 52
+text = "Select"
+horizontal_alignment = 1
+
+[node name="Details" type="Label" parent="UI/Info/InfoContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.211765, 0.25098, 1)
+theme_override_fonts/font = ExtResource("21_6ndqa")
+theme_override_font_sizes/font_size = 38
+text = "a vehicle!"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="UI/Info"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Debug" type="Label" parent="UI/Info/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -55.0
+offset_right = 101.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.984314, 0.772549, 0.192157, 1)
+theme_override_colors/font_outline_color = Color(0.631373, 0.376471, 0.0431373, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("20_y3pro")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Info/Control/Debug"]
+root_node = NodePath("../../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_7tdyj")
+}
+
+[connection signal="pressed" from="UI/Controls/VBoxContainer/PanelContainer/VBoxContainer/BtnRandomise" to="." method="_Randomise"]
+[connection signal="pressed" from="UI/Controls/VBoxContainer/PanelContainer/VBoxContainer/GridContainer/BtnLoad" to="." method="_Load"]
+[connection signal="pressed" from="UI/Controls/VBoxContainer/PanelContainer/VBoxContainer/GridContainer/BtnSave" to="." method="_Save"]
