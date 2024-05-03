@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://clbokug43wqqm"]
+
+[ext_resource type="Shader" path="res://32-Random2DObstacles/art/shaders/scrolling-texture.gdshader" id="1_882g6"]
+[ext_resource type="Script" path="res://32-Random2DObstacles/scripts/AsteroidSpawner.cs" id="1_hfcnv"]
+[ext_resource type="PackedScene" uid="uid://bjh66i121dotj" path="res://32-Random2DObstacles/assets/asteroid.tscn" id="2_5fn6e"]
+[ext_resource type="Texture2D" uid="uid://cbjr4l3hth0lu" path="res://32-Random2DObstacles/art/textures/stars.png" id="2_uw8nv"]
+[ext_resource type="PackedScene" uid="uid://diymud3vamxj" path="res://32-Random2DObstacles/assets/player.tscn" id="5_c7esn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fo0ky"]
+shader = ExtResource("1_882g6")
+shader_parameter/speed = 0.0
+shader_parameter/tex = ExtResource("2_uw8nv")
+
+[sub_resource type="Curve2D" id="Curve2D_bbout"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 0)
+}
+point_count = 2
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_fo0ky")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uw8nv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bbout")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" node_paths=PackedStringArray("_asteroidSpawnTimer")]
+script = ExtResource("1_hfcnv")
+_asteroidPrefab = ExtResource("2_5fn6e")
+_asteroidSpawnTimer = NodePath("AsteroidSpawnTimer")
+
+[node name="AsteroidSpawnTimer" type="Timer" parent="Path2D/PathFollow2D"]
+one_shot = true
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("5_c7esn")]
+position = Vector2(960, 740)
+
+[connection signal="timeout" from="Path2D/PathFollow2D/AsteroidSpawnTimer" to="Path2D/PathFollow2D" method="_SpawnAsteroid"]
