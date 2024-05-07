@@ -294,3 +294,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=ocN93zDJEhw)
 - See the files [in the repo](/31-CustomResource/)
+
+## 32. Spawning random 2D obstacles
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=8sR6NAGQLY8)
+- See the files [in the repo](/32-Random2DObstacles/)
