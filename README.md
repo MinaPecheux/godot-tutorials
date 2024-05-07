@@ -299,3 +299,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=8sR6NAGQLY8)
 - See the files [in the repo](/32-Random2DObstacles/)
+
+## 33. Doing a 2D screen shake
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=SZ_KkxCbHVM)
+- See the files [in the repo](/33-ScreenShake/)
