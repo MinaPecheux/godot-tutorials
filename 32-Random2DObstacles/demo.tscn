@@ -35,9 +35,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_uw8nv")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_bbout")
 
