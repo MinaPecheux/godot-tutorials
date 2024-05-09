@@ -1,0 +1,232 @@
+[gd_scene load_steps=22 format=3 uid="uid://dlodevo63c1vo"]
+
+[ext_resource type="Material" uid="uid://dpxd31n385tj2" path="res://34-SceneTransitions/art/materials/grass.tres" id="1_7dbth"]
+[ext_resource type="Script" path="res://34-SceneTransitions/scripts/SceneManager.cs" id="1_7lr7b"]
+[ext_resource type="PackedScene" uid="uid://dux66ym5am2up" path="res://34-SceneTransitions/assets/wall.tscn" id="2_gn2g0"]
+[ext_resource type="PackedScene" uid="uid://c70go5lcyuc6g" path="res://34-SceneTransitions/assets/wall-corner.tscn" id="3_lqirp"]
+[ext_resource type="PackedScene" uid="uid://cf16t4ycwde6d" path="res://34-SceneTransitions/assets/gate.tscn" id="4_ogiqg"]
+[ext_resource type="PackedScene" uid="uid://b588rl2i6rxv6" path="res://34-SceneTransitions/assets/tower-square.tscn" id="5_loo2v"]
+[ext_resource type="PackedScene" uid="uid://dfecc3la6a2qj" path="res://34-SceneTransitions/assets/tower-square-roof.tscn" id="6_grelw"]
+[ext_resource type="PackedScene" uid="uid://dm6vjvoe5loy4" path="res://34-SceneTransitions/assets/tree-large.tscn" id="7_qq5b5"]
+[ext_resource type="PackedScene" uid="uid://big4vcpwnnck2" path="res://34-SceneTransitions/assets/wall-stairs-rail.tscn" id="7_ycaus"]
+[ext_resource type="PackedScene" uid="uid://cmfrl6uq705fi" path="res://34-SceneTransitions/assets/tree-small.tscn" id="8_ajj1l"]
+[ext_resource type="PackedScene" uid="uid://cq627ypl5efgd" path="res://34-SceneTransitions/assets/wall-half.tscn" id="8_egeft"]
+[ext_resource type="PackedScene" uid="uid://2ckj6e2nhwc8" path="res://34-SceneTransitions/assets/wall-corner-tower.tscn" id="9_hokt2"]
+[ext_resource type="PackedScene" uid="uid://c3le5xwnqv3w3" path="res://34-SceneTransitions/assets/wall-doorway.tscn" id="10_qvggc"]
+[ext_resource type="PackedScene" uid="uid://cc4bx5vggjsm1" path="res://34-SceneTransitions/assets/tower-square-roof3.tscn" id="11_3ciyn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_032m3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1h2rd"]
+sky_material = SubResource("ProceduralSkyMaterial_032m3")
+
+[sub_resource type="Environment" id="Environment_ik7ru"]
+background_mode = 2
+sky = SubResource("Sky_1h2rd")
+tonemap_mode = 2
+tonemap_white = 1.2
+volumetric_fog_emission = Color(0.701961, 0.796078, 1, 1)
+volumetric_fog_length = 44.55
+volumetric_fog_detail_spread = 6.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ju5rr"]
+size = Vector2(20, 20)
+orientation = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q33y"]
+content_margin_left = 28.0
+content_margin_top = 4.0
+content_margin_right = 28.0
+content_margin_bottom = 4.0
+bg_color = Color(0.890196, 0.890196, 0.890196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7kaw"]
+content_margin_left = 28.0
+content_margin_top = 4.0
+content_margin_right = 28.0
+content_margin_bottom = 4.0
+bg_color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h512e"]
+content_margin_left = 28.0
+content_margin_top = 4.0
+content_margin_right = 28.0
+content_margin_bottom = 4.0
+bg_color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_7lr7b")
+_targetScene = "34-SceneTransitions/scene-b.tscn"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ik7ru")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -1.51421e-07, 8.74228e-08, 0, 0.5, 0.866025, -1.74846e-07, -0.866025, 0.5, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.866025, 0.19762, -0.459289, 0, 0.918578, 0.395241, 0.5, -0.342289, 0.795511, -3.73724, 5.74592, 8.02162)
+fov = 40.0
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48931, 0, -3.24386)
+mesh = SubResource("QuadMesh_ju5rr")
+surface_material_override/0 = ExtResource("1_7dbth")
+
+[node name="SCENE" type="Node3D" parent="."]
+
+[node name="Wall" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 2)
+
+[node name="Wall2" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 2)
+
+[node name="Wall8" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.19209e-07, 0, -3)
+
+[node name="Wall3" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 2)
+
+[node name="Wall4" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, 2)
+
+[node name="Wall5" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 1)
+
+[node name="Wall7" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, -1)
+
+[node name="Wall10" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, 1)
+
+[node name="Wall11" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, -1.19209e-07)
+
+[node name="Wall12" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, -1)
+
+[node name="Wall13" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, -2)
+
+[node name="Wall6" parent="SCENE" instance=ExtResource("2_gn2g0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, -1.19209e-07)
+
+[node name="Wall-Corner5" parent="SCENE" instance=ExtResource("3_lqirp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+
+[node name="Wall-Corner4" parent="SCENE" instance=ExtResource("3_lqirp")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0, -2)
+
+[node name="Wall-Corner2" parent="SCENE" instance=ExtResource("3_lqirp")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, 2)
+
+[node name="Gate" parent="SCENE" instance=ExtResource("4_ogiqg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.74228e-08, 0, 2)
+
+[node name="Tower-Square" parent="SCENE" instance=ExtResource("5_loo2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+
+[node name="Tower-Square2" parent="SCENE" instance=ExtResource("6_grelw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+
+[node name="Wall-Stairs-Rail" parent="SCENE" instance=ExtResource("7_ycaus")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -3)
+
+[node name="Wall-Corner" parent="SCENE" instance=ExtResource("9_hokt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="Wall-Corner3" parent="SCENE" instance=ExtResource("9_hokt2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -2)
+
+[node name="Wall-Corner6" parent="SCENE" instance=ExtResource("9_hokt2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, -3)
+
+[node name="Wall-Half" parent="SCENE" instance=ExtResource("8_egeft")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, -3)
+
+[node name="Wall-Doorway" parent="SCENE" instance=ExtResource("10_qvggc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, -2)
+
+[node name="Tower-Square3" parent="SCENE" instance=ExtResource("11_3ciyn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -2.5)
+
+[node name="TREES" type="Node3D" parent="."]
+
+[node name="Tree-Large" parent="TREES" instance=ExtResource("7_qq5b5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59449, -4.76837e-07, 3.132)
+
+[node name="Tree-Large3" parent="TREES" instance=ExtResource("7_qq5b5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61341, -4.76837e-07, 3.66426)
+
+[node name="Tree-Large5" parent="TREES" instance=ExtResource("7_qq5b5")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 5.37714, -4.76837e-07, 4.12107)
+
+[node name="Tree-Large4" parent="TREES" instance=ExtResource("7_qq5b5")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1.94908, -4.76837e-07, -2.00016)
+
+[node name="Tree-Large2" parent="TREES" instance=ExtResource("7_qq5b5")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -3.47131, -4.76837e-07, 2.89489)
+
+[node name="Tree-Small" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96179, 0, 3.66543)
+
+[node name="Tree-Small2" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18883, -4.76837e-07, 4.19551)
+
+[node name="Tree-Small5" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5993, -4.76837e-07, 4.55001)
+
+[node name="Tree-Small6" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 3.77836, -4.76837e-07, 5.24035)
+
+[node name="Tree-Large6" parent="TREES" instance=ExtResource("7_qq5b5")]
+transform = Transform3D(0.337506, 0, -0.941323, 0, 1, 0, 0.941323, 0, 0.337506, -4.07339, -4.76837e-07, -6.7535)
+
+[node name="Tree-Large7" parent="TREES" instance=ExtResource("7_qq5b5")]
+transform = Transform3D(0.438758, 0, -1.22372, 0, 1.3, 0, 1.22372, 0, 0.438758, -3.74726, -4.76837e-07, -8.16756)
+
+[node name="Tree-Large8" parent="TREES" instance=ExtResource("7_qq5b5")]
+transform = Transform3D(0.482634, 0, -1.34609, 0, 1.43, 0, 1.34609, 0, 0.482634, -4.66108, -4.76837e-07, -8.44678)
+
+[node name="Tree-Small7" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(0.337506, 0, -0.941323, 0, 1, 0, 0.941323, 0, 0.337506, -3.06681, -4.76837e-07, -8.11614)
+
+[node name="Tree-Small8" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(0.337506, 0, -0.941323, 0, 1, 0, 0.941323, 0, 0.337506, -4.91192, -4.76837e-07, -6.46783)
+
+[node name="Tree-Small9" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(0.371257, 0, -1.03546, 0, 1.1, 0, 1.03546, 0, 0.371257, -4.72505, -4.76837e-07, -7.55847)
+
+[node name="Tree-Small3" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17389, -4.76837e-07, 2.96683)
+
+[node name="Tree-Small4" parent="TREES" instance=ExtResource("8_ajj1l")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.29594, -9.53674e-07, -1.51303)
+
+[node name="UI" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+
+[node name="SceneSwitch" type="Button" parent="UI"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_0q33y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7kaw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h512e")
+text = "SWITCH SCENE"
+
+[connection signal="pressed" from="UI/SceneSwitch" to="." method="_SwitchScene"]

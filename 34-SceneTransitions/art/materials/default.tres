@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dh8e8fnohgqnh"]
+
+[ext_resource type="Texture2D" uid="uid://g50dqo8nqovr" path="res://34-SceneTransitions/art/textures/variation-a.png" id="1_aplwd"]
+
+[resource]
+albedo_texture = ExtResource("1_aplwd")

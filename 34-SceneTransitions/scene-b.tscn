@@ -1,0 +1,161 @@
+[gd_scene load_steps=13 format=3 uid="uid://bytff43de258m"]
+
+[ext_resource type="Script" path="res://34-SceneTransitions/scripts/SceneManager.cs" id="1_mpgff"]
+[ext_resource type="Material" uid="uid://dpxd31n385tj2" path="res://34-SceneTransitions/art/materials/grass.tres" id="2_b2sit"]
+[ext_resource type="PackedScene" uid="uid://cuubus8tl6x37" path="res://34-SceneTransitions/assets/tower-hexagon.tscn" id="3_op2jb"]
+[ext_resource type="PackedScene" uid="uid://dm6vjvoe5loy4" path="res://34-SceneTransitions/assets/tree-large.tscn" id="13_v7eu1"]
+[ext_resource type="PackedScene" uid="uid://cmfrl6uq705fi" path="res://34-SceneTransitions/assets/tree-small.tscn" id="14_57tnx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_032m3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1h2rd"]
+sky_material = SubResource("ProceduralSkyMaterial_032m3")
+
+[sub_resource type="Environment" id="Environment_ik7ru"]
+background_mode = 2
+sky = SubResource("Sky_1h2rd")
+sky_custom_fov = 77.5
+tonemap_mode = 2
+tonemap_white = 1.2
+volumetric_fog_emission = Color(0.701961, 0.796078, 1, 1)
+volumetric_fog_length = 44.55
+volumetric_fog_detail_spread = 6.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ju5rr"]
+size = Vector2(20, 20)
+orientation = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q33y"]
+content_margin_left = 28.0
+content_margin_top = 4.0
+content_margin_right = 28.0
+content_margin_bottom = 4.0
+bg_color = Color(0.890196, 0.890196, 0.890196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7kaw"]
+content_margin_left = 28.0
+content_margin_top = 4.0
+content_margin_right = 28.0
+content_margin_bottom = 4.0
+bg_color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h512e"]
+content_margin_left = 28.0
+content_margin_top = 4.0
+content_margin_right = 28.0
+content_margin_bottom = 4.0
+bg_color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_mpgff")
+_targetScene = "34-SceneTransitions/scene-a.tscn"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ik7ru")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -1.51421e-07, 8.74228e-08, 0, 0.5, 0.866025, -1.74846e-07, -0.866025, 0.5, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.989473, 0.144719, 0, -0.144719, 0.989473, 0.577412, 1.83165, 4.06918)
+fov = 40.0
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48931, 0, -8.82421)
+mesh = SubResource("QuadMesh_ju5rr")
+surface_material_override/0 = ExtResource("2_b2sit")
+
+[node name="SCENE" type="Node3D" parent="."]
+
+[node name="Tower-Hexagon" parent="SCENE" instance=ExtResource("3_op2jb")]
+transform = Transform3D(0.935937, 0, 0.352168, 0, 1, 0, -0.352168, 0, 0.935937, 0, 0, 0)
+
+[node name="TREES" type="Node3D" parent="."]
+
+[node name="Tree-Large" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.550398, -1.43051e-06, 2.3872)
+
+[node name="Tree-Large3" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(0.689544, 0, -0.724244, 0, 1, 0, 0.724244, 0, 0.689544, 2.0286, 1.43051e-06, -3.3996)
+
+[node name="Tree-Large5" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(0.896407, 0, -0.941517, 0, 1.3, 0, 0.941517, 0, 0.896407, 2.22438, 1.43051e-06, -2.53148)
+
+[node name="Tree-Large4" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1.94908, -4.76837e-07, -2.00016)
+
+[node name="Tree-Large2" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.42722, -1.43051e-06, 2.15009)
+
+[node name="Tree-Small" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917698, -9.53674e-07, 2.92063)
+
+[node name="Tree-Large9" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(-0.442937, 0, -1.43311, 0, 1.5, 0, 1.43311, 0, -0.442937, -2.54246, 3.97365e-07, -2.74326)
+
+[node name="Tree-Large10" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(-0.531524, 0, -1.71973, 0, 1.8, 0, 1.71973, 0, -0.531524, -1.81428, 3.97365e-07, -3.89482)
+
+[node name="Tree-Small10" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(-0.442937, 0, -1.43311, 0, 1.5, 0, 1.43311, 0, -0.442937, -3.14424, 1.11262e-06, -3.50592)
+
+[node name="Tree-Small2" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(0.689544, 0, -0.724244, 0, 1, 0, 0.724244, 0, 0.689544, 1.35108, 1.43051e-06, -3.34078)
+
+[node name="Tree-Small5" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(0.689544, 0, -0.724244, 0, 1, 0, 0.724244, 0, 0.689544, 1.37737, 1.43051e-06, -2.79905)
+
+[node name="Tree-Small6" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(0.758498, 0, -0.796668, 0, 1.1, 0, 0.796668, 0, 0.758498, 0.311322, 1.43051e-06, -2.9176)
+
+[node name="Tree-Large6" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(0.337506, 0, -0.941323, 0, 1, 0, 0.941323, 0, 0.337506, 2.88238, 1.7053e-13, 0.473236)
+
+[node name="Tree-Large7" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(0.438758, 0, -1.22372, 0, 1.3, 0, 1.22372, 0, 0.438758, 3.20851, 1.7053e-13, -0.940824)
+
+[node name="Tree-Large8" parent="TREES" instance=ExtResource("13_v7eu1")]
+transform = Transform3D(0.482634, 0, -1.34609, 0, 1.43, 0, 1.34609, 0, 0.482634, 2.29469, 1.7053e-13, -1.22004)
+
+[node name="Tree-Small7" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(0.337506, 0, -0.941323, 0, 1, 0, 0.941323, 0, 0.337506, 3.88896, 1.7053e-13, -0.889404)
+
+[node name="Tree-Small8" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(0.337506, 0, -0.941323, 0, 1, 0, 0.941323, 0, 0.337506, -1.45854, -1.43051e-06, -0.758551)
+
+[node name="Tree-Small9" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(0.371257, 0, -1.03546, 0, 1.1, 0, 1.03546, 0, 0.371257, 2.23072, 1.7053e-13, -0.331734)
+
+[node name="Tree-Small3" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17389, -4.76837e-07, 2.96683)
+
+[node name="Tree-Small4" parent="TREES" instance=ExtResource("14_57tnx")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.29594, -9.53674e-07, -1.51303)
+
+[node name="UI" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+
+[node name="SceneSwitch" type="Button" parent="UI"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_0q33y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7kaw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h512e")
+text = "SWITCH SCENE"
+
+[connection signal="pressed" from="UI/SceneSwitch" to="." method="_SwitchScene"]
