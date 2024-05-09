@@ -304,3 +304,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=SZ_KkxCbHVM)
 - See the files [in the repo](/33-ScreenShake/)
+
+## 33. Creating custom scene transitions
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=cyypJ2ZO-sA)
+- See the files [in the repo](/34-SceneTransitions/)
