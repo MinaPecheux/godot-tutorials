@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://c5730ikxlgkgn"]
+
+[ext_resource type="Shader" path="res://35-LetsDoRandom/art/shaders/basic-water.gdshader" id="1_two4m"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dw0ra"]
+noise_type = 2
+fractal_type = 0
+cellular_distance_function = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lktvw"]
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_dw0ra")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yqjox"]
+noise_type = 3
+frequency = 0.0035
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l4atl"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.2
+noise = SubResource("FastNoiseLite_yqjox")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_two4m")
+shader_parameter/shallow_color = Color(0.313726, 0.54902, 0.772549, 1)
+shader_parameter/deep_color = Color(0.184314, 0.329412, 0.560784, 1)
+shader_parameter/waves_amplitude = 1.0
+shader_parameter/waves_tex = SubResource("NoiseTexture2D_l4atl")
+shader_parameter/caustics_tex = SubResource("NoiseTexture2D_lktvw")

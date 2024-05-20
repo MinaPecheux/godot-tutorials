@@ -1,0 +1,190 @@
+[gd_scene load_steps=17 format=3 uid="uid://ds676hnyq5ff5"]
+
+[ext_resource type="Material" uid="uid://dyr4bl3sor2u" path="res://35-LetsDoRandom/art/materials/procedural-relief.tres" id="1_l8hqy"]
+[ext_resource type="Material" uid="uid://c5730ikxlgkgn" path="res://35-LetsDoRandom/art/materials/basic-water.tres" id="2_0orpj"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_dy6cm"]
+size = Vector2(10, 10)
+subdivide_width = 100
+subdivide_depth = 100
+orientation = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_idykj"]
+size = Vector2(10, 10)
+subdivide_width = 20
+subdivide_depth = 20
+orientation = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bp5tv"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vy3tv"]
+width = 320
+height = 320
+noise = SubResource("FastNoiseLite_bp5tv")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_76ufb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3qfg6"]
+width = 320
+height = 320
+noise = SubResource("FastNoiseLite_76ufb")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d6uyf"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i7jdc"]
+width = 320
+height = 320
+noise = SubResource("FastNoiseLite_d6uyf")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_33n36"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mdqbv"]
+width = 320
+height = 320
+noise = SubResource("FastNoiseLite_33n36")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wecu4"]
+noise_type = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pu6ro"]
+width = 320
+height = 320
+noise = SubResource("FastNoiseLite_wecu4")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_576n5"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lia1i"]
+width = 320
+height = 320
+noise = SubResource("FastNoiseLite_576n5")
+
+[node name="Root" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.807197, 0.302578, 0.506833, 0.495526, -0.119234, 0.860371, 0.32076, 0.945637, -0.0536901, 0, 10.2834, 0)
+shadow_enabled = true
+
+[node name="ProceduralTerrain" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("QuadMesh_dy6cm")
+surface_material_override/0 = ExtResource("1_l8hqy")
+
+[node name="BasicWater" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_idykj")
+surface_material_override/0 = ExtResource("2_0orpj")
+
+[node name="AllNoises" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="AllNoises"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="AllNoises/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 128
+theme_override_constants/v_separation = 32
+columns = 3
+
+[node name="Simplex" type="VBoxContainer" parent="AllNoises/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="AllNoises/CenterContainer/GridContainer/Simplex"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_vy3tv")
+
+[node name="Label" type="Label" parent="AllNoises/CenterContainer/GridContainer/Simplex"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Simplex"
+horizontal_alignment = 1
+
+[node name="SimplexSmooth" type="VBoxContainer" parent="AllNoises/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="AllNoises/CenterContainer/GridContainer/SimplexSmooth"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_3qfg6")
+
+[node name="Label" type="Label" parent="AllNoises/CenterContainer/GridContainer/SimplexSmooth"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Simplex Smooth"
+horizontal_alignment = 1
+
+[node name="Cellular" type="VBoxContainer" parent="AllNoises/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="AllNoises/CenterContainer/GridContainer/Cellular"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_i7jdc")
+
+[node name="Label" type="Label" parent="AllNoises/CenterContainer/GridContainer/Cellular"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Cellular"
+horizontal_alignment = 1
+
+[node name="Perlin" type="VBoxContainer" parent="AllNoises/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="AllNoises/CenterContainer/GridContainer/Perlin"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_mdqbv")
+
+[node name="Label" type="Label" parent="AllNoises/CenterContainer/GridContainer/Perlin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Perlin"
+horizontal_alignment = 1
+
+[node name="Value" type="VBoxContainer" parent="AllNoises/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="AllNoises/CenterContainer/GridContainer/Value"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_pu6ro")
+
+[node name="Label" type="Label" parent="AllNoises/CenterContainer/GridContainer/Value"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Simplex"
+horizontal_alignment = 1
+
+[node name="ValueCubic" type="VBoxContainer" parent="AllNoises/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="AllNoises/CenterContainer/GridContainer/ValueCubic"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_lia1i")
+
+[node name="Label" type="Label" parent="AllNoises/CenterContainer/GridContainer/ValueCubic"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Value Cubic"
+horizontal_alignment = 1

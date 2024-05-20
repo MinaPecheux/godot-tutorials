@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dyr4bl3sor2u"]
+
+[ext_resource type="Shader" path="res://35-LetsDoRandom/art/shaders/procedural-relief.gdshader" id="1_hjhht"]
+
+[sub_resource type="Gradient" id="Gradient_naq7g"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0536278, 0.164038, 0.264984, 0.394322, 0.634069, 1)
+colors = PackedColorArray(4.29266e-06, 0.0097619, 0.1642, 1, 0.0594437, 0.19937, 0.413919, 1, 0.92, 0.767587, 0.2668, 1, 0.42, 0.63, 0.126, 1, 0.409879, 0.271056, 0.0649742, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b4itp"]
+gradient = SubResource("Gradient_naq7g")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sifxb"]
+noise_type = 3
+frequency = 0.0057
+offset = Vector3(-252.26, 216.22, 0)
+fractal_lacunarity = 2.025
+fractal_gain = 0.705
+fractal_weighted_strength = 0.38
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d6gpx"]
+in_3d_space = true
+noise = SubResource("FastNoiseLite_sifxb")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hjhht")
+shader_parameter/amplitude = 2.345
+shader_parameter/color_tex = SubResource("GradientTexture1D_b4itp")
+shader_parameter/relief_tex = SubResource("NoiseTexture2D_d6gpx")
