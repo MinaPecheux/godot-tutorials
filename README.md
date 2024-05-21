@@ -314,3 +314,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=SlIlaHS8OEg)
 - See the files [in the repo](/35-LetsDoRandom/)
+
+## 36. Using custom cursors
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=zClZVTguhN0)
+- See the files [in the repo](/36-CustomCursors/)
