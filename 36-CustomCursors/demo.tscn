@@ -1,0 +1,181 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqfxk67765mi4"]
+
+[ext_resource type="Texture2D" uid="uid://dnxq8m37gf4is" path="res://36-CustomCursors/art/background.png" id="1_dn37g"]
+[ext_resource type="Script" path="res://36-CustomCursors/CustomCursor.cs" id="1_fquup"]
+[ext_resource type="Shader" path="res://36-CustomCursors/art/blur.gdshader" id="2_b1mt4"]
+[ext_resource type="FontFile" uid="uid://c0lomcogn0rey" path="res://36-CustomCursors/art/Sobiscuit.ttf" id="3_rrjlj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcgcr"]
+shader = ExtResource("2_b1mt4")
+shader_parameter/amount = 1.64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14jlv"]
+bg_color = Color(0, 0, 0, 0.235294)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggy7r"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.121569)
+shadow_size = 42
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8vy5"]
+content_margin_left = 24.0
+content_margin_top = 32.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CustomCursor" type="Node" parent="."]
+script = ExtResource("1_fquup")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dn37g")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qcgcr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="ZoneDefault" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_14jlv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ZoneDefault"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ZoneDefault/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.227451, 1)
+theme_override_fonts/font = ExtResource("3_rrjlj")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ggy7r")
+text = "DEFAULT"
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/ZoneDefault/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.631373, 0.760784, 0.870588, 1)
+theme_override_fonts/font = ExtResource("3_rrjlj")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_c8vy5")
+placeholder_text = "Enter text..."
+
+[node name="ZoneWait" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_14jlv")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ZoneWait"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.227451, 1)
+theme_override_fonts/font = ExtResource("3_rrjlj")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ggy7r")
+text = "WAIT"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 64
+
+[node name="ZoneDrag" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_14jlv")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/ZoneDrag"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.227451, 1)
+theme_override_fonts/font = ExtResource("3_rrjlj")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ggy7r")
+text = "DRAG"
+
+[node name="ZoneForbidden" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_14jlv")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/ZoneForbidden"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.227451, 1)
+theme_override_fonts/font = ExtResource("3_rrjlj")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ggy7r")
+text = "FORBIDDEN"
