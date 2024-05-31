@@ -324,3 +324,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=iuh4uHWPcpI)
 - See the files [in the repo](/37-DragAndDrop/)
+
+## 38. Creating toggle buttons
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=HVdXqyN_nes)
+- See the files [in the repo](/38-ToggleButtons/)
