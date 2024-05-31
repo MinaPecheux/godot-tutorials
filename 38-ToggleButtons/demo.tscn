@@ -1,0 +1,310 @@
+[gd_scene load_steps=14 format=3 uid="uid://4kl4lhwwcb7b"]
+
+[ext_resource type="FontFile" uid="uid://dascmihe7tue8" path="res://38-ToggleButtons/art/fonts/Manrope-ExtraBold.ttf" id="1_4qvji"]
+[ext_resource type="Script" path="res://38-ToggleButtons/scripts/SettingsManager.cs" id="1_hfd7u"]
+[ext_resource type="FontFile" uid="uid://k2fsr5chu4sr" path="res://38-ToggleButtons/art/fonts/Manrope-Medium.ttf" id="2_a7dci"]
+[ext_resource type="ButtonGroup" uid="uid://c7f28gqaw4l0f" path="res://38-ToggleButtons/language_buttons.tres" id="3_stnge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frhn5"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.960784, 0.964706, 0.980392, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.909804, 0.254902, 0.0941176, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xthwd"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.909804, 0.254902, 0.0941176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otcj3"]
+content_margin_bottom = 12.0
+bg_color = Color(0.909804, 0.254902, 0.0941176, 1)
+draw_center = false
+border_width_bottom = 8
+border_color = Color(0.909804, 0.254902, 0.0941176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h74ko"]
+bg_color = Color(0.498039, 0.560784, 0.65098, 1)
+border_width_bottom = 4
+border_color = Color(0.207843, 0.231373, 0.282353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dcio"]
+bg_color = Color(0.647059, 0.701961, 0.776471, 1)
+border_width_bottom = 4
+border_color = Color(0.207843, 0.231373, 0.282353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85lmr"]
+bg_color = Color(0.647059, 0.701961, 0.776471, 1)
+border_width_bottom = 4
+border_color = Color(0.207843, 0.231373, 0.282353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd2xj"]
+bg_color = Color(0.984314, 0.772549, 0.192157, 1)
+border_width_bottom = 4
+border_color = Color(0.207843, 0.231373, 0.282353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kedyw"]
+bg_color = Color(0.960784, 0.964706, 0.980392, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.207843, 0.231373, 0.282353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4wwm"]
+bg_color = Color(0.984314, 0.772549, 0.192157, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.207843, 0.231373, 0.282353, 1)
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hfd7u")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0901961, 0.121569, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_frhn5")
+
+[node name="Container" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Title" type="Label" parent="PanelContainer/Container"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_4qvji")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_xthwd")
+text = "settings"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Graphics" type="VBoxContainer" parent="PanelContainer/Container"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="PanelContainer/Container/Graphics"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 0.254902, 0.0941176, 1)
+theme_override_fonts/font = ExtResource("1_4qvji")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_otcj3")
+text = "display"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Container/Graphics"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="PanelContainer/Container/Graphics/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.231373, 0.282353, 1)
+theme_override_fonts/font = ExtResource("2_a7dci")
+theme_override_font_sizes/font_size = 36
+text = "resolution"
+
+[node name="Button" type="Button" parent="PanelContainer/Container/Graphics/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_hover_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_4qvji")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_h74ko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4dcio")
+text = "1920x1080"
+
+[node name="Language" type="VBoxContainer" parent="PanelContainer/Container"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="PanelContainer/Container/Language"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 0.254902, 0.0941176, 1)
+theme_override_fonts/font = ExtResource("1_4qvji")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_otcj3")
+text = "language"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Container/Language"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Button" type="Button" parent="PanelContainer/Container/Language/HBoxContainer"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.211765, 0.25098, 1)
+theme_override_colors/font_hover_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_4qvji")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h74ko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_85lmr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nd2xj")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("3_stnge")
+text = "en"
+
+[node name="Button2" type="Button" parent="PanelContainer/Container/Language/HBoxContainer"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.211765, 0.25098, 1)
+theme_override_colors/font_hover_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_4qvji")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h74ko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_85lmr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nd2xj")
+toggle_mode = true
+button_group = ExtResource("3_stnge")
+text = "fr"
+
+[node name="Button3" type="Button" parent="PanelContainer/Container/Language/HBoxContainer"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.211765, 0.25098, 1)
+theme_override_colors/font_hover_color = Color(0.960784, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_4qvji")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h74ko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_85lmr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nd2xj")
+toggle_mode = true
+button_group = ExtResource("3_stnge")
+text = "de"
+
+[node name="Audio" type="VBoxContainer" parent="PanelContainer/Container"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="PanelContainer/Container/Audio"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 0.254902, 0.0941176, 1)
+theme_override_fonts/font = ExtResource("1_4qvji")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_otcj3")
+text = "audio"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Container/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="PanelContainer/Container/Audio/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.231373, 0.282353, 1)
+theme_override_fonts/font = ExtResource("2_a7dci")
+theme_override_font_sizes/font_size = 36
+text = "master_volume"
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/Container/Audio/HBoxContainer"]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_kedyw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u4wwm")
+value = 72.0
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/Container/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="PanelContainer/Container/Audio/HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.231373, 0.282353, 1)
+theme_override_fonts/font = ExtResource("2_a7dci")
+theme_override_font_sizes/font_size = 36
+text = "music_volume"
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/Container/Audio/HBoxContainer2"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_kedyw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u4wwm")
+value = 54.0
+show_percentage = false
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/Container/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="PanelContainer/Container/Audio/HBoxContainer3"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.231373, 0.282353, 1)
+theme_override_fonts/font = ExtResource("2_a7dci")
+theme_override_font_sizes/font_size = 36
+text = "sound_volume"
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/Container/Audio/HBoxContainer3"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_kedyw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u4wwm")
+value = 88.0
+show_percentage = false
+
+[connection signal="toggled" from="PanelContainer/Container/Language/HBoxContainer/Button" to="." method="_ToggleLanguage" binds= ["en"]]
+[connection signal="toggled" from="PanelContainer/Container/Language/HBoxContainer/Button2" to="." method="_ToggleLanguage" binds= ["fr"]]
+[connection signal="toggled" from="PanelContainer/Container/Language/HBoxContainer/Button3" to="." method="_ToggleLanguage" binds= ["de"]]

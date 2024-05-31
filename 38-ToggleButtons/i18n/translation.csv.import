@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d03bdmv0wb5i0"
+
+[deps]
+
+files=["res://38-ToggleButtons/i18n/translation.en.translation", "res://38-ToggleButtons/i18n/translation.fr.translation", "res://38-ToggleButtons/i18n/translation.de.translation"]
+
+source_file="res://38-ToggleButtons/i18n/translation.csv"
+dest_files=["res://38-ToggleButtons/i18n/translation.en.translation", "res://38-ToggleButtons/i18n/translation.fr.translation", "res://38-ToggleButtons/i18n/translation.de.translation"]
+
+[params]
+
+compress=true
+delimiter=0
