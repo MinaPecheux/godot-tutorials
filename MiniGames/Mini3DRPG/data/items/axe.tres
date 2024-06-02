@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://wre4r12cl3he"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/ItemData.cs" id="1_e47nl"]
+[ext_resource type="Texture2D" uid="uid://dya6ghwpr26dv" path="res://MiniGames/Mini3DRPG/art/icons/axe.png" id="1_p7erg"]
+
+[resource]
+script = ExtResource("1_e47nl")
+name = "Axe"
+description = "A sturdy axe."
+value = 15
+rarity = 0
+icon = ExtResource("1_p7erg")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdgin73pi6hlp"]
+
+[ext_resource type="Texture2D" uid="uid://crw0q1emkkiv2" path="res://MiniGames/Mini3DRPG/art/sprites/rect.png" id="1_g6p5w"]
+
+[node name="Asset" type="StaticBody3D"]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+layers = 2
+axis = 1
+texture = ExtResource("1_g6p5w")

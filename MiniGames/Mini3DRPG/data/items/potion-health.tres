@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://2wwfdf4y7n34"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/ItemData.cs" id="1_dmcp5"]
+[ext_resource type="Texture2D" uid="uid://dbe46fs4krc7w" path="res://MiniGames/Mini3DRPG/art/icons/potion-health.png" id="1_ldd4b"]
+
+[resource]
+script = ExtResource("1_dmcp5")
+name = "Health Potion"
+description = "A magical healing drink."
+value = 30
+rarity = 0
+icon = ExtResource("1_ldd4b")

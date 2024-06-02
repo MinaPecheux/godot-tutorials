@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b21haureik5di"]
+
+[ext_resource type="Texture2D" uid="uid://dm7kre0fpjdn8" path="res://MiniGames/Mini3DRPG/art/icons/sword.png" id="1_eamql"]
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/ItemData.cs" id="1_ycuq5"]
+
+[resource]
+script = ExtResource("1_ycuq5")
+name = "Sword"
+description = "A simple weapon."
+value = 10
+rarity = 0
+icon = ExtResource("1_eamql")

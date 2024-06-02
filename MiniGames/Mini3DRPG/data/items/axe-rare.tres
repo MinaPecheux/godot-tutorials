@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ds4qjme7a4fuy"]
+
+[ext_resource type="Texture2D" uid="uid://cxmqvq55855oy" path="res://MiniGames/Mini3DRPG/art/icons/axe-rare.png" id="1_2asem"]
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/ItemData.cs" id="1_f3xy6"]
+
+[resource]
+script = ExtResource("1_f3xy6")
+name = "Waraxe"
+description = "A mighty weapon."
+value = 120
+rarity = 2
+icon = ExtResource("1_2asem")

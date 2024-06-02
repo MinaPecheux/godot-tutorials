@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cpulbo0tuhmqk"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/ItemData.cs" id="1_011bv"]
+[ext_resource type="Texture2D" uid="uid://bkyv6c75fyd7h" path="res://MiniGames/Mini3DRPG/art/icons/sword-unusual.png" id="1_kbaa2"]
+
+[resource]
+script = ExtResource("1_011bv")
+name = "Cutlass"
+description = "A sharp blade."
+value = 50
+rarity = 1
+icon = ExtResource("1_kbaa2")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf0tpqeme803s"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/Loot.cs" id="1_ngq4t"]
+[ext_resource type="PackedScene" uid="uid://clcld10g3d05d" path="res://MiniGames/Mini3DRPG/assets/inventory-cell.tscn" id="1_sgdu8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gx5y"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1t1t"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Loot" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ngq4t")
+
+[node name="Info" type="Control" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Info"]
+custom_minimum_size = Vector2(240, 160)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = -100.0
+offset_right = 380.0
+offset_bottom = 60.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gx5y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Info/PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b1t1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="InventoryCell" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_sgdu8")]
+layout_mode = 2
+
+[node name="InventoryCell2" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_sgdu8")]
+layout_mode = 2
+
+[node name="InventoryCell3" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_sgdu8")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SKIP"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="hide"]

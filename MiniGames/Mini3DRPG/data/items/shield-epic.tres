@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dqnejb8a2vkkt"]
+
+[ext_resource type="Texture2D" uid="uid://c3lffvpxtyi02" path="res://MiniGames/Mini3DRPG/art/icons/shield-epic.png" id="1_cy8qo"]
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/ItemData.cs" id="1_fu87f"]
+
+[resource]
+script = ExtResource("1_fu87f")
+name = "Protector"
+description = "An impassable barrier."
+value = 300
+rarity = 3
+icon = ExtResource("1_cy8qo")

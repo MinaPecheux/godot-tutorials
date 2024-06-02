@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmbhr4n6qphlw"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/Inventory.cs" id="1_0ejut"]
+[ext_resource type="PackedScene" uid="uid://clcld10g3d05d" path="res://MiniGames/Mini3DRPG/assets/inventory-cell.tscn" id="2_6rbfk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1nx6"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ejut")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="InventoryCell" parent="HBoxContainer" instance=ExtResource("2_6rbfk")]
+layout_mode = 2
+
+[node name="InventoryCell2" parent="HBoxContainer" instance=ExtResource("2_6rbfk")]
+layout_mode = 2
+
+[node name="InventoryCell3" parent="HBoxContainer" instance=ExtResource("2_6rbfk")]
+layout_mode = 2
+
+[node name="InventoryCell4" parent="HBoxContainer" instance=ExtResource("2_6rbfk")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -180.0
+offset_right = 308.0
+offset_bottom = -111.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q1nx6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true

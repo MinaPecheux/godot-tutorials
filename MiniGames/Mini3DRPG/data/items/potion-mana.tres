@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://da0afdsgbedlh"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/ItemData.cs" id="1_rewch"]
+[ext_resource type="Texture2D" uid="uid://yeowbi68vsug" path="res://MiniGames/Mini3DRPG/art/icons/potion-mana.png" id="1_yehjw"]
+
+[resource]
+script = ExtResource("1_rewch")
+name = "Mana Potion"
+description = "A magic-infused beverage."
+value = 30
+rarity = 0
+icon = ExtResource("1_yehjw")

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkt7ggcdqf7tg"]
+
+[ext_resource type="Material" uid="uid://d0plry63k32ae" path="res://MiniGames/Mini3DRPG/art/materials/diffuse.tres" id="1_8sb6v"]
+[ext_resource type="PackedScene" uid="uid://bdgin73pi6hlp" path="res://MiniGames/Mini3DRPG/assets/_base.tscn" id="1_x3y6i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5ekk"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qhont"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1e-05, 1),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 63)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4cr05"]
+resource_name = "floor_floor"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1e-05, 1),
+"attribute_data": PackedByteArray(0, 0, 176, 62, 154, 153, 121, 63, 0, 0, 176, 62, 154, 153, 121, 63, 0, 0, 176, 62, 154, 153, 121, 63, 0, 0, 176, 62, 154, 153, 121, 63),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_8sb6v"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 63, 255, 127, 255, 255, 0, 0, 255, 191, 255, 127, 255, 255, 0, 0, 255, 191, 255, 127, 255, 255, 0, 0, 255, 191, 255, 127, 255, 255, 0, 0, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qhont")
+
+[node name="Floor" instance=ExtResource("1_x3y6i")]
+collision_layer = 3
+
+[node name="Collider" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_o5ekk")
+
+[node name="Mesh" type="MeshInstance3D" parent="." index="2"]
+mesh = SubResource("ArrayMesh_4cr05")
+skeleton = NodePath("")

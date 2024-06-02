@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="LootTableData" load_steps=10 format=3 uid="uid://ckfvyuklhibiy"]
+
+[ext_resource type="Script" path="res://MiniGames/Mini3DRPG/scripts/LootTableData.cs" id="1_a2k1b"]
+[ext_resource type="Resource" uid="uid://b21haureik5di" path="res://MiniGames/Mini3DRPG/data/items/sword.tres" id="1_dskto"]
+[ext_resource type="Resource" uid="uid://wre4r12cl3he" path="res://MiniGames/Mini3DRPG/data/items/axe.tres" id="2_f0o8y"]
+[ext_resource type="Resource" uid="uid://2wwfdf4y7n34" path="res://MiniGames/Mini3DRPG/data/items/potion-health.tres" id="3_j1k12"]
+[ext_resource type="Resource" uid="uid://da0afdsgbedlh" path="res://MiniGames/Mini3DRPG/data/items/potion-mana.tres" id="4_k72lj"]
+[ext_resource type="Resource" uid="uid://cpulbo0tuhmqk" path="res://MiniGames/Mini3DRPG/data/items/sword-unusual.tres" id="5_y5cgj"]
+[ext_resource type="Resource" uid="uid://ds4qjme7a4fuy" path="res://MiniGames/Mini3DRPG/data/items/axe-rare.tres" id="6_q4lkf"]
+[ext_resource type="Resource" uid="uid://bl1lpnn5ewfl" path="res://MiniGames/Mini3DRPG/data/items/shield.tres" id="7_oay14"]
+[ext_resource type="Resource" uid="uid://dqnejb8a2vkkt" path="res://MiniGames/Mini3DRPG/data/items/shield-epic.tres" id="8_wkehm"]
+
+[resource]
+script = ExtResource("1_a2k1b")
+dropChances = {
+ExtResource("1_dskto"): 0.3,
+ExtResource("2_f0o8y"): 0.3,
+ExtResource("7_oay14"): 0.15,
+ExtResource("5_y5cgj"): 0.05,
+ExtResource("3_j1k12"): 0.1,
+ExtResource("4_k72lj"): 0.05,
+ExtResource("6_q4lkf"): 0.03,
+ExtResource("8_wkehm"): 0.02
+}
