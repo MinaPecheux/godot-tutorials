@@ -29,8 +29,14 @@ If you'd like to get those tutorials in ebook format and help support my work fo
         </td>
         <td>
             <a href="https://mpecheux.gumroad.com/l/monzhc" target="_blank">
-                <img src="./doc/LAlmanach_02.png" style="width: auto; height: 160px;" /></td>
+                <img src="./doc/LAlmanach_02.png" style="width: auto; height: 160px;" />
             </a>
+        </td>
+        <td>
+            <a href="https://mpecheux.gumroad.com/l/yevwn" target="_blank">
+                <img src="./doc/LAlmanach_03.png" style="width: auto; height: 160px;" />
+            </a>
+        </td>
     </tr>
 </table>
 
@@ -55,6 +61,16 @@ This re-implementation of the classical board game will take you through the fun
 A simple 2D side-scroller platformer à-la Mario with a complete level loop, some shiny coins to collect, dangerous slimes moving around and a basic user interface to keep track of the player state.
 
 ![screenshot-mini-game_mini-2d-platformer](/doc/MiniGame_Mini2DPlatformer.png)
+
+### Mini-3D RPG
+
+> [See the files](/MiniGames/Mini3DRPG/)
+
+A basic 3D RPG prototype with various common systems like a physics-based 3D character controller, an AI-powered enemy, a simple UI, some inventory & loot systems and even a little set of attack mechanics.
+
+![screenshot-mini-game_mini-3d-rpg_00](/doc/MiniGame_Mini3DRPG_00.png)
+![screenshot-mini-game_mini-3d-rpg_01](/doc/MiniGame_Mini3DRPG_01.png)
+![screenshot-mini-game_mini-3d-rpg_02](/doc/MiniGame_Mini3DRPG_02.png)
 
 =========================
 
