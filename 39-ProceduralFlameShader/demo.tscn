@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnet5y5x31swa"]
+
+[ext_resource type="Shader" path="res://39-ProceduralFlameShader/art/procedural-fire.gdshader" id="1_576hm"]
+[ext_resource type="Texture2D" uid="uid://cra3j55stb7mk" path="res://39-ProceduralFlameShader/art/mask.png" id="2_4aymv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_acc5q"]
+noise_type = 3
+frequency = 0.026
+fractal_lacunarity = 1.77
+fractal_weighted_strength = 0.5
+domain_warp_enabled = true
+domain_warp_frequency = 0.01
+domain_warp_fractal_lacunarity = 6.35
+domain_warp_fractal_gain = 0.165
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_406wg"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("FastNoiseLite_acc5q")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uykjr"]
+frequency = 0.035
+fractal_lacunarity = 1.445
+fractal_gain = 0.395
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rtw4j"]
+width = 256
+height = 256
+seamless = true
+noise = SubResource("FastNoiseLite_uykjr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wstlu"]
+shader = ExtResource("1_576hm")
+shader_parameter/light_color = Color(0.921569, 0.784314, 0, 1)
+shader_parameter/dark_color = Color(0.172549, 0, 0, 1)
+shader_parameter/emission = 1.93
+shader_parameter/displacement_strength = 0.01
+shader_parameter/displacement_speed = 5.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_406wg")
+shader_parameter/noise_tex2 = SubResource("NoiseTexture2D_rtw4j")
+
+[node name="Demo" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wstlu")
+texture = ExtResource("2_4aymv")
