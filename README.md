@@ -345,3 +345,8 @@ Discover how to implement some base mechanics for a 2D tower defense game in thi
 
 - Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=HVdXqyN_nes)
 - See the files [in the repo](/38-ToggleButtons/)
+
+## 39. Making a procedural 2D toon flame shader (GLSL)
+
+- Watch on YouTube: [in English 🇬🇧](https://www.youtube.com/watch?v=TKaJl15Iu3k)
+- See the files [in the repo](/39-ProceduralFlameShader/)
